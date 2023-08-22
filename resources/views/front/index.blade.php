@@ -4,7 +4,7 @@
 <title>Bastra</title>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="description" content="Colo Shop Template">
+<meta name="description" content="Bastra">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" type="text/css" href="{{asset('front/styles/bootstrap4/bootstrap.min.css')}}">
 <link href="{{asset('front/plugins/font-awesome-4.7.0/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
@@ -33,62 +33,6 @@
 	<!-- Header -->
 
 	<header class="header trans_300">
-
-		<!-- Top Navigation -->
-
-		<div class="top_nav">
-			<div class="container">
-				<div class="row">
-					<div class="col-md-6">
-						<div class="top_nav_left">free shipping on all u.s orders over $50</div>
-					</div>
-					<div class="col-md-6 text-right">
-						<div class="top_nav_right">
-							<ul class="top_nav_menu">
-
-								<!-- Currency / Language / My Account -->
-
-								<li class="currency">
-									<a href="#">
-										usd
-										<i class="fa fa-angle-down"></i>
-									</a>
-									<ul class="currency_selection">
-										<li><a href="#">cad</a></li>
-										<li><a href="#">aud</a></li>
-										<li><a href="#">eur</a></li>
-										<li><a href="#">gbp</a></li>
-									</ul>
-								</li>
-								<li class="language">
-									<a href="#">
-										English
-										<i class="fa fa-angle-down"></i>
-									</a>
-									<ul class="language_selection">
-										<li><a href="#">French</a></li>
-										<li><a href="#">Italian</a></li>
-										<li><a href="#">German</a></li>
-										<li><a href="#">Spanish</a></li>
-									</ul>
-								</li>
-								<li class="account">
-									<a href="#">
-										My Account
-										<i class="fa fa-angle-down"></i>
-									</a>
-									<ul class="account_selection">
-										<li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
-										<li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
-									</ul>
-								</li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-
 		<!-- Main Navigation -->
 
 		<div class="main_nav_container">
@@ -101,12 +45,27 @@
 						<nav class="navbar">
 							<ul class="navbar_menu">
 								<li><a href="{{route('index')}}">home</a></li>
-								<li><a href="{{route('category')}}">Category</a>
-									
+								<li class="account">
+									<a href="{{route('category')}}">Category
+										<i class="fa fa-angle-down"></i>
+									</a>
+									<ul class="account_selection">
+										<li><a href="{{route('category')}}">Men</a></li>
+										<li><a href="{{route('category')}}">Women</a></li>
+										<li><a href="{{route('category')}}">Accessories</a></li>
+									</ul>
 								</li>
-
-
 								<li><a href="{{route('contact')}}">contact</a></li>
+								<li class="account">
+									<a href="#">
+										My Account
+										<i class="fa fa-angle-down"></i>
+									</a>
+									<ul class="account_selection">
+										<li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
+										<li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
+									</ul>
+								</li>
 							</ul>
 							<ul class="navbar_user">
 								<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
@@ -114,7 +73,6 @@
 								<li class="checkout">
 									<a href="#">
 										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-										<span id="checkout_items" class="checkout_items">2</span>
 									</a>
 								</li>
 							</ul>
@@ -129,6 +87,7 @@
 
 	</header>
 
+	{{-- Hamburger menu --}}
 	<div class="fs_menu_overlay"></div>
 	<div class="hamburger_menu">
 		<div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
@@ -185,7 +144,7 @@
 					<div class="main_slider_content">
 						<h6>Spring / Summer Collection 2023</h6>
 						<h1>Get up to 30% Off New Arrivals</h1>
-						<div class="red_button shop_now_button"><a href="#">shop now</a></div>
+						<div class="red_button shop_now_button"><a href="{{route('category')}}">shop now</a></div>
 					</div>
 				</div>
 			</div>
@@ -229,7 +188,7 @@
 			<div class="row">
 				<div class="col text-center">
 					<div class="section_title new_arrivals_title">
-						<h2>Products</h2>
+						<h2>Product Category</h2>
 					</div>
 				</div>
 			</div>
@@ -257,7 +216,7 @@
 									<img src="front/images/product_1.png" alt="">
 								</div>
 								<div class="favorite favorite_left"></div>
-								<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
+								<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"></div>
 								<div class="product_info">
 									<h6 class="product_name"><a href="single.html">Fujifilm X100T 16 MP Digital Camera (Silver)</a></h6>
 									<div class="product_price">$520.00<span>$590.00</span></div>
@@ -274,7 +233,7 @@
 									<img src="front/images/product_2.png" alt="">
 								</div>
 								<div class="favorite"></div>
-								<div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"><span>new</span></div>
+								<div class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center"></div>
 								<div class="product_info">
 									<h6 class="product_name"><a href="single.html">Samsung CF591 Series Curved 27-Inch FHD Monitor</a></h6>
 									<div class="product_price">$610.00</div>
@@ -306,7 +265,7 @@
 								<div class="product_image">
 									<img src="front/images/product_4.png" alt="">
 								</div>
-								<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>sale</span></div>
+								<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"></div>
 								<div class="favorite favorite_left"></div>
 								<div class="product_info">
 									<h6 class="product_name"><a href="single.html">DYMO LabelWriter 450 Turbo Thermal Label Printer</a></h6>
@@ -340,7 +299,7 @@
 									<img src="front/images/product_6.png" alt="">
 								</div>
 								<div class="favorite favorite_left"></div>
-								<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>-$20</span></div>
+								<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"></div>
 								<div class="product_info">
 									<h6 class="product_name"><a href="#single.html">Fujifilm X100T 16 MP Digital Camera (Silver)</a></h6>
 									<div class="product_price">$520.00<span>$590.00</span></div>
@@ -388,7 +347,7 @@
 								<div class="product_image">
 									<img src="front/images/product_9.png" alt="">
 								</div>
-								<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"><span>sale</span></div>
+								<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"></div>
 								<div class="favorite favorite_left"></div>
 								<div class="product_info">
 									<h6 class="product_name"><a href="single.html">DYMO LabelWriter 450 Turbo Thermal Label Printer</a></h6>

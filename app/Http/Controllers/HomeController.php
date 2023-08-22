@@ -18,4 +18,12 @@ class HomeController extends Controller
     {
         return view('front.categories');
     }
+    public function single()
+    {
+        return view('front.single');
+    }
+    public function description()
+    {
+        return view('front.description');
+    }
 }

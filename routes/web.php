@@ -23,7 +23,9 @@ Auth::routes();
 
 Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 Route::get('/contact', [App\Http\Controllers\HomeController::class, 'contact'])->name('contact');
-Route::get('/categories', [App\Http\Controllers\HomeController::class, 'category'])->name('category');
+Route::get('/category', [App\Http\Controllers\HomeController::class, 'category'])->name('category');
+Route::get('/single', [App\Http\Controllers\HomeController::class, 'single'])->name('single');
+Route::get('/description', [App\Http\Controllers\HomeController::class, 'description'])->name('description');
 
 // Route::get('/front', [HomeController::class, 'index']);
 // Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

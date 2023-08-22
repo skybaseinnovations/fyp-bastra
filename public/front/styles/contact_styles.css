@@ -47,6 +47,8 @@ COLOR PALETTE
 {
 	margin: 0;
 	padding: 0;
+	font-family: 'Montserrat', sans-serif;
+
 }
 body
 {
@@ -445,88 +447,6 @@ section
 	border-bottom: none;
 }
 
-/*********************************
-3.3 Account
-*********************************/
-
-.account
-{
-	display: inline-block;
-	position: relative;
-	min-width: 50px;
-	padding-left: 20px;
-	text-align: center;
-	vertical-align: middle;
-	background: #1e1e27;
-}
-.account > a
-{
-	display: block;
-	color: #b5aec4;
-	font-weight: 400;
-	height: 50px;
-	line-height: 50px;
-	font-size: 13px;
-}
-.account > a > i
-{
-	margin-left: 8px;
-}
-.account:hover .account_selection
-{
-	visibility: visible;
-	opacity: 1;
-	top: 100%;
-}
-.account_selection
-{
-	display: block;
-	position: absolute;
-	right: 0;
-	top: 120%;
-	margin: 0;
-	width: 100%;
-	background: #FFFFFF;
-	visibility: hidden;
-	opacity: 0;
-	z-index: 1;
-	box-shadow: 0 0 25px rgba(63, 78, 100, 0.15);
-	-webkit-transition: opacity 0.3s ease;
-	-moz-transition: opacity 0.3s ease;
-	-ms-transition: opacity 0.3s ease;
-	-o-transition: opacity 0.3s ease;
-	transition: all 0.3s ease;
-}
-.account_selection li
-{
-	padding-left: 10px;
-	padding-right: 10px;
-	line-height: 50px;
-}
-.account_selection li a
-{
-	display: block;
-	color: #232530;
-	border-bottom: solid 1px #dddddd;
-	font-size: 14px;
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	-ms-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-	transition: all 0.3s ease;
-}
-.account_selection li a:hover
-{
-	color: #b5aec4;
-}
-.account_selection li:last-child a
-{
-	border-bottom: none;
-}
-.account_selection li a i
-{
-	margin-right: 10px;
-}
 
 /*********************************
 3.4 Main Navigation
@@ -535,8 +455,9 @@ section
 .main_nav_container
 {
 	width: 100%;
-	background: #FFFFFF;
+	background: #f6fff8;
 	box-shadow: 0 0 16px rgba(0, 0, 0, 0.15);
+	position: fixed;
 }
 .navbar
 {
@@ -622,11 +543,91 @@ section
 	width: 20px;
 	height: 20px;
 	border-radius: 50%;
-	background: #fe4c50;
+	background: #ab4cfe;
 	font-size: 12px;
 	color: #FFFFFF;
 }
 
+.account
+{
+	display: inline-block;
+	position: relative;
+	min-width: 50px;
+	padding-left: 20px;
+	text-align: center;
+	vertical-align: middle;
+}
+
+/* .account > a
+{
+	display: block;
+	color: #b5aec4;
+	font-weight: 400;
+	height: 50px;
+	line-height: 50px;
+	font-size: 13px;
+} */
+
+.account > a > i
+{
+	margin-left: 8px;
+}
+.account:hover .account_selection
+{
+	visibility: visible;
+	opacity: 1;
+	top: 100%;
+}
+.account_selection
+{
+	display: block;
+	position: absolute;
+	right: 0;
+	top: 120%;
+	margin: 0;
+	width: 100%;
+	background: #FFFFFF;
+	visibility: hidden;
+	opacity: 0;
+	z-index: 1;
+	box-shadow: 0 0 25px rgba(63, 78, 100, 0.15);
+	-webkit-transition: opacity 0.3s ease;
+	-moz-transition: opacity 0.3s ease;
+	-ms-transition: opacity 0.3s ease;
+	-o-transition: opacity 0.3s ease;
+	transition: all 0.3s ease;
+}
+.account_selection li
+{
+	padding-left: 10px;
+	padding-right: 10px;
+	line-height: 10px;
+}
+.account_selection li a
+{
+	display: block;
+	color: #232530;
+	border-bottom: solid 1px #dddddd;
+	font-size: 14px;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+	-ms-transition: all 0.3s ease;
+	-o-transition: all 0.3s ease;
+	transition: all 0.3s ease;
+}
+
+.account_selection li a:hover
+{
+	color: #b5aec4;
+}
+.account_selection li:last-child a
+{
+	border-bottom: none;
+}
+.account_selection li a i
+{
+	margin-right: 10px;
+} 
 /*********************************
 3.5 Hamburger Menu
 *********************************/
@@ -814,7 +815,7 @@ section
 }
 .logo_container a span
 {
-	color: #fe4c50;
+	color: #6d4cfe;
 }
 .red_button
 {
@@ -1151,94 +1152,14 @@ textarea:hover
 }
 
 /*********************************
-9. Newsletter
-*********************************/
 
-.newsletter
-{
-	width: 100%;
-	background: #f2f2f2;
-	margin-top: 81px;
-}
-.newsletter_text
-{
-	height: 120px;
-}
-.newsletter_text h4
-{
-	margin-bottom: 0px;
-	line-height: 24px;
-}
-.newsletter_text p
-{
-	margin-bottom: 0px;
-	line-height: 1.7;
-	color: #51545f;
-}
-.newsletter_form
-{
-	height: 120px;
-}
-#newsletter_email
-{
-	width: 300px;
-	height: 46px;
-	background: #FFFFFF;
-	border: none;
-	font-size: 14px;
-	padding-left: 20px;
-}
-::-webkit-input-placeholder
-{
-	font-size: 14px !important;
-	font-weight: 400;
-	color: #b9b4c7 !important;
-}
-:-moz-placeholder /* older Firefox*/
-{
-	font-size: 14px !important;
-	font-weight: 400;
-	color: #b9b4c7 !important;
-}
-::-moz-placeholder /* Firefox 19+ */
-{
-	font-size: 14px !important;
-	font-weight: 400;
-	color: #b9b4c7 !important;
-}
-:-ms-input-placeholder
-{
-	font-size: 14px !important;
-	font-weight: 400;
-	color: #b9b4c7 !important;
-}
-::input-placeholder
-{
-	font-size: 14px !important;
-	font-weight: 400;
-	color: #b9b4c7 !important;
-}
-.newsletter_submit_btn
-{
-	width: 160px;
-	height: 46px;
-	border: none;
-	background: #fe4c50;
-	color: #FFFFFF;
-	font-size: 14px;
-	font-weight: 500;
-	text-transform: uppercase;
-	cursor: pointer;
-}
-.newsletter_submit_btn:hover
-{
-	background: #FE7C7F;
-}
 
 /*********************************
 10. Footer
 *********************************/
-
+.footer{
+background-color: #f6fff8;
+}
 .footer_nav_container
 {
 	height: 130px;
