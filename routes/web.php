@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderItemController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Front\HomeController;
 
 
 
@@ -61,4 +62,21 @@ Route::delete('/orderitem/edit/delete/{id}', [OrderItemController::class,'destro
 
 
 Auth::routes();
+
+Route::get('/', [App\Http\Controllers\Front\HomeController::class, 'index'])->name('index');
+Route::get('/contact', [App\Http\Controllers\Front\HomeController::class, 'contact'])->name('contact');
+Route::get('/category', [App\Http\Controllers\Front\HomeController::class, 'category'])->name('category');
+Route::get('/single', [App\Http\Controllers\Front\HomeController::class, 'single'])->name('single');
+Route::get('/description', [App\Http\Controllers\Front\HomeController::class, 'description'])->name('description');
+
+// Route::get('/front', [HomeController::class, 'index']);
+// Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+// Route::get('/index', function () {
+//     return view('index');
+// });
+
+// Route::get('/ind', function () {
+//     return view('ind');
+// });
 Route::get('/redirect', [App\Http\Controllers\HomeController::class, 'redirect'])->name('home');

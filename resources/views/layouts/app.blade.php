@@ -11,9 +11,14 @@
     <title>{{ config('app.name', 'Laravel') }}</title>
 
     <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.bunny.net">
-    <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
-
+    <link rel="stylesheet" type="text/css" href="{{asset('front/styles/bootstrap4/bootstrap.min.css')}}">
+    <link href="{{asset('front/plugins/font-awesome-4.7.0/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="{{asset('front/plugins/OwlCarousel2-2.2.1/owl.carousel.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('front/plugins/OwlCarousel2-2.2.1/owl.theme.default.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('front/plugins/OwlCarousel2-2.2.1/animate.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('front/styles/styles.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{asset('front/styles/responsive.css')}}">
+    </head>
     <!-- Scripts -->
 </head>
 
@@ -80,6 +85,14 @@
             @yield('content')
         </main>
     </div>
+    <script src="{{asset('front/js/jquery-3.2.1.min.js')}}"></script>
+    <script src="{{asset('front/styles/bootstrap4/popper.js')}}"></script>
+    <script src="{{asset('front/styles/bootstrap4/bootstrap.min.js')}}"></script>
+    <script src="{{asset('front/plugins/Isotope/isotope.pkgd.min.js')}}"></script>
+    <script src="{{asset('front/plugins/OwlCarousel2-2.2.1/owl.carousel.js')}}"></script>
+    <script src="{{asset('front/plugins/easing/easing.js')}}"></script>
+    <script src="{{asset('front/js/custom.js')}}"></script>
+
 </body>
 
 </html>
