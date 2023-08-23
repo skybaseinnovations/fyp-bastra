@@ -8,10 +8,6 @@
             <tr>
                 <th scope="col">S.N</th>
                 <th scope="col">Name</th>
-                <th scope="col">Price</th>
-                <th scope="col" class="">Description</th>
-                <th scope="col">Rate Count</th>
-                <th scope="col">Product Category</th>
                 <th scope="col"> Image</th>
                 <th scope="col" class=""> Action</th>
             </tr>
@@ -21,17 +17,11 @@
                 <tr>
                     <th scope="row">{{ ++$key }}</th>
                     <td>{{ $item->name }}</td>
-                    <td>{{ $item->price }}</td>
-                    <td>{{ $item->description }}</td>
-                    <td>{{ $item->rate_count }}</td>
-                    <td>{{ $item->productCategory->name }}</td>
                     <td><img src="{{ isset($item->img_url) ? asset('uploads/' . $item->img_url) : asset('uploads/' . 'null_img.jpg') }}"
                             alt="" class="rounded" style="width:60px;height:60px;object-fit:cover;"></td>
                     <td>@include('admin.templates.index_action')</td>
                 </tr>
             @endforeach
-
-
         </tbody>
     </table>
 

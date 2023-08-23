@@ -1,7 +1,7 @@
 @extends('admin.templates.edit')
 
 @section('edit_form')
-    @include('admin.product.form')
+    @include('admin.productcategory.form')
 @stop
 @section('scripts')
     <script type="text/javascript">
