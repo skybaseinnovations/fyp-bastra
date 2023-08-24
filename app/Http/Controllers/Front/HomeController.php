@@ -31,4 +31,8 @@ public function description()
 {
     return view('front.description');
 }
+public function productcart()
+{
+    return view('front.productcart');
+}
 }

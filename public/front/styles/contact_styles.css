@@ -829,7 +829,7 @@ section
 	align-items: center;
 	width: auto;
 	height: 40px;
-	background: #fe4c50;
+	background: #7e4cfe;
 	border-radius: 3px;
 	-webkit-transition: all 0.3s ease;
 	-moz-transition: all 0.3s ease;
@@ -839,7 +839,7 @@ section
 }
 .red_button:hover
 {
-	background: #FE7C7F !important;
+	background: #fc7cfe !important;
 }
 .red_button a
 {
