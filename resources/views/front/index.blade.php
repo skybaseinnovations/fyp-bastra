@@ -78,7 +78,7 @@
 						<div class="product-item men">
 							<div class="product discount product_filter">
 								<div class="product_image">
-									<img style="height:200px;width:250px;" src="front/images/product_1.png" alt="">
+									<img style="height:200px;width:100%;" src="front/images/product_1.png" alt="">
 								</div>
 								<div class="favorite favorite_left"></div>
 								<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"></div>
@@ -87,7 +87,7 @@
 									<div class="product_price">$520.00<span>$590.00</span></div>
 								</div>
 							</div>
-							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+							<div class="red_button add_to_cart_button"><a href="{{ route('productcart')}}">add to cart</a></div>
 						</div>
 
 						<!-- Product 2 -->
@@ -104,7 +104,7 @@
 									<div class="product_price">$610.00</div>
 								</div>
 							</div>
-							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+							<div class="red_button add_to_cart_button"><a href="{{ route('productcart')}}">add to cart</a></div>
 						</div>
 
 						<!-- Product 3 -->
@@ -120,7 +120,7 @@
 									<div class="product_price">$120.00</div>
 								</div>
 							</div>
-							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+							<div class="red_button add_to_cart_button"><a href="{{ route('productcart')}}">add to cart</a></div>
 						</div>
 
 						<!-- Product 4 -->
@@ -137,7 +137,7 @@
 									<div class="product_price">$410.00</div>
 								</div>
 							</div>
-							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+							<div class="red_button add_to_cart_button"><a href="{{ route('productcart')}}">add to cart</a></div>
 						</div>
 
 						<!-- Product 5 -->
@@ -153,7 +153,7 @@
 									<div class="product_price">$180.00</div>
 								</div>
 							</div>
-							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+							<div class="red_button add_to_cart_button"><a href="{{ route('productcart')}}">add to cart</a></div>
 						</div>
 
 						<!-- Product 6 -->
@@ -170,7 +170,7 @@
 									<div class="product_price">$520.00<span>$590.00</span></div>
 								</div>
 							</div>
-							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+							<div class="red_button add_to_cart_button"><a href="{{ route('productcart')}}">add to cart</a></div>
 						</div>
 
 						<!-- Product 7 -->
@@ -186,7 +186,7 @@
 									<div class="product_price">$610.00</div>
 								</div>
 							</div>
-							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+							<div class="red_button add_to_cart_button"><a href="{{ route('productcart')}}">add to cart</a></div>
 						</div>
 
 						<!-- Product 8 -->
@@ -202,7 +202,7 @@
 									<div class="product_price">$120.00</div>
 								</div>
 							</div>
-							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+							<div class="red_button add_to_cart_button"><a href="{{ route('productcart')}}">add to cart</a></div>
 						</div>
 
 						<!-- Product 9 -->
@@ -219,7 +219,7 @@
 									<div class="product_price">$410.00</div>
 								</div>
 							</div>
-							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+							<div class="red_button add_to_cart_button"><a href="{{ route('productcart')}}">add to cart</a></div>
 						</div>
 
 						<!-- Product 10 -->
@@ -235,7 +235,7 @@
 									<div class="product_price">$180.00</div>
 								</div>
 							</div>
-							<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+							<div class="red_button add_to_cart_button"><a href="{{ route('productcart')}}">add to cart</a></div>
 						</div>
 					</div>
 				</div>
