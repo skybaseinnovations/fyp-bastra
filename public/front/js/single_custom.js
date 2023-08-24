@@ -317,3 +317,14 @@ jQuery(document).ready(function($)
 		}
 	}
 });
+
+document.addEventListener("DOMContentLoaded", function() {
+	const showImagesLink = document.getElementById("showImages");
+	const imageContainer = document.getElementById("imageContainer");
+  
+	showImagesLink.addEventListener("click", function(event) {
+	  event.preventDefault(); // Prevent the default behavior of the anchor tag
+	  imageContainer.style.display = "block"; // Show the image container
+	});
+  });
+  

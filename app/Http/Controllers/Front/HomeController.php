@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\Controller;
+use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -11,7 +12,8 @@ class HomeController extends Controller
 
 public function index()
 {
-    return view('front.index');
+    $data['items']=ProductCategory::with('products')->get();
+    return view('front.index', $data);
 }
 public function contact()
 {
