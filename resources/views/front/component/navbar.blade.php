@@ -22,6 +22,7 @@
 <link rel="stylesheet" type="text/css" href="{{asset('front/styles/contact_responsive.css')}}">
 
 <link rel="icon" type="image/x-icon" href="/front/images/clothes-hanger.png">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -33,13 +34,12 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Open+Sans:ital,wght@0,400;1,300&family=Roboto:wght@500&family=Source+Code+Pro:ital@1&display=swap" rel="stylesheet">
+
 </head>
 <body>
 
 <div class="super_container">
-
 	<!-- Header -->
-
 	<header class="header trans_300">
 		<!-- Main Navigation -->
 

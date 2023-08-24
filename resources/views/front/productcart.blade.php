@@ -1,13 +1,11 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
-    <title>Product Cart</title>
-</head>
-<style>
-    .section
+@extends('front.component.layout');
+
+@section('content-header')
+Product Cart
+@stop
+	@section('content')
+    <style>
+ .section
     {
         display: flex;
         padding: 3em;
@@ -68,25 +66,24 @@
         height:80px;
         margin-right: 10px;
     }
-    /* .total-price
-    {
-        display: flex;
-        justify-content: flex-end;
-        
-    }
-    .total-price table{
-        border-top:3 px solid #ab4cfe;
-        width: 100%;
-        max-width: 350px;
-    }
-    td:last-child{
-        text-align: right;
-    }
-    th:last-child{
-        text-align:right;
-    } */
-</style>
-<body>
+
+    </style>
+   
+   
+
+<br>
+ 
+    
+<br>
+ 
+    
+<br>
+ 
+    
+<br>
+ 
+    
+<br>
  
     
         <section>
@@ -95,12 +92,43 @@
                 <div class="container cart-page">
                     <table>
                         <tr>
-            
+                            <th>S.N</th>
                             <th>Product</th>
                             <th>Quantity</th>
                             <th>Subtotal</th>
                         </tr>
                         <tr>
+                            <td>1</td>
+                            <td>
+                                <div class="cart-info">
+                                    <img src="front/images/product_7.png">
+                                    <div style="justify-content: center">
+                                        <h2>Givency</h2>
+                                        <p>Price: $50.00</p>
+                                        <a style="color: red">Remove</a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><input type="number" value="1"></td>
+                            <td>$50.00</td>
+                        </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>
+                                <div class="cart-info">
+                                    <img src="front/images/product_7.png">
+                                    <div style="justify-content: center">
+                                        <h2>Givency</h2>
+                                        <p>Price: $50.00</p>
+                                        <a style="color: red">Remove</a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><input type="number" value="1"></td>
+                            <td>$50.00</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
                             <td>
                                 <div class="cart-info">
                                     <img src="front/images/product_7.png">
@@ -122,7 +150,7 @@
                 <div class="total-price">
                     <table>
                         <tr>
-                            <td>Order Summary</td>
+                            <td style="font-size:1.2em;">Order Summary</td>
                         </tr>
                         <tr>
                             <td>Subtotal</td>

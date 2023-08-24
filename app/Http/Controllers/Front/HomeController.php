@@ -29,8 +29,8 @@ public function description()
 {
     return view('front.description');
 }
-public function productcard()
+public function productcart()
 {
-    return view('front.productcard');
+    return view('front.productcart');
 }
 }

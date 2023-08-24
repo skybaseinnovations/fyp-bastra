@@ -24,21 +24,21 @@
 				<div class="col-md-4">
 					<div class="banner_item align-items-center" style="background-image:url(front/images/yellow.jpg)">
 						<div class="banner_category">							
-							<a href="{{route('category')}}">Ram</a>
+							<a href="{{route('category')}}">All</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="banner_item align-items-center" style="background-image:url(front/images/handbag.jpg)">
 						<div class="banner_category">
-							<a href="{{route('category')}}">accessories's</a>
+							<a href="{{route('category')}}">Accessories's</a>
 						</div>
 					</div>
 				</div>
 				<div class="col-md-4">
 					<div class="banner_item align-items-center" style="background-image:url(front/images/man.jpg)">
 						<div class="banner_category">
-							<a href="{{route('category')}}">men's</a>
+							<a href="{{route('category')}}">Men's</a>
 						</div>
 					</div>
 				</div>

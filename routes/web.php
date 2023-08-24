@@ -68,7 +68,7 @@ Route::get('/contact', [App\Http\Controllers\Front\HomeController::class, 'conta
 Route::get('/category', [App\Http\Controllers\Front\HomeController::class, 'category'])->name('category');
 Route::get('/single', [App\Http\Controllers\Front\HomeController::class, 'single'])->name('single');
 Route::get('/description', [App\Http\Controllers\Front\HomeController::class, 'description'])->name('description');
-Route::get('/product', [App\Http\Controllers\Front\HomeController::class, 'productcard'])->name('productcard');
+Route::get('/product', [App\Http\Controllers\Front\HomeController::class, 'productcart'])->name('productcart');
 
 
 Route::get('/redirect', [App\Http\Controllers\HomeController::class, 'redirect'])->name('home');

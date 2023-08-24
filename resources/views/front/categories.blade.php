@@ -1,22 +1,16 @@
 @extends('front.component.layout');
 
 @section('title', 'Category')
-
 	@section('content')
 
+
 	<div class="super_container">
-
-	
-
-		<div class="container product_section_container">
+        <div class="container product_section_container">
 			<div class="row">
 				<div class="col product_section clearfix">
 	
 					<!-- Breadcrumbs -->
 	
-					<div class="breadcrumbs d-flex flex-row align-items-center">
-						
-					</div>
 	
 					<!-- Sidebar -->
 	
@@ -32,31 +26,18 @@
 								
 							</ul>
 						</div>
-	
-						
-	
-						
-	
 					</div>
 	
 					<!-- Main Content -->
 	
 					<div class="main_content">
-	
 						<!-- Products -->
 	
 						<div class="products_iso">
 							<div class="row">
 								<div class="col">
-	
-									
-	
 									<!-- Product Grid -->
-	
 									<div class="product-grid">
-	
-	
-
 										<div id="accessories ">
 											<!-- Product 1 -->
 											
@@ -93,8 +74,6 @@
 												</div>
 												<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
 											</div>
-											
-					
 											<!-- Product 4 -->
 					
 											<div class="product-item accessories">
