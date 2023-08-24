@@ -710,7 +710,7 @@ section
 }
 .red_button:hover
 {
-	background: #fa7cfe !important;
+	background: #fc7cfe !important;
 }
 .red_button a
 {
@@ -845,18 +845,19 @@ section
 5.2 New Arrivals Products Grid
 *********************************/
 
-.product-grid
+.products-grid
 {
 	width: 100%;
 	margin-top: 57px;
+	height:400px;
 }
-.product-item
+.products-items
 {
 	width: 20%;
 	height: 380px;
 	cursor: pointer;
 }
-.product-item::after
+.product-items::after
 {
 	display: block;
 	position: absolute;
@@ -983,7 +984,7 @@ section
 }
 .add_to_cart_button
 {
-	width: 100%;
+	width: 100% !important;
 	visibility: hidden;
 	opacity: 0;
 	-webkit-transition: all 0.3s ease;
