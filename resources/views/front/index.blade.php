@@ -193,6 +193,7 @@
                 <div class="row">
                     <div class="image-groups w-100">
                         <div class="row p-5">
+                            <a href="#" class="show-images btn btn-primary mx-2" data-group="all">Show All</a>
                             @foreach ($items as $item)
                                 <a href="#" class="show-images btn btn-primary mx-2"
                                     data-group="{{ $item->id }}">{{ $item->name }}</a>
@@ -200,278 +201,280 @@
                         </div>
                     </div>
 
-                    <div class="image-container">
+
+
+                    <div class="image-container w-100">
                         {{-- Images for each group --}}
                         @foreach ($items as $item)
-                            @foreach ($item->products as $product)
-                                <div class="images-group" id="group-{{ $product->product_category_id }}">
-                                    @if ($item->id === $product->product_category_id)
-                                        <img src="{{ asset('uploads/' . $product->img_url) }}" height="100px"
-                                            widht="100px">
-                                    @endif
-                                </div>
-                            @endforeach
+                            <div class="images-group" id="group-{{ $item->id }}">
+                                @foreach ($item->products as $product)
+                                    <img src="{{ asset('uploads/' . $product->img_url) }}" height="100px"
+                                        width="100px">
+                                @endforeach
+                            </div>
                         @endforeach
                     </div>
-                </div>
 
-                <div class="row">
-                    <div id="imageContainer" style="display:none;">
-                        <img src="front/images/product_2.png" alt="Image 1">
-                        <img src="front/images/product_2.png" alt="Image 2">
-                        <img src="front/images/product_2.png" alt="Image 3">
-                    </div>
                 </div>
-                <div class="row">
-                    <div class="col">
-                        <div class="product-grid"
-                            data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
+            </div>
 
-                            <!-- Product 1 -->
-                            @foreach ($items as $item)
-                                @foreach ($item->products as $product)
-                                    @if ($item->id == $product->product_category_id)
-                                        <div class="product-item men">
-                                            <div class="product discount product_filter">
-                                                <div class="product_image">
-                                                    <img src="{{ asset('uploads/' . $product->img_url) }}"
-                                                        alt="">
-                                                </div>
-                                                <div class="favorite favorite_left"></div>
-                                                <div
-                                                    class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                                                </div>
-                                                <div class="product_info">
-                                                    <h6 class="product_name"><a
-                                                            href="single.html">{{ $product->name }}</a></h6>
-                                                    <div class="product_price">$520.00<span>$590.00</span></div>
-                                                </div>
+            <div class="row">
+                <div id="imageContainer" style="display:none;">
+                    <img src="front/images/product_2.png" alt="Image 1">
+                    <img src="front/images/product_2.png" alt="Image 2">
+                    <img src="front/images/product_2.png" alt="Image 3">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <div class="product-grid"
+                        data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
+
+                        <!-- Product 1 -->
+                        @foreach ($items as $item)
+                            @foreach ($item->products as $product)
+                                @if ($item->id == $product->product_category_id)
+                                    <div class="product-item men">
+                                        <div class="product discount product_filter">
+                                            <div class="product_image">
+                                                <img src="{{ asset('uploads/' . $product->img_url) }}"
+                                                    alt="">
                                             </div>
-                                            <div class="red_button add_to_cart_button"><a href="#">add to
-                                                    cart</a>
+                                            <div class="favorite favorite_left"></div>
+                                            <div
+                                                class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
+                                            </div>
+                                            <div class="product_info">
+                                                <h6 class="product_name"><a
+                                                        href="single.html">{{ $product->name }}</a></h6>
+                                                <div class="product_price">$520.00<span>$590.00</span></div>
                                             </div>
                                         </div>
-                                    @endif
-                                @endforeach
+                                        <div class="red_button add_to_cart_button"><a href="#">add to
+                                                cart</a>
+                                        </div>
+                                    </div>
+                                @endif
                             @endforeach
+                        @endforeach
 
 
 
-                            <!-- Product 2 -->
+                        <!-- Product 2 -->
 
-                            <div class="product-item women">
-                                <div class="product product_filter">
-                                    <div class="product_image">
-                                        <img src="front/images/product_2.png" alt="">
-                                    </div>
-                                    <div class="favorite"></div>
-                                    <div
-                                        class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center">
-                                    </div>
-                                    <div class="product_info">
-                                        <h6 class="product_name"><a href="single.html">Samsung CF591 Series Curved
-                                                27-Inch FHD Monitor</a></h6>
-                                        <div class="product_price">$610.00</div>
-                                    </div>
+                        <div class="product-item women">
+                            <div class="product product_filter">
+                                <div class="product_image">
+                                    <img src="front/images/product_2.png" alt="">
                                 </div>
-                                <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-                            </div>
-
-                            <!-- Product 3 -->
-
-                            <div class="product-item women">
-                                <div class="product product_filter">
-                                    <div class="product_image">
-                                        <img src="front/images/product_3.png" alt="">
-                                    </div>
-                                    <div class="favorite"></div>
-                                    <div class="product_info">
-                                        <h6 class="product_name"><a href="single.html">Blue Yeti USB Microphone
-                                                Blackout Edition</a></h6>
-                                        <div class="product_price">$120.00</div>
-                                    </div>
+                                <div class="favorite"></div>
+                                <div
+                                    class="product_bubble product_bubble_left product_bubble_green d-flex flex-column align-items-center">
                                 </div>
-                                <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-                            </div>
-
-                            <!-- Product 4 -->
-
-                            <div class="product-item accessories">
-                                <div class="product product_filter">
-                                    <div class="product_image">
-                                        <img src="front/images/product_4.png" alt="">
-                                    </div>
-                                    <div
-                                        class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                                    </div>
-                                    <div class="favorite favorite_left"></div>
-                                    <div class="product_info">
-                                        <h6 class="product_name"><a href="single.html">DYMO LabelWriter 450 Turbo
-                                                Thermal Label Printer</a></h6>
-                                        <div class="product_price">$410.00</div>
-                                    </div>
+                                <div class="product_info">
+                                    <h6 class="product_name"><a href="single.html">Samsung CF591 Series Curved
+                                            27-Inch FHD Monitor</a></h6>
+                                    <div class="product_price">$610.00</div>
                                 </div>
-                                <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
                             </div>
+                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                        </div>
 
-                            <!-- Product 5 -->
+                        <!-- Product 3 -->
 
-                            <div class="product-item women men">
-                                <div class="product product_filter">
-                                    <div class="product_image">
-                                        <img src="front/images/product_5.png" alt="">
-                                    </div>
-                                    <div class="favorite"></div>
-                                    <div class="product_info">
-                                        <h6 class="product_name"><a href="single.html">Pryma Headphones, Rose Gold
-                                                &
-                                                Grey</a></h6>
-                                        <div class="product_price">$180.00</div>
-                                    </div>
+                        <div class="product-item women">
+                            <div class="product product_filter">
+                                <div class="product_image">
+                                    <img src="front/images/product_3.png" alt="">
                                 </div>
-                                <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-                            </div>
-
-                            <!-- Product 6 -->
-
-                            <div class="product-item accessories">
-                                <div class="product discount product_filter">
-                                    <div class="product_image">
-                                        <img src="front/images/product_6.png" alt="">
-                                    </div>
-                                    <div class="favorite favorite_left"></div>
-                                    <div
-                                        class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                                    </div>
-                                    <div class="product_info">
-                                        <h6 class="product_name"><a href="#single.html">Fujifilm X100T 16 MP
-                                                Digital
-                                                Camera (Silver)</a></h6>
-                                        <div class="product_price">$520.00<span>$590.00</span></div>
-                                    </div>
+                                <div class="favorite"></div>
+                                <div class="product_info">
+                                    <h6 class="product_name"><a href="single.html">Blue Yeti USB Microphone
+                                            Blackout Edition</a></h6>
+                                    <div class="product_price">$120.00</div>
                                 </div>
-                                <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
                             </div>
+                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                        </div>
 
-                            <!-- Product 7 -->
+                        <!-- Product 4 -->
 
-                            <div class="product-item women">
-                                <div class="product product_filter">
-                                    <div class="product_image">
-                                        <img src="front/images/product_7.png" alt="">
-                                    </div>
-                                    <div class="favorite"></div>
-                                    <div class="product_info">
-                                        <h6 class="product_name"><a href="single.html">Samsung CF591 Series Curved
-                                                27-Inch FHD Monitor</a></h6>
-                                        <div class="product_price">$610.00</div>
-                                    </div>
+                        <div class="product-item accessories">
+                            <div class="product product_filter">
+                                <div class="product_image">
+                                    <img src="front/images/product_4.png" alt="">
                                 </div>
-                                <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-                            </div>
-
-                            <!-- Product 8 -->
-
-                            <div class="product-item accessories">
-                                <div class="product product_filter">
-                                    <div class="product_image">
-                                        <img src="front/images/product_8.png" alt="">
-                                    </div>
-                                    <div class="favorite"></div>
-                                    <div class="product_info">
-                                        <h6 class="product_name"><a href="single.html">Blue Yeti USB Microphone
-                                                Blackout Edition</a></h6>
-                                        <div class="product_price">$120.00</div>
-                                    </div>
+                                <div
+                                    class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
                                 </div>
-                                <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
-                            </div>
-
-                            <!-- Product 9 -->
-
-                            <div class="product-item men">
-                                <div class="product product_filter">
-                                    <div class="product_image">
-                                        <img src="front/images/product_9.png" alt="">
-                                    </div>
-                                    <div
-                                        class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                                    </div>
-                                    <div class="favorite favorite_left"></div>
-                                    <div class="product_info">
-                                        <h6 class="product_name"><a href="single.html">DYMO LabelWriter 450 Turbo
-                                                Thermal Label Printer</a></h6>
-                                        <div class="product_price">$410.00</div>
-                                    </div>
+                                <div class="favorite favorite_left"></div>
+                                <div class="product_info">
+                                    <h6 class="product_name"><a href="single.html">DYMO LabelWriter 450 Turbo
+                                            Thermal Label Printer</a></h6>
+                                    <div class="product_price">$410.00</div>
                                 </div>
-                                <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
                             </div>
+                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                        </div>
 
-                            <!-- Product 10 -->
+                        <!-- Product 5 -->
 
-                            <div class="product-item men">
-                                <div class="product product_filter">
-                                    <div class="product_image">
-                                        <img src="front/images/product_10.png" alt="">
-                                    </div>
-                                    <div class="favorite"></div>
-                                    <div class="product_info">
-                                        <h6 class="product_name"><a href="single.html">Pryma Headphones, Rose Gold
-                                                &
-                                                Grey</a></h6>
-                                        <div class="product_price">$180.00</div>
-                                    </div>
+                        <div class="product-item women men">
+                            <div class="product product_filter">
+                                <div class="product_image">
+                                    <img src="front/images/product_5.png" alt="">
                                 </div>
-                                <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                                <div class="favorite"></div>
+                                <div class="product_info">
+                                    <h6 class="product_name"><a href="single.html">Pryma Headphones, Rose Gold
+                                            &
+                                            Grey</a></h6>
+                                    <div class="product_price">$180.00</div>
+                                </div>
                             </div>
+                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                        </div>
+
+                        <!-- Product 6 -->
+
+                        <div class="product-item accessories">
+                            <div class="product discount product_filter">
+                                <div class="product_image">
+                                    <img src="front/images/product_6.png" alt="">
+                                </div>
+                                <div class="favorite favorite_left"></div>
+                                <div
+                                    class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
+                                </div>
+                                <div class="product_info">
+                                    <h6 class="product_name"><a href="#single.html">Fujifilm X100T 16 MP
+                                            Digital
+                                            Camera (Silver)</a></h6>
+                                    <div class="product_price">$520.00<span>$590.00</span></div>
+                                </div>
+                            </div>
+                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                        </div>
+
+                        <!-- Product 7 -->
+
+                        <div class="product-item women">
+                            <div class="product product_filter">
+                                <div class="product_image">
+                                    <img src="front/images/product_7.png" alt="">
+                                </div>
+                                <div class="favorite"></div>
+                                <div class="product_info">
+                                    <h6 class="product_name"><a href="single.html">Samsung CF591 Series Curved
+                                            27-Inch FHD Monitor</a></h6>
+                                    <div class="product_price">$610.00</div>
+                                </div>
+                            </div>
+                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                        </div>
+
+                        <!-- Product 8 -->
+
+                        <div class="product-item accessories">
+                            <div class="product product_filter">
+                                <div class="product_image">
+                                    <img src="front/images/product_8.png" alt="">
+                                </div>
+                                <div class="favorite"></div>
+                                <div class="product_info">
+                                    <h6 class="product_name"><a href="single.html">Blue Yeti USB Microphone
+                                            Blackout Edition</a></h6>
+                                    <div class="product_price">$120.00</div>
+                                </div>
+                            </div>
+                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                        </div>
+
+                        <!-- Product 9 -->
+
+                        <div class="product-item men">
+                            <div class="product product_filter">
+                                <div class="product_image">
+                                    <img src="front/images/product_9.png" alt="">
+                                </div>
+                                <div
+                                    class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
+                                </div>
+                                <div class="favorite favorite_left"></div>
+                                <div class="product_info">
+                                    <h6 class="product_name"><a href="single.html">DYMO LabelWriter 450 Turbo
+                                            Thermal Label Printer</a></h6>
+                                    <div class="product_price">$410.00</div>
+                                </div>
+                            </div>
+                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
+                        </div>
+
+                        <!-- Product 10 -->
+
+                        <div class="product-item men">
+                            <div class="product product_filter">
+                                <div class="product_image">
+                                    <img src="front/images/product_10.png" alt="">
+                                </div>
+                                <div class="favorite"></div>
+                                <div class="product_info">
+                                    <h6 class="product_name"><a href="single.html">Pryma Headphones, Rose Gold
+                                            &
+                                            Grey</a></h6>
+                                    <div class="product_price">$180.00</div>
+                                </div>
+                            </div>
+                            <div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
+    </div>
 
 
-        <br>
+    <br>
 
-        <!-- Footer -->
+    <!-- Footer -->
 
-        <footer class="footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div
-                            class="footer_nav_container d-flex flex-sm-row flex-column align-items-center justify-content-lg-start justify-content-center text-center">
-                            <ul class="footer_nav">
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">FAQs</a></li>
-                                <li><a href="contact.html">Contact us</a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div
-                            class="footer_social d-flex flex-row align-items-center justify-content-lg-end justify-content-center">
-                            <ul>
-                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-                            </ul>
-                        </div>
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6">
+                    <div
+                        class="footer_nav_container d-flex flex-sm-row flex-column align-items-center justify-content-lg-start justify-content-center text-center">
+                        <ul class="footer_nav">
+                            <li><a href="#">Blog</a></li>
+                            <li><a href="#">FAQs</a></li>
+                            <li><a href="contact.html">Contact us</a></li>
+                        </ul>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="footer_nav_container">
-                            <div class="cr">©2018 All Rights Reserverd. Made with <i class="fa fa-heart-o"
-                                    aria-hidden="true"></i> by <a href="#">Colorlib</a> &amp; distributed by <a
-                                    href="https://themewagon.com">ThemeWagon</a></div>
-                        </div>
+                <div class="col-lg-6">
+                    <div
+                        class="footer_social d-flex flex-row align-items-center justify-content-lg-end justify-content-center">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+                        </ul>
                     </div>
                 </div>
             </div>
-        </footer>
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="footer_nav_container">
+                        <div class="cr">©2018 All Rights Reserverd. Made with <i class="fa fa-heart-o"
+                                aria-hidden="true"></i> by <a href="#">Colorlib</a> &amp; distributed by <a
+                                href="https://themewagon.com">ThemeWagon</a></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 
     </div>
 
@@ -497,14 +500,22 @@
                         group.style.display = "none";
                     });
 
-                    // Display the selected image group
-                    const selectedGroup = document.getElementById("group-" + groupId);
-                    console.log(selectedGroup);
-                    selectedGroup.style.display = "block";
+                    if (groupId === "all") {
+                        // Show all image groups
+                        imageGroups.forEach(group => {
+                            group.style.display = "block";
+                        });
+                    } else {
+                        // Display the selected image group
+                        const selectedGroup = document.getElementById("group-" + groupId);
+                        selectedGroup.style.display = "block";
+                    }
                 });
             });
         });
     </script>
+
+
 
 </body>
 
