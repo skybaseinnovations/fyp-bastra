@@ -1,5 +1,7 @@
 @extends('front.component.layout');
 
+@section('title', 'Description')
+
 @section('content')
 <link
       rel="stylesheet"

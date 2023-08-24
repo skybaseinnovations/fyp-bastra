@@ -1,163 +1,23 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<title> Categories</title>
-<meta charset="utf-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="description" content="Bastra">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" type="text/css" href="{{asset('front/styles/bootstrap4/bootstrap.min.css')}}">
-<link href="{{asset('front/plugins/font-awesome-4.7.0/css/font-awesome.min.css" rel="stylesheet" type="text/css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('front/plugins/OwlCarousel2-2.2.1/owl.carousel.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('front/plugins/OwlCarousel2-2.2.1/owl.theme.default.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('front/plugins/OwlCarousel2-2.2.1/animate.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('front/plugins/jquery-ui-1.12.1.custom/jquery-ui.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('front/styles/categories_styles.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('front/styles/categories_responsive.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('front/styles/styles.css')}}">
-<link rel="stylesheet" type="text/css" href="{{asset('front/plugins/OwlCarousel2-2.2.1/animate.css')}}">
-<link rel="icon" type="image/x-icon" href="/front/images/clothes-hanger.png">
+@extends('front.component.layout');
 
-<link href="{{asset('front/plugins/font-awesome-4.7.0/css/font-awesome.min.css')}}" rel="stylesheet" type="text/css">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Open+Sans:ital,wght@0,400;1,300&family=Roboto:wght@500&family=Source+Code+Pro:ital@1&display=swap" rel="stylesheet">
-</head>
+@section('title', 'Category')
 
-
-
-<body>
+	@section('content')
 
 	<div class="super_container">
-	
-		<!-- Header -->
-	
-		<header class="header trans_300">
-	
-			<!-- Top Navigation -->
-	
-			
-	
-			<!-- Main Navigation -->
-
-		<div class="main_nav_container">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-12 text-right">
-						<div class="logo_container">
-							<a href="#">Bas<span>tra</span></a>
-						</div>
-						<nav class="navbar">
-							<ul class="navbar_menu">
-								<li><a href="{{route('index')}}">home</a></li>
-								<li class="account">
-									<a href="{{route('category')}}">Category
-										<i class="fa fa-angle-down"></i>
-									</a>
-									<ul class="account_selection">
-										<li><a href="{{route('category')}}">Men</a></li>
-										<li><a href="{{route('category')}}">Women</a></li>
-										<li><a href="{{route('category')}}">Accessories</a></li>
-									</ul>
-								</li>
-								<li><a href="{{route('contact')}}">contact</a></li>
-								<li class="account">
-									<a href="#">
-										My Account
-										<i class="fa fa-angle-down"></i>
-									</a>
-									<ul class="account_selection">
-										<li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
-										<li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
-									</ul>
-								</li>
-							</ul>
-							<ul class="navbar_user">
-								<li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
-								<li class="checkout">
-									<a href="#">
-										<i class="fa fa-shopping-cart" aria-hidden="true"></i>
-									</a>
-								</li>
-							</ul>
-							<div class="hamburger_container">
-								<i class="fa fa-bars" aria-hidden="true"></i>
-							</div>
-						</nav>
-					</div>
-				</div>
-			</div>
-		</div>
 
 	
-		</header>
-	
-	
-		<div class="fs_menu_overlay"></div>
-		<div class="hamburger_menu">
-			<div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
-			<div class="hamburger_menu_content text-right">
-				<ul class="menu_top_nav">
-					<li class="menu_item has-children">
-						<a href="#">
-							usd
-							<i class="fa fa-angle-down"></i>
-						</a>
-						<ul class="menu_selection">
-							<li><a href="#">cad</a></li>
-							<li><a href="#">aud</a></li>
-							<li><a href="#">eur</a></li>
-							<li><a href="#">gbp</a></li>
-						</ul>
-					</li>
-					<li class="menu_item has-children">
-						<a href="#">
-							English
-							<i class="fa fa-angle-down"></i>
-						</a>
-						<ul class="menu_selection">
-							<li><a href="#">French</a></li>
-							<li><a href="#">Italian</a></li>
-							<li><a href="#">German</a></li>
-							<li><a href="#">Spanish</a></li>
-						</ul>
-					</li>
-					<li class="menu_item has-children">
-						<a href="#">
-							My Account
-							<i class="fa fa-angle-down"></i>
-						</a>
-						<ul class="menu_selection">
-							<li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
-							<li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
-						</ul>
-					</li>
-					<li class="menu_item"><a href="{{route('index')}}">home</a></li>
-					<li class="menu_item"><a href="{{route('category')}}">Category</a></li>
-					
-					<li class="menu_item"><a href="{{route('contact')}}">contact</a></li>
-				</ul>
-			</div>
-		</div>
-	
-	
+
 		<div class="container product_section_container">
 			<div class="row">
 				<div class="col product_section clearfix">
 	
 					<!-- Breadcrumbs -->
 	
-					<div class="breadcrumbs d-flex flex-row align-items-center">	
+					<div class="breadcrumbs d-flex flex-row align-items-center">
+						
 					</div>
+	
 					<!-- Sidebar -->
 	
 					<div class="sidebar">
@@ -166,14 +26,17 @@
 								<h5>Product Category</h5>
 							</div>
 							<ul class="sidebar_categories">
-								<li><a href="#men">Men</a></li>
-								<li><a href="#women">Women</a></li>
-								<li><a href="#accessories">Accessories</a></li>
-								{{-- <li><a href="#">New Arrivals</a></li>
-								<li><a href="#">Collection</a></li>
-								<li><a href="#">Shop</a></li> --}}
+								<li><a href="#">Men</a></li>
+								<li><a href="#">Women</a></li>
+								<li><a href="#">Accessories</a></li>
+								
 							</ul>
 						</div>
+	
+						
+	
+						
+	
 					</div>
 	
 					<!-- Main Content -->
@@ -184,15 +47,17 @@
 	
 						<div class="products_iso">
 							<div class="row">
-								<div class="col" >
-	<!-- Product Grid -->
+								<div class="col">
 	
-			<div class="product-grid">
+									
+	
+									<!-- Product Grid -->
+	
+									<div class="product-grid">
+	
+	
 
-				<div id="modal">
-					<p id="desc" class="modalClassBefore"></p>
-				</div>
-	                                <div id="accessories">
+										<div id="accessories ">
 											<!-- Product 1 -->
 											
 											<div class="product-item women">
@@ -210,9 +75,9 @@
 												<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
 											</div>
 											<!-- Product 2 -->
-		
-		
-		
+					
+					
+					
 											<!-- Product 3 -->
 											<div class="product-item accessories">
 												<div class="product discount product_filter">
@@ -229,9 +94,9 @@
 												<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
 											</div>
 											
-		
+					
 											<!-- Product 4 -->
-		
+					
 											<div class="product-item accessories">
 												<div class="product product_filter">
 													<div class="product_image">
@@ -245,7 +110,7 @@
 												</div>
 												<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
 											</div>
-		
+					
 											{{-- Product 5 --}}
 											<div class="product-item accessories" >
 												<div class="product product_filter">
@@ -261,9 +126,9 @@
 												</div>
 												<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
 											</div>
-
+					
 										</div>
-	
+					
 										<div id="women">
 												<!-- Product 6 -->
 												<div class="product-item women" data-name="one">
@@ -280,7 +145,7 @@
 													<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
 												</div>
 													<!-- Product 7 -->
-
+					
 												<div class="product-item women" >
 													<div class="product product_filter">
 														<div class="product_image">
@@ -295,9 +160,9 @@
 													<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
 												</div>
 												<!-- Product 8 -->
-
+					
 												
-
+					
 												<div class="product-item women men" >
 													<div class="product product_filter">
 														<div class="product_image">
@@ -326,9 +191,9 @@
 														</div>
 														<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
 													</div>
-				
+					
 													<!-- Product 10 -->
-				
+					
 													<div class="product-item men">
 														<div class="product product_filter">
 															<div class="product_image">
@@ -345,7 +210,7 @@
 										</div>
 											  <div id="men">
 												<!-- Product 11 -->
-			
+					
 												<div class="product-item women men">
 													<div class="product product_filter">
 														<div class="product_image">
@@ -359,7 +224,7 @@
 													</div>
 													<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
 												</div>
-			
+					
 												<!-- Product 12 -->
 												<div class="product-item men" >
 													<div class="product discount product_filter">
@@ -404,14 +269,12 @@
 												</div>
 												<div class="red_button add_to_cart_button"><a href="#">add to cart</a></div>
 											</div>
-
 											  </div>
-										
-									
 									</div>
 	
-									
+									<!-- Product Sorting -->
 	
+								
 								</div>
 							</div>
 						</div>
@@ -421,56 +284,16 @@
 		</div>
 	
 	
-			
-	
-		<!-- Footer -->
-	
-		<footer class="footer">
-			<div class="container">
-				<div class="row">
-					<div class="col-lg-6">
-						<div class="footer_nav_container d-flex flex-sm-row flex-column align-items-center justify-content-lg-start justify-content-center text-center">
-							<ul class="footer_nav">
-								<li><a href="#">Blog</a></li>
-								<li><a href="#">FAQs</a></li>
-								<li><a href="conta">Contact us</a></li>
-							</ul>
-						</div>
-					</div>
-					<div class="col-lg-6">
-						<div class="footer_social d-flex flex-row align-items-center justify-content-lg-end justify-content-center">
-							<ul>
-								<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a></li>
-								<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div class="row">
-					<div class="col-lg-12">
-						<div class="footer_nav_container">
-							<div class="cr">©2018 All Rights Reserverd. Template by <a href="#">Colorlib</a> &amp; distributed by <a href="https://themewagon.com">ThemeWagon</a></div>
-						</div>
-					</div>
-				</div>
-			</div>
-		</footer>
 	
 	</div>
 
-<script src="{{asset('front/js/jquery-3.2.1.min.js')}}"></script>
-<script src="{{asset('front/styles/bootstrap4/popper.js')}}"></script>
-<script src="{{asset('front/styles/bootstrap4/bootstrap.min.js')}}"></script>
-<script src="{{asset('front/plugins/Isotope/isotope.pkgd.min.js')}}"></script>
-<script src="{{asset('front/plugins/OwlCarousel2-2.2.1/owl.carousel.js')}}"></script>
-<script src="{{asset('front/plugins/easing/easing.js')}}"></script>
-<script src="{{asset('front/plugins/jquery-ui-1.12.1.custom/jquery-ui.js')}}"></script>
-<script src="{{asset('front/js/categories_custom.js')}}"></script>
-<script src="{{asset('front/js/showProductDescription.js')}}"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js" integrity="sha512-3gJwYpMe3QewGELv8k/BX9vcqhryRdzRMxVfq6ngyWXwo03GFEzjsUm8Q7RZcHPHksttq7/GFoxjCVUjkjvPdw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-</body>
+	<script src="{{asset('front/js/jquery-3.2.1.min.js')}}"></script>
 
-</html>
+	<script src="{{ asset('front/plugins/Isotope/isotope.pkgd.min.js')}}"></script>
+
+	<script src="{{ asset('front/js/categories_custom.js')}}"></script>
+
+@endsection
+					
+	
+	
