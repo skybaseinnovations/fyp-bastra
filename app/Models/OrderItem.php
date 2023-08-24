@@ -8,10 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class OrderItem extends Model
 {
     use HasFactory;
-    use HasFactory;protected $fillable = [
+    protected $fillable = [
         'product_id',
         'order_id',
         'total_amount',
         'quantity',
     ];
+
+    protected $guarded = ['id'];
+    public function order(){
+        return $this->belongsTo(Order::class);
+    }
 }

@@ -29,13 +29,16 @@
                     <button class="btn btn-outline-light" type="submit">Search</button>
                 </form>
             </div>
-            <div class="float-right">
+            @if (!isset($hideCreate))
+                <div class="float-right">
 
-                <a class="btn btn-primary" href="{{ route($action) }}">
-                    <i class="fa fa-plus"></i>
-                    Add {{ $title }}
-                </a>
-            </div>
+                    <a class="btn btn-primary" href="{{ route($action) }}">
+                        <i class="fa fa-plus"></i>
+                        Add {{ $title }}
+                    </a>
+                </div>
+            @endif
+
         </div>
         <div class="card-body">
             {{-- <h5 class="card-title">Special title treatment</h5> --}}
