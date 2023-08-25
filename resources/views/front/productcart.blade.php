@@ -68,24 +68,11 @@ Product Cart
     }
 
     </style>
-   
-   
-
 <br>
- 
-    
 <br>
- 
-    
 <br>
- 
-    
 <br>
- 
-    
 <br>
- 
-    
         <section>
             <div class="section">
               <div class="cart1 info1">
@@ -103,7 +90,7 @@ Product Cart
                                 <div class="cart-info">
                                     <img src="front/images/product_7.png">
                                     <div style="justify-content: center">
-                                        <h2>Givency</h2>
+                                        <h4>Givency</h4>
                                         <p>Price: $50.00</p>
                                         <a style="color: red">Remove</a>
                                     </div>
@@ -116,9 +103,9 @@ Product Cart
                             <td>2</td>
                             <td>
                                 <div class="cart-info">
-                                    <img src="front/images/product_7.png">
+                                    <img src="front/images/product_5.png">
                                     <div style="justify-content: center">
-                                        <h2>Givency</h2>
+                                        <h4>Givency</h4>
                                         <p>Price: $50.00</p>
                                         <a style="color: red">Remove</a>
                                     </div>
@@ -131,9 +118,39 @@ Product Cart
                             <td>3</td>
                             <td>
                                 <div class="cart-info">
-                                    <img src="front/images/product_7.png">
+                                    <img src="front/images/product_10.png">
                                     <div style="justify-content: center">
-                                        <h2>Givency</h2>
+                                        <h4>Givency</h4>
+                                        <p>Price: $50.00</p>
+                                        <a style="color: red">Remove</a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><input type="number" value="1"></td>
+                            <td>$50.00</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>
+                                <div class="cart-info">
+                                    <img src="front/images/product_3.png">
+                                    <div style="justify-content: center">
+                                        <h4>Givency</h4>
+                                        <p>Price: $50.00</p>
+                                        <a style="color: red">Remove</a>
+                                    </div>
+                                </div>
+                            </td>
+                            <td><input type="number" value="1"></td>
+                            <td>$50.00</td>
+                        </tr>
+                        <tr>
+                            <td>5</td>
+                            <td>
+                                <div class="cart-info">
+                                    <img src="front/images/product_4.png">
+                                    <div style="justify-content: center">
+                                        <h4>Givency</h4>
                                         <p>Price: $50.00</p>
                                         <a style="color: red">Remove</a>
                                     </div>

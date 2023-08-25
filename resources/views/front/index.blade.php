@@ -1,146 +1,10 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('front.component.layout');
 
-<head>
-    <title>Bastra</title>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="description" content="Bastra">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="{{ asset('front/styles/bootstrap4/bootstrap.min.css') }}">
-    <link href="{{ asset('front/plugins/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet"
-        type="text/css">
-    <link rel="stylesheet" type="text/css" href="{{ asset('front/plugins/OwlCarousel2-2.2.1/owl.carousel.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('front/plugins/OwlCarousel2-2.2.1/owl.theme.default.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('front/plugins/OwlCarousel2-2.2.1/animate.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('front/styles/styles.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ asset('front/styles/responsive.css') }}">
-    <link rel="icon" type="image/x-icon" href="/front/images/clothes-hanger.png">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Open+Sans:ital,wght@0,400;1,300&family=Roboto:wght@500&family=Source+Code+Pro:ital@1&display=swap"
-        rel="stylesheet">
-</head>
+@section('title', 'Contact')
 
-<body>
+@section('content')
 
     <div class="super_container">
-
-        <!-- Header -->
-
-        <header class="header trans_300">
-            <!-- Main Navigation -->
-
-            <div class="main_nav_container">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12 text-right">
-                            <div class="logo_container">
-                                <a href="#">Bas<span>tra</span></a>
-                            </div>
-                            <nav class="navbar">
-                                <ul class="navbar_menu">
-                                    <li><a href="{{ route('index') }}">home</a></li>
-                                    <li class="account">
-                                        <a href="{{ route('category') }}">Category
-                                            <i class="fa fa-angle-down"></i>
-                                        </a>
-                                        <ul class="account_selection">
-                                            @foreach ($items as $item)
-                                                <li><a href="{{ route('category') }}">{{ $item->name }}</a></li>
-                                            @endforeach
-                                        </ul>
-                                    </li>
-                                    <li><a href="{{ route('contact') }}">contact</a></li>
-                                    <li class="account">
-                                        <a href="#">
-                                            My Account
-                                            <i class="fa fa-angle-down"></i>
-                                        </a>
-                                        <ul class="account_selection">
-                                            <li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign
-                                                    In</a></li>
-                                            <li><a href="#"><i class="fa fa-user-plus"
-                                                        aria-hidden="true"></i>Register</a></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                                <ul class="navbar_user">
-                                    <li><a href="#"><i class="fa fa-search" aria-hidden="true"></i></a></li>
-                                    <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a></li>
-                                    <li class="checkout">
-                                        <a href="#">
-                                            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                        </a>
-                                    </li>
-                                </ul>
-                                <div class="hamburger_container">
-                                    <i class="fa fa-bars" aria-hidden="true"></i>
-                                </div>
-                            </nav>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-        </header>
-
-        {{-- Hamburger menu --}}
-        <div class="fs_menu_overlay"></div>
-        <div class="hamburger_menu">
-            <div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
-            <div class="hamburger_menu_content text-right">
-                <ul class="menu_top_nav">
-                    <li class="menu_item has-children">
-                        <a href="#">
-                            usd
-                            <i class="fa fa-angle-down"></i>
-                        </a>
-                        <ul class="menu_selection">
-                            <li><a href="#">cad</a></li>
-                            <li><a href="#">aud</a></li>
-                            <li><a href="#">eur</a></li>
-                            <li><a href="#">gbp</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu_item has-children">
-                        <a href="#">
-                            English
-                            <i class="fa fa-angle-down"></i>
-                        </a>
-                        <ul class="menu_selection">
-                            <li><a href="#">French</a></li>
-                            <li><a href="#">Italian</a></li>
-                            <li><a href="#">German</a></li>
-                            <li><a href="#">Spanish</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu_item has-children">
-                        <a href="#">
-                            My Account
-                            <i class="fa fa-angle-down"></i>
-                        </a>
-                        <ul class="menu_selection">
-                            <li><a href="#"><i class="fa fa-sign-in" aria-hidden="true"></i>Sign In</a></li>
-                            <li><a href="#"><i class="fa fa-user-plus" aria-hidden="true"></i>Register</a></li>
-                        </ul>
-                    </li>
-                    <li class="menu_item"><a href="{{ route('index') }}">home</a></li>
-                    <li class="menu_item"><a href="{{ route('category') }}">Category</a></li>
-
-                    <li class="menu_item"><a href="{{ route('contact') }}">contact</a></li>
-                </ul>
-            </div>
-        </div>
 
         <!-- Slider -->
 
@@ -160,24 +24,36 @@
         </div>
 
         <!-- Banner -->
+        <!-- Banner -->
 
-        <div class="banner ">
-            <div class="container ">
-                <div class="row ">
-
-                    @foreach ($items as $item)
-                        <div class="col-md-4 mx-auto mt-4">
-                            <div class="banner_item align-items-center"
-                                style="background-image:url({{ asset('uploads/' . $item->img_url) }})">
-                                <div class="banner_category">
-                                    <a href="{{ route('category') }}">{{ $item->name }}</a>
-                                </div>
+        <div class="banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="banner_item align-items-center" style="background-image:url('front/images/yellow.jpg')">
+                            <div class="banner_category">
+                                <a href="categories.html">women's</a>
                             </div>
                         </div>
-                    @endforeach
+                    </div>
+                    <div class="col-md-4">
+                        <div class="banner_item align-items-center" style="background-image:url(front/images/handbag.jpg)">
+                            <div class="banner_category">
+                                <a href="categories.html">Accessories's</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="banner_item align-items-center" style="background-image:url('front/images/man.jpg')">
+                            <div class="banner_category">
+                                <a href="categories.html">men's</a>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
 
         <!-- New Arrivals -->
 
@@ -208,8 +84,7 @@
                         @foreach ($items as $item)
                             <div class="images-group" id="group-{{ $item->id }}">
                                 @foreach ($item->products as $product)
-                                    <img src="{{ asset('uploads/' . $product->img_url) }}" height="100px"
-                                        width="100px">
+                                    <img src="{{ asset('uploads/' . $product->img_url) }}" height="100px" width="100px">
                                 @endforeach
                             </div>
                         @endforeach
@@ -227,8 +102,7 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <div class="product-grid"
-                        data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
+                    <div class="product-grid" data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
 
                         <!-- Product 1 -->
                         @foreach ($items as $item)
@@ -237,16 +111,14 @@
                                     <div class="product-item men">
                                         <div class="product discount product_filter">
                                             <div class="product_image">
-                                                <img src="{{ asset('uploads/' . $product->img_url) }}"
-                                                    alt="">
+                                                <img src="{{ asset('uploads/' . $product->img_url) }}" alt="">
                                             </div>
                                             <div class="favorite favorite_left"></div>
                                             <div
                                                 class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
                                             </div>
                                             <div class="product_info">
-                                                <h6 class="product_name"><a
-                                                        href="single.html">{{ $product->name }}</a></h6>
+                                                <h6 class="product_name"><a href="single.html">{{ $product->name }}</a></h6>
                                                 <div class="product_price">$520.00<span>$590.00</span></div>
                                             </div>
                                         </div>
@@ -433,90 +305,36 @@
         </div>
     </div>
 
-
-    <br>
-
-    <!-- Footer -->
-
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6">
-                    <div
-                        class="footer_nav_container d-flex flex-sm-row flex-column align-items-center justify-content-lg-start justify-content-center text-center">
-                        <ul class="footer_nav">
-                            <li><a href="#">Blog</a></li>
-                            <li><a href="#">FAQs</a></li>
-                            <li><a href="contact.html">Contact us</a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-lg-6">
-                    <div
-                        class="footer_social d-flex flex-row align-items-center justify-content-lg-end justify-content-center">
-                        <ul>
-                            <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a></li>
-                            <li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="footer_nav_container">
-                        <div class="cr">©2018 All Rights Reserverd. Made with <i class="fa fa-heart-o"
-                                aria-hidden="true"></i> by <a href="#">Colorlib</a> &amp; distributed by <a
-                                href="https://themewagon.com">ThemeWagon</a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
-
     </div>
 
-    <script src="{{ asset('front/js/jquery-3.2.1.min.js') }}"></script>
-    <script src="{{ asset('front/styles/bootstrap4/popper.js') }}"></script>
-    <script src="{{ asset('front/styles/bootstrap4/bootstrap.min.js') }}"></script>
-    <script src="{{ asset('front/plugins/Isotope/isotope.pkgd.min.js') }}"></script>
-    <script src="{{ asset('front/plugins/OwlCarousel2-2.2.1/owl.carousel.js') }}"></script>
-    <script src="{{ asset('front/plugins/easing/easing.js') }}"></script>
-    <script src="{{ asset('front/js/custom.js') }}"></script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const showImagesLinks = document.querySelectorAll(".show-images");
-            const imageGroups = document.querySelectorAll(".images-group");
+@endsection
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const showImagesLinks = document.querySelectorAll(".show-images");
+        const imageGroups = document.querySelectorAll(".images-group");
 
-            showImagesLinks.forEach(link => {
-                link.addEventListener("click", function(event) {
-                    event.preventDefault();
-                    const groupId = this.getAttribute("data-group");
+        showImagesLinks.forEach(link => {
+            link.addEventListener("click", function(event) {
+                event.preventDefault();
+                const groupId = this.getAttribute("data-group");
 
-                    // Hide all image groups
-                    imageGroups.forEach(group => {
-                        group.style.display = "none";
-                    });
-
-                    if (groupId === "all") {
-                        // Show all image groups
-                        imageGroups.forEach(group => {
-                            group.style.display = "block";
-                        });
-                    } else {
-                        // Display the selected image group
-                        const selectedGroup = document.getElementById("group-" + groupId);
-                        selectedGroup.style.display = "block";
-                    }
+                // Hide all image groups
+                imageGroups.forEach(group => {
+                    group.style.display = "none";
                 });
+
+                if (groupId === "all") {
+                    // Show all image groups
+                    imageGroups.forEach(group => {
+                        group.style.display = "block";
+                    });
+                } else {
+                    // Display the selected image group
+                    const selectedGroup = document.getElementById("group-" + groupId);
+                    selectedGroup.style.display = "block";
+                }
             });
         });
-    </script>
+    });
+</script>
 
-
-
-</body>
-
-</html>
