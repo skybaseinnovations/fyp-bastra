@@ -20,9 +20,9 @@
 								<h5>Product Category</h5>
 							</div>
 							<ul class="sidebar_categories">
-								<li><a href="#">Men</a></li>
-								<li><a href="#">Women</a></li>
-								<li><a href="#">Accessories</a></li>
+								<li><a href="{{route('category')}}">Men</a></li>
+								<li><a href="{{route('category')}}">Women</a></li>
+								<li><a href="{{ route('category') }}">Accessories</a></li>
 								
 							</ul>
 						</div>
@@ -65,7 +65,7 @@
 													<div class="product_image">
 														<img src="front/images/product_6.png" alt="">
 													</div>
-													<div class="favorite favorite_left"></div>
+													<div class="favorite "></div>
 													<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"></div>
 													<div class="product_info">
 														<h6 class="product_name"><a href="{{route('description')}}">Carrera, sporty and aviator-style sunglasses with a retro touch.</a></h6>
@@ -97,7 +97,7 @@
 														<img src="front/images/product_4.png" alt="">
 													</div>
 													<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"></div>
-													<div class="favorite favorite_left"></div>
+													<div class="favorite "></div>
 													<div class="product_info">
 														<h6 class="product_name"><a href="{{route('description')}}">Givenchy,blend of modern and edgy designs in handbags.</a></h6>
 														<div class="product_price">$410.00</div>
@@ -162,7 +162,7 @@
 																<img src="front/images/product_9.png" alt="">
 															</div>
 															<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"></div>
-															<div class="favorite favorite_left"></div>
+															<div class="favorite "></div>
 															<div class="product_info">
 																<h6 class="product_name"><a href="{{route('description')}}"></a>Woolrich, mix of classic and contemporary coats with a focus on warmth.</h6>
 																<div class="product_price">$410.00</div>
@@ -210,7 +210,7 @@
 														<div class="product_image">
 															<img src="front/images/product_1.png" alt="">
 														</div>
-														<div class="favorite favorite_left"></div>
+														<div class="favorite "></div>
 														<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"></div>
 														<div class="product_info">
 															<h6 class="product_name"><a href="{{route('description')}}">Hollister, casual and laid-back hoodie</a></h6>
@@ -225,7 +225,7 @@
 													<div class="product_image">
 														<img src="front/images/product_6.png" alt="">
 													</div>
-													<div class="favorite favorite_left"></div>
+													<div class="favorite "></div>
 													<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"></div>
 													<div class="product_info">
 														<h6 class="product_name"><a href="{{route('description')}}">Tom Ford, bold and elegant sunglasses designs.</a></h6>
@@ -239,7 +239,7 @@
 													<div class="product_image">
 														<img src="front/images/product_1.png" alt="">
 													</div>
-													<div class="favorite favorite_left"></div>
+													<div class="favorite "></div>
 													<div class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center"></div>
 													<div class="product_info">
 														<h6 class="product_name"><a href="">Hollister, casual and laid-back hoodie</a></h6>

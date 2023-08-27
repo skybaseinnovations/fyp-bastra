@@ -1321,10 +1321,11 @@ section
 	top: 15px;
 	right: 15px;
 	color: #b9b4c7;
-	width: 17px;
-	height: 17px;
+	width: 25px;
+	height: 25px;
 	visibility: hidden;
 	opacity: 0;
+	font-size: 1.5rem;
 }
 .favorite_left
 {

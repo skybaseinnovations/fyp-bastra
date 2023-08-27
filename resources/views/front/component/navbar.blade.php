@@ -51,7 +51,6 @@
 </head>
 <body>
 
-<div class="super_container">
 	<!-- Header -->
 	<header class="header trans_300">
 		<!-- Main Navigation -->
@@ -71,16 +70,19 @@
 										<i class="fa fa-angle-down"></i>
 									</a>
 									<ul class="account_selection">
-										<li><a href="{{route('category')}}">Men</a></li>
-										<li><a href="{{route('category')}}">Women</a></li>
-										<li><a href="{{route('category')}}">Accessories</a></li>
+										@foreach ($items as $item)
+											
+										<li><a href="{{ route('productshow',$item->id) }}">{{ $item->name }}</a></li>
+										@endforeach
+										<li><a href="{{ route('category') }}">Women</a></li>
+										<li><a href="#">Accessories</a></li>
 									</ul>
 								</li>
 								<li><a href="{{route('contact')}}">contact</a></li>
 								<div class="button">
 
-									<button type="button" style="border-radius: 2rem;border:1px solid white;padding:0.9rem;background-color:#74c69d;color:ghostwhite;;"><i class="fa fa-user"></i></a>&nbsp;&nbsp;Login</button>
-									<button type="button" style="border-radius: 2rem;border:1px solid white;padding:0.9rem;background-color:#0096c7;color:white;"><i class="fa fa-user-plus"></i></a>&nbsp;&nbsp;Register</button>
+									<button type="button" style="border-radius: 2rem;border:1px solid white;padding:0.9rem;background-color:#74c69d;color:ghostwhite;;"><i class="fa fa-user"></i><a style="color:white;" href="{{route('login')}}">&nbsp;&nbsp;Login</a></button>
+									<button type="button" style="border-radius: 2rem;border:1px solid white;padding:0.9rem;background-color:#0096c7;color:white;"><i class="fa fa-user-plus"></i><a style="color:white;" href="{{route('register')}}">&nbsp;&nbsp;Register</a></button>
 								</div>
 							</ul>
 							
@@ -104,7 +106,6 @@
 				
 				<li class="menu_item"><a href="{{route('index')}}">home</a></li>
 				<li class="menu_item"><a href="{{route('category')}}">Category</a></li>
-				
 				<li class="menu_item"><a href="{{route('contact')}}">contact</a></li>
 			</ul>
 		</div>

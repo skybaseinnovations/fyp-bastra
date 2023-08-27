@@ -285,13 +285,6 @@ section
 
 
 
-
-
-/*********************************
-3.3 Account
-*********************************/
-
-
 /*********************************
 3.4 Main Navigation
 *********************************/
@@ -402,15 +395,7 @@ section
 	vertical-align: middle;
 }
 
-/* .account > a
-{
-	display: block;
-	color: #b5aec4;
-	font-weight: 400;
-	height: 50px;
-	line-height: 50px;
-	font-size: 13px;
-} */
+
 
 .account > a > i
 {

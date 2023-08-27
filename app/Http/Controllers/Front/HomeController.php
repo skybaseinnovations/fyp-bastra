@@ -17,22 +17,43 @@ public function index()
 }
 public function contact()
 {
-    return view('front.contact');
+    $data['items']=ProductCategory::with('products')->get();
+    return view('front.contact',$data);
 }
 public function category()
 {
-    return view('front.categories');
+    $data['items']=ProductCategory::with('products')->get();
+    return view('front.categories',$data);
 }
 public function single()
 {
-    return view('front.single');
+    $data['items']=ProductCategory::with('products')->get();
+    return view('front.single',$data);
 }
 public function description()
 {
-    return view('front.description');
+    $data['items']=ProductCategory::with('products')->get();
+    return view('front.description',$data);
 }
 public function productcart()
 {
-    return view('front.productcart');
+    $data['items']=ProductCategory::with('products')->get();
+    return view('front.productcart',$data);
+}
+public function productshow($id)
+{
+    $data['items']=ProductCategory::get();
+    $data['productcategory']=ProductCategory::find($id);
+    return view('front.productshow',$data);
+}
+public function login()
+{
+    $data['items']=ProductCategory::with('products')->get();
+    return view('front.login',$data);
+}
+public function register()
+{
+    $data['items']=ProductCategory::with('products')->get();
+    return view('front.register',$data);
 }
 }
