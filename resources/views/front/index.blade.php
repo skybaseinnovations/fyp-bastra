@@ -87,7 +87,7 @@
                                     <a href="{{ route('description', $product->id) }}">
                                         <img src="{{ asset('uploads/' . $product->img_url) }}" height="100px"
                                             widht="100px">
-                                    @endif
+                                    {{-- @endif --}}
                                 </div>
                             @endforeach
                         @endforeach
