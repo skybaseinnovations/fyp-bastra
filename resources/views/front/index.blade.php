@@ -24,35 +24,35 @@
         </div>
 
         <!-- Banner -->
-<!-- Banner -->
+        <!-- Banner -->
 
-<div class="banner">
-	<div class="container">
-		<div class="row">
-			<div class="col-md-4">
-				<div class="banner_item align-items-center" style="background-image:url('front/images/yellow.jpg')">
-					<div class="banner_category">
-						<a href="categories.html">women's</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="banner_item align-items-center" style="background-image:url(front/images/handbag.jpg)">
-					<div class="banner_category">
-						<a href="categories.html">Accessories's</a>
-					</div>
-				</div>
-			</div>
-			<div class="col-md-4">
-				<div class="banner_item align-items-center" style="background-image:url('front/images/man.jpg')">
-					<div class="banner_category">
-						<a href="categories.html">men's</a>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
-</div>
+        <div class="banner">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="banner_item align-items-center" style="background-image:url('front/images/yellow.jpg')">
+                            <div class="banner_category">
+                                <a href="categories.html">women's</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="banner_item align-items-center" style="background-image:url(front/images/handbag.jpg)">
+                            <div class="banner_category">
+                                <a href="categories.html">Accessories's</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="banner_item align-items-center" style="background-image:url('front/images/man.jpg')">
+                            <div class="banner_category">
+                                <a href="categories.html">men's</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
 
         <!-- New Arrivals -->
@@ -69,6 +69,7 @@
                 <div class="row">
                     <div class="image-groups w-100">
                         <div class="row p-5">
+                            <a href="#" class="show-images btn btn-primary mx-2" data-group="all">Show All</a>
                             @foreach ($items as $item)
                                 <a href="#" class="show-images btn btn-primary mx-2"
                                     data-group="{{ $item->id }}">{{ $item->name }}</a>
@@ -76,12 +77,14 @@
                         </div>
                     </div>
 
-                    <div class="image-container">
+
+
+                    <div class="image-container w-100">
                         {{-- Images for each group --}}
                         @foreach ($items as $item)
-                            @foreach ($item->products as $product)
-                                <div class="images-group" id="group-{{ $product->product_category_id }}">
-                                    @if ($item->id === $product->product_category_id)
+                            <div class="images-group" id="group-{{ $item->id }}">
+                                @foreach ($item->products as $product)
+                                    <a href="{{ route('description', $product->id) }}">
                                         <img src="{{ asset('uploads/' . $product->img_url) }}" height="100px"
                                             widht="100px">
                                     @endif
@@ -128,39 +131,49 @@
                                             </div>
                                         </div> 
                                     @endif
+                                            width="100px">
+                                    </a>
                                 @endforeach
                             @endforeach
 
                             
                         </div>
                     </div>
+
                 </div>
             </div>
         </div>
+    </div>
 
     </div>
 
 @endsection
- 	    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const showImagesLinks = document.querySelectorAll(".show-images");
-            const imageGroups = document.querySelectorAll(".images-group");
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const showImagesLinks = document.querySelectorAll(".show-images");
+        const imageGroups = document.querySelectorAll(".images-group");
 
-            showImagesLinks.forEach(link => {
-                link.addEventListener("click", function(event) {
-                    event.preventDefault();
-                    const groupId = this.getAttribute("data-group");
+        showImagesLinks.forEach(link => {
+            link.addEventListener("click", function(event) {
+                event.preventDefault();
+                const groupId = this.getAttribute("data-group");
 
-                    // Hide all image groups
+                // Hide all image groups
+                imageGroups.forEach(group => {
+                    group.style.display = "none";
+                });
+
+                if (groupId === "all") {
+                    // Show all image groups
                     imageGroups.forEach(group => {
-                        group.style.display = "none";
+                        group.style.display = "block";
                     });
-
+                } else {
                     // Display the selected image group
                     const selectedGroup = document.getElementById("group-" + groupId);
-                    console.log(selectedGroup);
                     selectedGroup.style.display = "block";
-                });
+                }
             });
         });
-    </script>
+    });
+</script>

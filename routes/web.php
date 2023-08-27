@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Auth\LoginController;
 use App\Http\Controllers\ProductCategoryController;
 use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Auth;
@@ -25,7 +26,14 @@ use App\Http\Controllers\Front\HomeController;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/admin/home', function () {
+    return view('admin.home');
+});
 
+Auth::routes();
+
+// Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
+ Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
 //  Product Category
 Route::get('/productcategory/index', [ProductCategoryController::class,'index'])->name('productcategory.index');
 Route::get('/productcategory/create', [ProductCategoryController::class,'create'])->name('productcategory.create');
@@ -61,7 +69,6 @@ Route::get('/orderitem/show/{id}', [OrderItemController::class,'show'])->name('o
 Route::delete('/orderitem/edit/delete/{id}', [OrderItemController::class,'destroy'])->name('orderitem.delete');
 
 
-Auth::routes();
 
 Route::get('/', [App\Http\Controllers\Front\HomeController::class, 'index'])->name('index');
 Route::get('/contact', [App\Http\Controllers\Front\HomeController::class, 'contact'])->name('contact');
@@ -72,6 +79,11 @@ Route::get('/productcart', [App\Http\Controllers\Front\HomeController::class, 'p
 Route::get('/productshow/{id}', [App\Http\Controllers\Front\HomeController::class, 'productshow'])->name('productshow');
 Route::get('/login', [App\Http\Controllers\Front\HomeController::class, 'login'])->name('login');
 Route::get('/register', [App\Http\Controllers\Front\HomeController::class, 'register'])->name('register');
+
+
+Route::get('/description/{id}', [App\Http\Controllers\Front\HomeController::class, 'description'])->name('description');
+Route::get('/product', [App\Http\Controllers\Front\HomeController::class, 'productcart'])->name('productcart');
+Route::post('/product/addcart/{id}', [App\Http\Controllers\Front\HomeController::class, 'productcartAdd'])->name('productcart.add');
 
 
 Route::get('/redirect', [App\Http\Controllers\HomeController::class, 'redirect'])->name('home');
