@@ -53,7 +53,7 @@ Route::get('/product', [App\Http\Controllers\Front\HomeController::class, 'produ
 Route::post('/product/addcart/{id}', [App\Http\Controllers\Front\HomeController::class, 'productcartAdd'])->name('productcart.add');
 
 
-Route::middleware('admin')->group(function(){
+Route::prefix('admin')->middleware('auth:admin')->group(function(){
         //  Product Category
         Route::get('/productcategory/index', [ProductCategoryController::class,'index'])->name('productcategory.index');
         Route::get('/productcategory/create', [ProductCategoryController::class,'create'])->name('productcategory.create');

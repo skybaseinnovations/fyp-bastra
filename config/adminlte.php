@@ -313,22 +313,22 @@ return [
         ],
         [
             'text' => 'Product Category',
-            'url'  => 'productcategory/index',
+            'route'  => 'productcategory.index',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'Product ',
-            'url'  => 'product/index',
+            'route'  => 'product.index',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'Order ',
-            'url'  => 'order/index',
+            'route'  => 'order.index',
             'icon' => 'fas fa-fw fa-user',
         ],
         [
             'text' => 'Order Item ',
-            'url'  => 'orderitem/index',
+            'route'  => 'orderitem.index',
             'icon' => 'fas fa-fw fa-user',
         ],
        
