@@ -45,6 +45,7 @@ class LoginController extends Controller
 
     public function login(Request $request)
     {
+        // dd(auth()->user());
         $request->validate([
             'email' => 'required|string',
             'password' => 'required|string'
@@ -62,8 +63,7 @@ class LoginController extends Controller
                 return back()->withInput($request->input())->with('passwordError', 'Oops! You have entered an invalid password');
             } else {
                 auth()->guard()->login($user, $remember_me);
-        
-                return redirect('/');
+           return redirect('/');
             }
         
         }elseif($superadmin){
