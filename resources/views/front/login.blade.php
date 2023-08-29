@@ -65,6 +65,14 @@
                 </div>
                 <div class="photo4 info1 d-flex">
                     <h3>Welcome to Bastra</h3>
+                    <div class="col-12 mx-auto">
+                        @if (Session::has('message'))
+                            <div class="alert alert-danger" role="alert">
+                                <button class="close" type="button" data-dismiss="alert">x</button>
+                                {{ Session::get('message') }}
+                            </div>
+                        @endif
+                    </div>
                     <form class="row g-3 needs-validation" novalidate method="POST" action="{{ route('login.post') }}">
                         @csrf
                         <div class="col-md-12 ">

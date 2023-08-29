@@ -6,6 +6,7 @@ use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\OrderItemController;
+use App\Http\Kernel;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front\HomeController;
 
@@ -30,29 +31,24 @@ Route::get('/admin/home', function () {
     return view('admin.home');
 });
 
+
 Auth::routes();
 
 // Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
  Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
  Route::post('/login/post', [LoginController::class, 'login'])->name('login.post');
 
-
+// Frontend
 Route::get('/', [App\Http\Controllers\Front\HomeController::class, 'index'])->name('index');
 Route::get('/contact', [App\Http\Controllers\Front\HomeController::class, 'contact'])->name('contact');
-Route::get('/category', [App\Http\Controllers\Front\HomeController::class, 'category'])->name('category');
-Route::get('/single', [App\Http\Controllers\Front\HomeController::class, 'single'])->name('single');
-Route::get('/description', [App\Http\Controllers\Front\HomeController::class, 'description'])->name('description');
-Route::get('/productcart', [App\Http\Controllers\Front\HomeController::class, 'productcart'])->name('productcart');
+Route::get('/category/item/{id}', [App\Http\Controllers\Front\HomeController::class, 'categoryItem'])->name('category.item');
 Route::get('/productshow/{id}', [App\Http\Controllers\Front\HomeController::class, 'productshow'])->name('productshow');
 Route::get('/login', [App\Http\Controllers\Front\HomeController::class, 'login'])->name('login');
 Route::get('/register', [App\Http\Controllers\Front\HomeController::class, 'register'])->name('register');
-
-
-Route::get('/description/{id}', [App\Http\Controllers\Front\HomeController::class, 'description'])->name('description');
-Route::get('/product', [App\Http\Controllers\Front\HomeController::class, 'productcart'])->name('productcart');
+Route::get('/productdetails/{id}', [App\Http\Controllers\Front\HomeController::class,'details'])->name('details')->middleware('cartaccess');
 Route::post('/product/addcart/{id}', [App\Http\Controllers\Front\HomeController::class, 'productcartAdd'])->name('productcart.add');
-
-
+Route::get('/cartshow',[App\Http\Controllers\Front\HomeController::class, 'cartshow'])->name('cartshow')->middleware('cartaccess');
+// Backend
 Route::prefix('admin')->middleware('auth:admin')->group(function(){
         //  Product Category
         Route::get('/productcategory/index', [ProductCategoryController::class,'index'])->name('productcategory.index');

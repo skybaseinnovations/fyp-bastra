@@ -74,31 +74,48 @@
                                 <ul class="navbar_menu">
                                     <li><a href="{{ route('index') }}">home</a></li>
                                     <li class="account">
-                                        <a href="{{ route('category') }}">Category
+                                        <a>Category
                                             <i class="fa fa-angle-down"></i>
                                         </a>
                                         <ul class="account_selection">
                                             @foreach ($items as $item)
-                                                <li><a href="{{ route('category') }}">{{ $item->name }}</a></li>
+                                                <li><a
+                                                        href="{{ route('category.item', $item->id) }}">{{ $item->name }}</a>
+                                                </li>
                                             @endforeach
                                         </ul>
                                     </li>
                                     <li><a href="{{ route('contact') }}">contact</a></li>
                                     <div class="button">
                                         @auth
-                                            <form action="{{ route('logout') }}" method="POST">
-                                                @csrf
-                                                <button type="submit"
-                                                    style="border-radius: 2rem;border:1px solid white;padding:0.9rem;background-color:#e92556;color:white;"><i
-                                                        class="fa fa-user-plus"></i></a>&nbsp;&nbsp;Logout</button>
-                                            </form>
+
+                                            <li class="checkout">
+                                                <a href="{{ route('cartshow') }}">
+                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                                </a>
+                                            </li>
+                                            <li class="ml-3">
+                                                <form action="{{ route('logout') }}" method="POST">
+                                                    @csrf
+                                                    <button type="submit"
+                                                        style="border-radius: 2rem;border:1px solid white;padding:0.9rem;background-color:#e92556;color:white;"><i
+                                                            class="fa fa-user-plus"></i></a>&nbsp;&nbsp;Logout</button>
+
+
+                                                </form>
+                                            </li>
                                         @else
-                                            <button type="button"
-                                                style="border-radius: 2rem;border:1px solid white;padding:0.9rem;background-color:#74c69d;color:ghostwhite;;"><i
-                                                    class="fa fa-user"></i></a>&nbsp;&nbsp;Login</button>
-                                            <button type="button"
-                                                style="border-radius: 2rem;border:1px solid white;padding:0.9rem;background-color:#0096c7;color:white;"><i
-                                                    class="fa fa-user-plus"></i></a>&nbsp;&nbsp;Register</button>
+                                            <div class="button">
+
+                                                <a href="{{ route('login') }}" class="btn btn-success"
+                                                    style="border-radius: 2rem;border:1px solid white;padding:0.9rem;color:ghostwhite;"><i
+                                                        class="fa fa-user"></i>&nbsp;&nbsp;Login</a>
+                                                <a href="{{ route('register') }}" class="btn"
+                                                    style="border-radius: 2rem;border:1px solid white;padding:0.9rem;background-color:#0096c7;color:white;"><i
+                                                        class="fa fa-user-plus"></i>&nbsp;&nbsp;Register</a>
+
+
+                                            </div>
                                         @endauth
                                     </div>
                                 </ul>
@@ -123,22 +140,8 @@
                 <ul class="menu_top_nav">
 
                     <li class="menu_item"><a href="{{ route('index') }}">home</a></li>
-                    <li class="menu_item"><a href="{{ route('category') }}">Category</a></li>
+                    <li class="menu_item"><a href="">Category</a></li>
 
-                    <li class="menu_item"><a href="{{ route('contact') }}">contact</a></li>
-                </ul>
-            </div>
-        </div>
-
-        {{-- Hamburger menu --}}
-        <div class="fs_menu_overlay"></div>
-        <div class="hamburger_menu">
-            <div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
-            <div class="hamburger_menu_content text-right">
-                <ul class="menu_top_nav">
-
-                    <li class="menu_item"><a href="{{ route('index') }}">home</a></li>
-                    <li class="menu_item"><a href="{{ route('category') }}">Category</a></li>
                     <li class="menu_item"><a href="{{ route('contact') }}">contact</a></li>
                 </ul>
             </div>

@@ -2,75 +2,89 @@
 
 namespace App\Http\Controllers\Front;
 
-use App\Http\Controllers\Controller;
+use App\Http\Controllers\BaseController;
 use App\Models\CartItem;
 use App\Models\ProductCategory;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
-class HomeController extends Controller
+class HomeController extends BaseController
 {
+
+
     
 
 public function index()
 {
-    $data['items']=ProductCategory::with('products')->get();
+    $data['items']=$this->productCategoryInfo();
     return view('front.index', $data);
 }
 public function contact()
 {
-    $data['items']=ProductCategory::with('products')->get();
+    $data['items']=$this->productCategoryInfo();
     return view('front.contact',$data);
 }
-public function category()
+// public function category()
+// {
+//     $data['items']=$this->productCategoryInfo();
+//     return view('front.categories',$data);
+    
+    
+// }
+public function categoryItem($id)
 {
-    $data['items']=ProductCategory::with('products')->get();
-    return view('front.categories',$data);
+    $data['productCategories']=$this->productCategoryInfo();
+    $data['products']=Product::where('product_category_id',$id)->get();
+    $data['items']=$this->productCategoryInfo();
+
+    return view('front.categoryItem',$data);
 }
-public function single()
+public function details($id)
 {
-    $data['items']=ProductCategory::with('products')->get();
-    return view('front.single',$data);
-}
-public function description($id)
-{
-    $data['items']=ProductCategory::with('products')->get();
+    $data['items']=$this->productCategoryInfo();
+    $data['product']=Product::find($id);
     return view('front.description',$data);
 }
-public function productcart()
-{
-    $data['items']=ProductCategory::with('products')->get();
-    return view('front.productcart',$data);
-}
+
 public function productshow($id)
 {
-    $data['items']=ProductCategory::get();
+    $data['items']=$this->productCategoryInfo();
     $data['productcategory']=ProductCategory::find($id);
     return view('front.productshow',$data);
 }
 public function login()
 {
-    $data['items']=ProductCategory::with('products')->get();
+    $data['items']=$this->productCategoryInfo();
     return view('front.login',$data);
 }
 public function register()
 {
-    $data['items']=ProductCategory::with('products')->get();
+    $data['items']=$this->productCategoryInfo();
     return view('front.register',$data);
 }
 public function productcartAdd(Request $request,$id)
 {
-    $item = new CartItem();
-    $item = new CartItem();
+    $data['items']=$this->productCategoryInfo();
+
+    $cart = new CartItem();
     $product = Product::find($id);
-    $item->product_id = $id;
-    $item->quantity = $request->quantity;
-    $item->total = $request->quantity*$product->price;
-    $item->user_id= auth()->user()->id;
-    dd($item);
-    $item->save();
+    $cart->product_id = $id;
+    $cart->quantity = $request->quantity;
+    $cart->total = $request->quantity*$product->price;
+    $cart->user_id= auth()->user()->id;
+    $cart->save();
    
-    return view('front.productcart');
+    $data['cart']=$cart;
+    // return view('front.productcart',$data);
+
+    return redirect()->back()->with('message', 'Cart Added Successfully');
+
+}
+public function cartshow()
+{
+    $data['items']=$this->productCategoryInfo();
+    $data['carts']=CartItem::with('product')->where('user_id',auth()->user()->id)->get();
+    return view('front.productcart',$data);
 }
 
 }

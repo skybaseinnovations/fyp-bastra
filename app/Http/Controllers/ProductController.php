@@ -83,6 +83,7 @@ class ProductController extends Controller
         $product->description=$request->description;
         $product->price=$request->price;
         $product->rate_count=$request->rate_count;
+        $product->product_category_id = $request->product_category_id;
         if($request->hasFile('img_url')){
             $destination='uploads/'.$product->img_url;
             if(File::exists($destination)){
