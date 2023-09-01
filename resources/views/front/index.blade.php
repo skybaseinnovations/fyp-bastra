@@ -94,8 +94,13 @@
                                                     </div>
                                                 </div>
                                                 <div class="red_button add_to_cart_button"><a
+<<<<<<< HEAD
                                                         href="{{ route('details', $product->id) }}">View
                                                         </a>
+=======
+                                                        href="{{ route('details', $product->id) }}">add to
+                                                        cart</a>
+>>>>>>> af6da711ee882a5669799b8c2a94b6d3d84e80c2
                                                 </div>
                                             </div>
                                         @endforeach
@@ -104,12 +109,19 @@
 
                             </div>
                         </div>
+<<<<<<< HEAD
 
                     </div>
                 </div>
             </div>
         </div>
         </div>
+=======
+
+                    </div>
+                </div>
+
+>>>>>>> af6da711ee882a5669799b8c2a94b6d3d84e80c2
 
                 {{-- <div class="row">
                     <div class="col">

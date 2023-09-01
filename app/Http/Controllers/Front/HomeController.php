@@ -10,6 +10,13 @@ use Illuminate\Http\Request;
 
 class HomeController extends BaseController
 {
+<<<<<<< HEAD
+=======
+
+
+    
+
+>>>>>>> af6da711ee882a5669799b8c2a94b6d3d84e80c2
 public function index()
 {
     $data['items']=$this->productCategoryInfo();

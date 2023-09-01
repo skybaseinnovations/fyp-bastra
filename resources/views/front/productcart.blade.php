@@ -85,10 +85,14 @@
                             </tr>
                             @foreach ($carts as $key => $cart)
                                 <tr>
+<<<<<<< HEAD
                                     <td>
                                         <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
                                        
                                     </td>
+=======
+                                    <td>{{ ++$key }}</td>
+>>>>>>> af6da711ee882a5669799b8c2a94b6d3d84e80c2
                                     <td>
                                         <div class="cart-info">
                                             <img src="{{ asset('uploads/' . $cart->product->img_url) }}" alt="">
@@ -99,6 +103,7 @@
                                             </div>
                                         </div>
                                     </td>
+<<<<<<< HEAD
                                     <td>
                                         <div class="increment d-flex">
                                             <button class="b1 decrease"
@@ -112,6 +117,9 @@
                                        
                                     </td>
                                     </div>
+=======
+                                    <td><input type="text" value="{{ $cart->quantity }}"></td>
+>>>>>>> af6da711ee882a5669799b8c2a94b6d3d84e80c2
                                     <td>${{ $cart->total }}</td>
                                 </tr>
                             @endforeach
@@ -121,6 +129,7 @@
 
                 </div>
                 <div class="cart2 info1">
+<<<<<<< HEAD
 
                     <div class="card" >
                       <div class="card-body">
@@ -140,6 +149,23 @@
                       </div>
                     </div>
                    
+=======
+                    <div class="total-price">
+                        <table>
+                            <tr>
+                                <td style="font-size:1.2em;">Order Summary</td>
+                            </tr>
+                            <tr>
+                                <td>Subtotal</td>
+                                <td>$200.00</td>
+                            </tr>
+                            <tr>
+                                <td>Total</td>
+                                <td>$200.00</td>
+                            </tr>
+                        </table>
+                    </div>
+>>>>>>> af6da711ee882a5669799b8c2a94b6d3d84e80c2
                 </div>
         </section>
 
