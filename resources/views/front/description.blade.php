@@ -58,13 +58,21 @@
         <br>
         <br>
         <section>
+            <div class="col-6 mx-auto mt-5 mx-auto">
+                @if (Session::has('message'))
+                    <div class="alert alert-success text-center" role="alert">
+                        <button class="close" type="button" data-dismiss="alert">x</button>
+                        {{ Session::get('message') }}
+                    </div>
+                @endif
+            </div>
             <div class="section">
-
                 <div class="photo3 info1" style="heigh:400px;">
-                    <img src="{{ asset('uploads/' . $item->img_url) }}" style="width:400px;height:400px; object-fit:contain;">
+                    <img src="{{ asset('uploads/' . $product->img_url) }}"
+                        style="width:400px;height:400px; object-fit:contain;">
                 </div>
                 <div class="photo4 info1">
-                    <p style="font-size:3rem;color:black;">{{ $item->name }}</p>
+                    <p style="font-size:3rem;color:black;">{{ $product->name }}</p>
                     <div class="price d-flex">
                         <i class="fa-solid fa-star"style="color:orange;font-size:1.5rem;"></i>
                         <i class="fa-solid fa-star"style="color:orange;font-size:1.5rem;"></i>
@@ -73,7 +81,7 @@
                         <i class="fa-solid fa-star"style="color:orange;font-size:1.5rem;"></i>
                     </div>
                     <br>
-                    <form action="{{ route('productcart.add', $item->id) }}" method="POST">
+                    <form action="{{ route('productcart.add', $product->id) }}" method="POST">
                         @csrf
                         @method('POST')
 
@@ -88,23 +96,18 @@
                                 type="button" class="">+</button>
                         </div>
                         <br>
-                        <div class="product_price">${{ $item->price }}</div>
+                        <div class="product_price">Unit price:${{ $product->price }}</div>
                         <br>
                         <h3>Product Description</h3>
-                        <p style="font-size:1rem;color:black;text-align:justify;">{{ $item->description }}</p>
+                        {{-- <p style="font-size:1rem;color:black;text-align:justify;">{{ $item->description }}</p> --}}
 
 
                         <button
                             style="background-color:#ab4cfe;color:white;padding:1rem;width:150px;font-size:1.2rem;border:1px solid white;"
                             type="submit" class="">Add to Cart</button>
                     </form>
-                    <button class="b1"
-                        style="background-color:#ab4cfe;color:white;padding:1rem;width:150px;font-size:1.2rem;border:1px solid white;"
-                        type="button" class="">Buy</button>&nbsp;&nbsp;
-                    <br>
-                    <br>
-                    <br>
-                    <br>
+
+
                 </div>
         </section>
     @endsection
