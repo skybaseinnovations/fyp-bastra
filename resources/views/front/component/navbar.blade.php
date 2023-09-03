@@ -79,7 +79,7 @@
                                         </a>
                                         <ul class="account_selection">
                                             @foreach ($items as $item)
-                                                <li><a href="{{ route('category') }}">{{ $item->name }}</a></li>
+                                                <li><a href="{{ route('category.item',$item->id) }}">{{ $item->name}}</a></li>
                                             @endforeach
                                         </ul>
                                     </li>

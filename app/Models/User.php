@@ -47,11 +47,8 @@ class User extends Authenticatable
     {
         return $this->hasMany(CartItem::class);
     } 
-<<<<<<< HEAD
     public function Order()
     {
         return $this->hasMany(Order::class);
     }
-=======
->>>>>>> af6da711ee882a5669799b8c2a94b6d3d84e80c2
 }
