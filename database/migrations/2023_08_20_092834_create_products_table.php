@@ -18,7 +18,8 @@ return new class extends Migration
             $table->text('description')->nullable();
             $table->integer('rate_count')->nullable();
             $table->string('img_url')->nullable();
-            $table->foreignId('product_category_id')->references('id')->on('product_categories')->onDelete('set null')->onUpdate('set null');
+            $table->unsignedBigInteger('product_category_id');
+            $table->foreign('product_category_id')->references('id')->on('product_categories');
             $table->timestamps();
         });
     }

@@ -13,10 +13,10 @@ return new class extends Migration
     {
         Schema::create('cart_items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')->references('id')->on('products')->onDelete('set null')->onUpdate('set null');
+            $table->foreignId('product_id')->references('id')->on('products');
             $table->integer('quantity')->nullable();
             $table->double('total')->nullable();
-            $table->foreignId('user_id')->references('id')->on('users')->onDelete('set null')->onUpdate('set null');
+            $table->foreignId('user_id')->references('id')->on('users');
             $table->timestamps();
         });
     }
