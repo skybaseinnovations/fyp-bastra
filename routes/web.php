@@ -49,10 +49,7 @@ Route::get('/register', [App\Http\Controllers\Front\HomeController::class, 'regi
 Route::get('/productdetails/{id}', [App\Http\Controllers\Front\HomeController::class,'details'])->name('details')->middleware('cartaccess');
 Route::post('/product/addcart/{id}', [App\Http\Controllers\Front\HomeController::class, 'productcartAdd'])->name('productcart.add');
 Route::get('/cartshow',[App\Http\Controllers\Front\HomeController::class, 'cartshow'])->name('cartshow')->middleware('cartaccess');
-<<<<<<< HEAD
 Route::get('/orderhistory',[App\Http\Controllers\Front\HomeController::class, 'orderhistory'])->name('orderhistory');
-=======
->>>>>>> af6da711ee882a5669799b8c2a94b6d3d84e80c2
 Route::get('/cartItem/delete/{id}',[App\Http\Controllers\Front\HomeController::class, 'deleteCartItem'])->name('cartItem.delete')->middleware('cartaccess');
 // Backend
 Route::prefix('admin')->middleware('auth:admin')->group(function(){
