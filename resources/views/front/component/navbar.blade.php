@@ -79,13 +79,24 @@
                                         </a>
                                         <ul class="account_selection">
                                             @foreach ($items as $item)
-                                                <li><a
-                                                        href="{{ route('category.item', $item->id) }}">{{ $item->name }}</a>
-                                                </li>
+                                                <li><a href="{{ route('category') }}">{{ $item->name }}</a></li>
                                             @endforeach
                                         </ul>
                                     </li>
                                     <li><a href="{{ route('contact') }}">contact</a></li>
+
+                                    {{-- <li class="account">
+                                        <a>Category
+                                            <i class="fa fa-angle-down"></i>
+                                        </a>
+                                        <ul class="account_selection">
+                                            @foreach ($items as $item)
+                                                <li>
+                                                    <a shref="{{ route('category.item', $item->id) }}">{{ $item->name }}</a>
+                                                </li>
+                                            @endforeach
+                                        </ul>
+                                    </li> --}}
                                     <div class="button">
                                         @auth
 

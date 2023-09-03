@@ -13,6 +13,8 @@ use Illuminate\Http\Request;
 
 class HomeController extends BaseController
 {
+<<<<<<< HEAD
+=======
 
 public function test(Request $request){
     $selected = json_decode($request->selected);
@@ -57,6 +59,7 @@ public function test(Request $request){
 }
     
 
+>>>>>>> af6da711ee882a5669799b8c2a94b6d3d84e80c2
 public function index()
 {
     $data['items']=$this->productCategoryInfo();
@@ -138,4 +141,9 @@ public function cartshow()
     return view('front.productcart',$data);
 }
 
+public function orderhistory()
+{
+    $data['items']=$this->productCategoryInfo();
+    return view('front.orderhistory',$data);
+}
 }
