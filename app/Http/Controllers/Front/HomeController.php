@@ -4,12 +4,56 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\BaseController;
 use App\Models\CartItem;
+use App\Models\Home;
+use App\Models\Order;
+use App\Models\OrderItem;
 use App\Models\ProductCategory;
 use App\Models\Product;
 use Illuminate\Http\Request;
 
 class HomeController extends BaseController
 {
+
+public function test(Request $request){
+    $selected = json_decode($request->selected);
+    $product_ids = $request->product_ids;
+    $quantities= $request->quantity;
+    $order = new Order();
+    $order->user_id = auth()->user()->id;
+
+    $order->location = auth()->user()->location;
+    $order->payment_reference_id = auth()->user()->id;
+
+    $order->save();
+
+    $order->update(['order_id' => $order->id]);
+
+
+
+    foreach($selected as $key=>$data){
+        if($data == "on"){
+            $orderItems = new OrderItem();
+            $product_id = $product_ids[$key];
+            $quantity = $quantities[$key];
+            $product = Product::find($product_id);
+            $total_amount = $quantity * $product->price;
+            $title=$product->name;
+
+            $orderItems->product_id = $product_id;
+            $orderItems->quantity = $quantity;
+            $orderItems->order_id = $order->id;
+            $orderItems->total_amount = $total_amount;
+            $orderItems->product_title = $title;
+            $orderItems->save();
+        }
+    }
+    return redirect()->back();
+
+
+    //  foreach($formData as $form){
+    //     CartItem::create($form);
+    //  }
+}
 
     public function index()
     {
@@ -22,6 +66,7 @@ class HomeController extends BaseController
         $data['items'] = $this->productCategoryInfo();
         return view('front.contact', $data);
     }
+
 // public function category()
 // {
 //     $data['items']=$this->productCategoryInfo();

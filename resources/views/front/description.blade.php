@@ -65,8 +65,14 @@
                         {{ Session::get('message') }}
                     </div>
                 @endif
+                @if (Session::has('error'))
+                    <div class="alert alert-danger text-center" role="alert">
+                        <button class="close" type="button" data-dismiss="alert">x</button>
+                        {{ Session::get('error') }}
+                    </div>
+                @endif
             </div>
-            <div class="section">
+            <div class="section mx-auto">
                 <div class="photo3 info1" style="heigh:400px;">
                     <img src="{{ asset('uploads/' . $product->img_url) }}"
                         style="width:400px;height:400px; object-fit:contain;">

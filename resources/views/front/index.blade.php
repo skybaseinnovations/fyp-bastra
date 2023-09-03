@@ -94,13 +94,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="red_button add_to_cart_button"><a
-<<<<<<< HEAD
                                                         href="{{ route('details', $product->id) }}">View
-                                                        </a>
-=======
-                                                        href="{{ route('details', $product->id) }}">add to
-                                                        cart</a>
->>>>>>> af6da711ee882a5669799b8c2a94b6d3d84e80c2
+                                                        Product</a>
                                                 </div>
                                             </div>
                                         @endforeach
@@ -109,21 +104,14 @@
 
                             </div>
                         </div>
-<<<<<<< HEAD
 
                     </div>
                 </div>
             </div>
         </div>
-        </div>
-=======
+    </div>
 
-                    </div>
-                </div>
-
->>>>>>> af6da711ee882a5669799b8c2a94b6d3d84e80c2
-
-                {{-- <div class="row">
+    {{-- <div class="row">
                     <div class="col">
                         <div class="product-grid"
                             data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
@@ -178,35 +166,35 @@
                         </div>
                     </div>
                 </div> --}}
-            </div>
-        </div>
+    </div>
+    </div>
 
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                const showImagesLinks = document.querySelectorAll(".show-images");
-                const imageGroups = document.querySelectorAll(".images-group");
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const showImagesLinks = document.querySelectorAll(".show-images");
+            const imageGroups = document.querySelectorAll(".images-group");
 
-                showImagesLinks.forEach(link => {
-                    link.addEventListener("click", function(event) {
-                        event.preventDefault();
-                        const groupId = this.getAttribute("data-group");
+            showImagesLinks.forEach(link => {
+                link.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    const groupId = this.getAttribute("data-group");
 
-                        // Hide all image groups
-                        imageGroups.forEach(group => {
-                            group.style.display = "none";
-                        });
-
-                        if (groupId === "all") {
-                            // Show all image groups
-                            imageGroups.forEach(group => {
-                                group.style.display = "block";
-                            });
-                        } else {
-                            // Display the selected image group
-                            const selectedGroup = document.getElementById("group-" + groupId);
-                            selectedGroup.style.display = "block";
-                        }
+                    // Hide all image groups
+                    imageGroups.forEach(group => {
+                        group.style.display = "none";
                     });
+
+                    if (groupId === "all") {
+                        // Show all image groups
+                        imageGroups.forEach(group => {
+                            group.style.display = "block";
+                        });
+                    } else {
+                        // Display the selected image group
+                        const selectedGroup = document.getElementById("group-" + groupId);
+                        selectedGroup.style.display = "block";
+                    }
                 });
             });
-        </script>
+        });
+    </script>
