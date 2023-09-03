@@ -94,8 +94,8 @@
                                                     </div>
                                                 </div>
                                                 <div class="red_button add_to_cart_button"><a
-                                                        href="{{ route('details', $product->id) }}">add to
-                                                        cart</a>
+                                                        href="{{ route('details', $product->id) }}">View
+                                                        Product</a>
                                                 </div>
                                             </div>
                                         @endforeach
