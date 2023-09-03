@@ -84,132 +84,92 @@
 
 
     <div class="container pt-5">
-        <section>
-            <div class="section">
-                <div class="cart1 info1">
-                    <div class="container cart-page">
-                        <table>
-                            <tr>
-                                <th>S.N</th>
-                                <th>Product</th>
-                                <th>Quantity</th>
-                                <th>Subtotal</th>
-                            </tr>
-                            @foreach ($carts as $key => $cart)
+        <form action="{{ route('test') }}" method="POST" id="form">
+            @csrf
+            <section>
+                <div class="section">
+                    <div class="cart1 info1">
+                        <div class="container1 cart-page">
+                            <table>
                                 <tr>
-                                    <<<<<<< HEAD <td>
-                                        <input type="checkbox" class="btn-check" id="btncheck1" autocomplete="off">
-
-                                        </td>
-                                        =======
-                                        <td>{{ ++$key }}</td>
-                                        >>>>>>> af6da711ee882a5669799b8c2a94b6d3d84e80c2
+                                    <th>S.N</th>
+                                    <th>Product</th>
+                                    <th>Quantity</th>
+                                    <th>Subtotal</th>
+                                </tr>
+                                @foreach ($carts as $key => $cart)
+                                    <tr>
                                         <td>
-                                            <div class="cart-info">
+                                            <input name="selected[]" type="checkbox"
+                                                class="btn-check item-checkbox cartSelector" autocomplete="off"
+                                                data-index="{{ $key }}">
+                                            <input type="hidden" name="product_ids[]" value="{{ $cart->product->id }}">
+                                        </td>
+                                        {{-- <td>{{ ++$key }}</td> --}}
+                                        <td>
+                                            <div class="cart-info " style="justify-content: center">
                                                 <img src="{{ asset('uploads/' . $cart->product->img_url) }}" alt="">
                                                 <div style="justify-content: center">
                                                     <h5>{{ $cart->product->name }}</h5>
-                                                    <p>Price: ${{ $cart->product->price }}</p>
-                                                    <a style="color: red">Remove</a>
-                                                    <form action="{{ route('test') }}" method="POST" id="form">
-                                                        @csrf
-                                                        <section>
-                                                            <div class="section">
-                                                                <div class="cart1 info1">
-                                                                    <div class="container1 cart-page">
-                                                                        <table>
-                                                                            <tr>
-                                                                                <th>S.N</th>
-                                                                                <th>Product</th>
-                                                                                <th>Quantity</th>
-                                                                                <th>Subtotal</th>
-                                                                            </tr>
-                                                                            @foreach ($carts as $key => $cart)
-                                                                                <tr>
-                                                                                    <td>
-                                                                                        <input name="selected[]"
-                                                                                            type="checkbox"
-                                                                                            class="btn-check item-checkbox cartSelector"
-                                                                                            autocomplete="off"
-                                                                                            data-index="{{ $key }}">
-                                                                                        <input type="hidden"
-                                                                                            name="product_ids[]"
-                                                                                            value="{{ $cart->product->id }}">
-                                                                                    </td>
-                                                                                    {{-- <td>{{ ++$key }}</td> --}}
-                                                                                    <td>
-                                                                                        <div class="cart-info "
-                                                                                            style="justify-content: center">
-                                                                                            <img src="{{ asset('uploads/' . $cart->product->img_url) }}"
-                                                                                                alt="">
-                                                                                            <div
-                                                                                                style="justify-content: center">
-                                                                                                <h5>{{ $cart->product->name }}
-                                                                                                </h5>
-                                                                                                <p class="price">Price:
-                                                                                                    ${{ $cart->product->price }}
-                                                                                                </p>
-                                                                                                <a href="{{ route('cartItem.delete', $cart->id) }}"
-                                                                                                    style="color: red">Remove</a>
-                                                                                            </div>
-                                                                                        </div>
-                                                                    </div>
+                                                    <p class="price">Price: ${{ $cart->product->price }}</p>
+                                                    <a href="{{ route('cartItem.delete', $cart->id) }}"
+                                                        style="color: red">Remove</a>
+                                                </div>
+                                            </div>
                                         </td>
-                                        <<<<<<< HEAD <td>
-                                            <div class="increment d-flex">
-                                                <button class="b1 decrease"
+                                        <td>
+                                            <div class="increment d-flex" style="justify-content: center">
+                                                <button class="decrease"
                                                     style="background-color:#ab4cfe;color:white;width:30px;height:30px;font-size:1.5rem;border:1px solid white;"
                                                     type="button" class="">-</button>&nbsp;&nbsp;
-                                                <input type="text" value="{{ $cart->quantity }}"
-                                                    style="width:30px;text-align:center;">&nbsp;&nbsp;
+                                                <input type="text" style="width:30px;text-align:center;"
+                                                    name="quantity[]" value="{{ $cart->quantity }}"
+                                                    class="quantity">&nbsp;&nbsp;
                                                 <button class="increase"
                                                     style="background-color:#ab4cfe;color:white;width:30px;font-size:1.5rem;height:30px;border:1px solid white;"
-                                                    type="button" class="">+</button>
+                                                    type="button" class="" value="">+</button>
                                             </div>
+                                        </td>
+                                        <td class="subtotal-cell" name="subtotals[]">${{ $cart->total }}
+                                        </td>
 
-                                            </td>
+                                    </tr>
+                                @endforeach
+
+                            </table>
+                        </div>
+
+                        <div id="hidden-selected">
+
+                        </div>
                     </div>
-                    =======
-                    <td><input type="text" value="{{ $cart->quantity }}"></td>
-                    >>>>>>> af6da711ee882a5669799b8c2a94b6d3d84e80c2
-                    <td>${{ $cart->total }}</td>
-                    </tr>
-                    @endforeach
+                    <div class="cart2 info1">
 
-                    </table>
-                </div>
+                        <div class="border text-center">
+                            <table>
+                                <tr style="width: 100%;">
+                                    <th>Order Summary</th>
+                                    <th></th>
 
-                <div id="hidden-selected">
+                                </tr>
 
-                </div>
-            </div>
-            <div class="cart2 info1">
+                                <tr>
 
-                <div class="border text-center">
-                    <table>
-                        <tr style="width: 100%;">
-                            <th>Order Summary</th>
-                            <th></th>
+                                    <td>Total</td>
+                                    <td id="totalCell">$00.00</td>
+                                </tr>
+                            </table>
+                            <button type="button" class="btn btn-success btn-sm mx-auto m-3 submitBtn" id="submitBtn"
+                                style="background-color:#ab4cfe;">
+                                Proceed
+                                To
+                                Checkout</button>
+                        </div>
+                        <div class="total-price">
 
-                        </tr>
-
-                        <tr>
-
-                            <td>Total</td>
-                            <td id="totalCell">$00.00</td>
-                        </tr>
-                    </table>
-                    <button type="button" class="btn btn-success btn-sm mx-auto m-3 submitBtn" id="submitBtn"
-                        style="background-color:#ab4cfe;">
-                        Proceed
-                        To
-                        Checkout</button>
-                </div>
-                <div class="total-price">
-
-                </div>
-            </div>
-        </section>
+                        </div>
+                    </div>
+            </section>
         </form>
 
 

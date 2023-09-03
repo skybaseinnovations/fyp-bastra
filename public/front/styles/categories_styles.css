@@ -584,7 +584,7 @@ section
 }
 .menu_item > a:hover
 {
-	color: #b5aec4;
+	/* color: #b5aec4; */
 }
 .menu_item > a > i
 {

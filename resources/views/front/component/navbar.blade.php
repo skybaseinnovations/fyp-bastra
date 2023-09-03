@@ -15,6 +15,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('front/plugins/OwlCarousel2-2.2.1/animate.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('front/styles/styles.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('front/styles/responsive.css') }}">
+    <link rel="stylesheet" href="	https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css">
 
     <link rel="stylesheet" type="text/css" href="{{ asset('front/plugins/jquery-ui-1.12.1.custom/jquery-ui.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('front/styles/categories_styles.css') }}">
@@ -39,6 +40,9 @@
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Open+Sans:ital,wght@0,400;1,300&family=Roboto:wght@500&family=Source+Code+Pro:ital@1&display=swap"
         rel="stylesheet">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
 
     <style>
         .button {
@@ -79,7 +83,9 @@
                                         </a>
                                         <ul class="account_selection">
                                             @foreach ($items as $item)
-                                                <li><a href="{{ route('category') }}">{{ $item->name }}</a></li>
+                                                <li><a
+                                                        href="{{ route('category.item', $item->id) }}">{{ $item->name }}</a>
+                                                </li>
                                             @endforeach
                                         </ul>
                                     </li>
@@ -99,7 +105,37 @@
                                     </li> --}}
                                     <div class="button">
                                         @auth
+                                            <li class="account">
+                                                <a>Orders & Account
+                                                    <i class="fa fa-angle-down"></i>
+                                                </a>
+                                                <ul class="account_selection">
+                                                    <li><a style="width:200px;" href="#">Manage
+                                                            Account</a>
+                                                    </li>
 
+                                                    <li><a style="width:200px;"href="#">My Order</a>
+                                                    </li>
+
+                                                    <li><a href="#">Returns & Cancelation</a>
+                                                    </li>
+
+                                                    <li><a href="#">Manage Account</a>
+                                                    </li>
+
+                                                    <li class="ml-3">
+                                                        <form action="{{ route('logout') }}" method="POST">
+                                                            @csrf
+                                                            <button type="submit" class="m-2"
+                                                                style="border-radius: 2rem;border:1px solid white;padding:0.9rem;background-color:#e92556;color:white;">
+                                                                <i
+                                                                    class="fa-solid fa-arrow-right-from-bracket"></i></a>&nbsp;&nbsp;Logout</button>
+
+
+                                                        </form>
+                                                    </li>
+                                                </ul>
+                                            </li>
                                             <li class="checkout">
                                                 <a href="{{ route('cartshow') }}">
                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>

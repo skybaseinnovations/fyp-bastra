@@ -21,7 +21,7 @@ public function test(Request $request){
     $order = new Order();
     $order->user_id = auth()->user()->id;
 
-    $order->location = auth()->user()->location;
+    $order->location =auth()->user()->address;
     $order->payment_reference_id = auth()->user()->id;
 
     $order->save();
