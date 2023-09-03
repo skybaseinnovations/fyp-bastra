@@ -4,10 +4,6 @@ namespace App\Http\Controllers\Front;
 
 use App\Http\Controllers\BaseController;
 use App\Models\CartItem;
-use App\Models\Home;
-use App\Models\Order;
-use App\Models\OrderItem;
-use App\Models\Home;
 use App\Models\Order;
 use App\Models\OrderItem;
 use App\Models\ProductCategory;
