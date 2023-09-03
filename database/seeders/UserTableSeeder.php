@@ -17,6 +17,7 @@ class UserTableSeeder extends Seeder
             'name' => 'Anu',
             'email' => 'anu@gmail.com',
             'password' => bcrypt('12345678'),
+            'address'=>'Pokhara',
         ]);
     }
 }

@@ -37,6 +37,7 @@ Auth::routes();
 // Route::get('/login', [LoginController::class, 'showLoginForm'])->name('login');
  Route::post('/logout', [LoginController::class, 'logout'])->name('logout');
  Route::post('/login/post', [LoginController::class, 'login'])->name('login.post');
+ Route::post('/test', [HomeController::class, 'test'])->name('test');
 
 // Frontend
 Route::get('/', [App\Http\Controllers\Front\HomeController::class, 'index'])->name('index');
@@ -48,6 +49,7 @@ Route::get('/register', [App\Http\Controllers\Front\HomeController::class, 'regi
 Route::get('/productdetails/{id}', [App\Http\Controllers\Front\HomeController::class,'details'])->name('details')->middleware('cartaccess');
 Route::post('/product/addcart/{id}', [App\Http\Controllers\Front\HomeController::class, 'productcartAdd'])->name('productcart.add');
 Route::get('/cartshow',[App\Http\Controllers\Front\HomeController::class, 'cartshow'])->name('cartshow')->middleware('cartaccess');
+Route::get('/cartItem/delete/{id}',[App\Http\Controllers\Front\HomeController::class, 'deleteCartItem'])->name('cartItem.delete')->middleware('cartaccess');
 // Backend
 Route::prefix('admin')->middleware('auth:admin')->group(function(){
         //  Product Category
