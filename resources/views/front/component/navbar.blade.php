@@ -36,6 +36,9 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Open+Sans:ital,wght@0,400;1,300&family=Roboto:wght@500&family=Source+Code+Pro:ital@1&display=swap"
         rel="stylesheet">
@@ -110,11 +113,11 @@
                                                     <i class="fa fa-angle-down"></i>
                                                 </a>
                                                 <ul class="account_selection">
-                                                    <li><a style="width:200px;" href="#">Manage
+                                                    <li><a href="#">Manage
                                                             Account</a>
                                                     </li>
 
-                                                    <li><a style="width:200px;"href="#">My Order</a>
+                                                    <li><a href="#">My Order</a>
                                                     </li>
 
                                                     <li><a href="#">Returns & Cancelation</a>

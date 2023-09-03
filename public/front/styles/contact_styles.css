@@ -548,86 +548,6 @@ section
 	color: #FFFFFF;
 }
 
-.account
-{
-	display: inline-block;
-	position: relative;
-	min-width: 50px;
-	padding-left: 20px;
-	text-align: center;
-	vertical-align: middle;
-}
-
-/* .account > a
-{
-	display: block;
-	color: #b5aec4;
-	font-weight: 400;
-	height: 50px;
-	line-height: 50px;
-	font-size: 13px;
-} */
-
-.account > a > i
-{
-	margin-left: 8px;
-}
-.account:hover .account_selection
-{
-	visibility: visible;
-	opacity: 1;
-	top: 100%;
-}
-.account_selection
-{
-	display: block;
-	position: absolute;
-	right: 0;
-	top: 120%;
-	margin: 0;
-	width: 100%;
-	background: #FFFFFF;
-	visibility: hidden;
-	opacity: 0;
-	z-index: 1;
-	box-shadow: 0 0 25px rgba(63, 78, 100, 0.15);
-	-webkit-transition: opacity 0.3s ease;
-	-moz-transition: opacity 0.3s ease;
-	-ms-transition: opacity 0.3s ease;
-	-o-transition: opacity 0.3s ease;
-	transition: all 0.3s ease;
-}
-.account_selection li
-{
-	padding-left: 10px;
-	padding-right: 10px;
-	line-height: 10px;
-}
-.account_selection li a
-{
-	display: block;
-	color: #232530;
-	border-bottom: solid 1px #dddddd;
-	font-size: 14px;
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	-ms-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-	transition: all 0.3s ease;
-}
-
-.account_selection li a:hover
-{
-	color: #b5aec4;
-}
-.account_selection li:last-child a
-{
-	border-bottom: none;
-}
-.account_selection li a i
-{
-	margin-right: 10px;
-} 
 /*********************************
 3.5 Hamburger Menu
 *********************************/
@@ -816,41 +736,6 @@ section
 .logo_container a span
 {
 	color: #6d4cfe;
-}
-.red_button
-{
-	display: -webkit-inline-box;
-	display: -moz-inline-box;
-	display: -ms-inline-flexbox;
-	display: -webkit-inline-flex;
-	display: inline-flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	width: auto;
-	height: 40px;
-	background: #7e4cfe;
-	border-radius: 3px;
-	-webkit-transition: all 0.3s ease;
-	-moz-transition: all 0.3s ease;
-	-ms-transition: all 0.3s ease;
-	-o-transition: all 0.3s ease;
-	transition: all 0.3s ease;
-}
-.red_button:hover
-{
-	background: #fc7cfe !important;
-}
-.red_button a
-{
-	display: block;
-	color: #FFFFFF;
-	text-transform: uppercase;
-	font-size: 12px;
-	font-weight: 500;
-	text-align: center;
-	line-height: 40px;
-	width: 100%;
 }
 .shop_now_button
 {
