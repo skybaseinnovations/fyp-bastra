@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
             $table->integer('number')->unique();
-            $table->foreignId('user_id')->references('id')->on('users')->onDelete('set null')->onUpdate('set null');
+            $table->foreignId('user_id')->references('id')->on('users');
             $table->string('location')->nullable();
             $table->integer('payment_reference_id')->nullable();
             $table->enum('payment_status',['Pending','Accepted','Cancelled'])->default("Pending");

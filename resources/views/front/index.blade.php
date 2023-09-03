@@ -107,9 +107,11 @@
 
                     </div>
                 </div>
+            </div>
+        </div>
+    </div>
 
-
-                {{-- <div class="row">
+    {{-- <div class="row">
                     <div class="col">
                         <div class="product-grid"
                             data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
@@ -164,35 +166,35 @@
                         </div>
                     </div>
                 </div> --}}
-            </div>
-        </div>
+    </div>
+    </div>
 
-        <script>
-            document.addEventListener("DOMContentLoaded", function() {
-                const showImagesLinks = document.querySelectorAll(".show-images");
-                const imageGroups = document.querySelectorAll(".images-group");
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const showImagesLinks = document.querySelectorAll(".show-images");
+            const imageGroups = document.querySelectorAll(".images-group");
 
-                showImagesLinks.forEach(link => {
-                    link.addEventListener("click", function(event) {
-                        event.preventDefault();
-                        const groupId = this.getAttribute("data-group");
+            showImagesLinks.forEach(link => {
+                link.addEventListener("click", function(event) {
+                    event.preventDefault();
+                    const groupId = this.getAttribute("data-group");
 
-                        // Hide all image groups
-                        imageGroups.forEach(group => {
-                            group.style.display = "none";
-                        });
-
-                        if (groupId === "all") {
-                            // Show all image groups
-                            imageGroups.forEach(group => {
-                                group.style.display = "block";
-                            });
-                        } else {
-                            // Display the selected image group
-                            const selectedGroup = document.getElementById("group-" + groupId);
-                            selectedGroup.style.display = "block";
-                        }
+                    // Hide all image groups
+                    imageGroups.forEach(group => {
+                        group.style.display = "none";
                     });
+
+                    if (groupId === "all") {
+                        // Show all image groups
+                        imageGroups.forEach(group => {
+                            group.style.display = "block";
+                        });
+                    } else {
+                        // Display the selected image group
+                        const selectedGroup = document.getElementById("group-" + groupId);
+                        selectedGroup.style.display = "block";
+                    }
                 });
             });
-        </script>
+        });
+    </script>

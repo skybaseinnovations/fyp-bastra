@@ -53,4 +53,5 @@ class OrderController extends Controller
         $order->update();
         return redirect()->route('order.index')->with('message','Order Updated Successfully');
     }
+   
 }
