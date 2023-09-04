@@ -100,10 +100,11 @@
                                 @foreach ($carts as $key => $cart)
                                     <tr>
                                         <td>
+                                            {{ ++$key }}
                                             <input name="selected[]" type="checkbox"
                                                 class="btn-check item-checkbox cartSelector" autocomplete="off"
                                                 data-index="{{ $key }}">
-                                            <input type="hidden" name="product_ids[]" value="{{ $cart->product->id }}">
+                                            {{-- <input type="hidden" name="product_ids[]" value="{{ $cart->product->id }}"> --}}
                                         </td>
                                         {{-- <td>{{ ++$key }}</td> --}}
                                         <td>
