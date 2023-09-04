@@ -7,6 +7,9 @@ use App\Models\CartItem;
 use App\Models\Home;
 use App\Models\Order;
 use App\Models\OrderItem;
+// use App\Models\Home;
+// use App\Models\Order;
+// use App\Models\OrderItem;
 use App\Models\ProductCategory;
 use App\Models\Product;
 use Illuminate\Http\Request;
@@ -48,37 +51,32 @@ public function test(Request $request){
             $orderItems->save();
         }
     }
-    return redirect()->back();
-    
-
-    //  foreach($formData as $form){
-    //     CartItem::create($form);
-    //  }
 }
-    
 
 public function index()
-{
-    $data['items']=$this->productCategoryInfo();
-    return view('front.index', $data);
-}
-public function contact()
-{
-    $data['items']=$this->productCategoryInfo();
-    return view('front.contact',$data);
-}
+    {
+        $data['items'] = $this->productCategoryInfo();
+        return view('front.index', $data);
+    }
+
+    public function contact()
+    {
+        $data['items'] = $this->productCategoryInfo();
+        return view('front.contact', $data);
+    }
+
 // public function category()
 // {
 //     $data['items']=$this->productCategoryInfo();
 //     return view('front.categories',$data);
-    
-    
+
+
 // }
-public function categoryItem($id)
-{
-    $data['productCategories']=$this->productCategoryInfo();
-    $data['products']=Product::where('product_category_id',$id)->get();
-    $data['items']=$this->productCategoryInfo();
+    public function categoryItem($id)
+    {
+        $data['productCategories'] = $this->productCategoryInfo();
+        $data['products'] = Product::where('product_category_id', $id)->get();
+        $data['items'] = $this->productCategoryInfo();
 
     return view('front.categoryItem',$data);
 }
@@ -138,9 +136,9 @@ public function cartshow()
     return view('front.productcart',$data);
 }
 
-public function orderhistory()
-{
-    $data['items']=$this->productCategoryInfo();
-    return view('front.orderhistory',$data);
-}
+    public function orderhistory()
+    {
+        $data['items'] = $this->productCategoryInfo();
+        return view('front.orderhistory', $data);
+    }
 }
