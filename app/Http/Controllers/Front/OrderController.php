@@ -33,8 +33,6 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request->all());
-        $data = $request->all();
         $order = new Order();
         $order->user_id = auth()->user()->id;
         $order->location = "Pokhara";
@@ -113,7 +111,7 @@ class OrderController extends Controller
                 ];
                 return redirect()->to($url . '?' . http_build_query($params));
             } else {
-                return redirect()->route('success.message');
+                return redirect()->route('success.message', ['order_id' => $order->id]);
             }
         }
         return redirect()->route('failure.message');

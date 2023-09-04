@@ -71,7 +71,7 @@
                      style="box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;">
                     <div class="card-body m-5 p-0">
                         <div class="row p-0">
-                            <h4 class="text-center my-3" style="color: #04c71e">Payment Successful</h4>
+                            <h4 class="text-center my-2" style="color: #04c71e">{{$order->payment_method == 'cod'? 'Order' : 'Payment'}} Successful</h4>
                             <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
                                  width="10%" height="50px" viewBox="0 0 816 848" enable-background="new 0 0 816 848" xml:space="preserve">
 <path fill="#04c71e" opacity="1.000000" stroke="none"
@@ -138,7 +138,7 @@ z"/>
                             <table class="table table-borderless bg-light center mx-2 px-5 my-4 ">
                                 <tr>
                                     <td class=" text-secondary">Order ID</td>
-                                    <td class=" text-secondary text-right">{{$order->id}}</td>
+                                    <td class=" text-secondary text-right">#{{$order->id}}</td>
                                 </tr>
                                 <tr>
                                     <td class=" text-secondary">Payment type</td>
