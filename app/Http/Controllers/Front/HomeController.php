@@ -135,7 +135,7 @@ public function details($id)
 
         $data['cart'] = $cart;
         return redirect()->back()->with('message', 'Cart Added Successfully');
-    
+
 
 }
 public function cartshow()
@@ -162,18 +162,23 @@ public function cartshow()
 
     function getSuccess(Request $request)
     {
-//        dd($request->ref);
         $order = Order::with('orderItems')->findOrFail($request->order_id);
 
         $order->update([
-            'payment_reference_id' => $request->ref,
-            'payment_status' => 'Completed'
+            'payment_reference_id' => $request->ref ?? null,
+            'payment_status' =>  $request->message ? 'Completed' :'Pending'
         ]);
         return view('success', compact('order'));
     }
-    function getFailure()
+    function getFailure(Request $request)
     {
-        return view('failure');
+        $order = Order::with('orderItems')->findOrFail($request->order_id);
+
+        $order->update([
+            'payment_status' =>  'Failed',
+            'order_status' => 'Failed'
+        ]);
+        return view('failure', compact('order'));
     }
 }
 

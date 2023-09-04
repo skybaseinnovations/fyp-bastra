@@ -113,7 +113,7 @@ class OrderController extends Controller
                 ];
                 return redirect()->to($url . '?' . http_build_query($params));
             } else {
-                return redirect()->route('success.message');
+                return redirect()->route('success.message', ['order_id' => $order->id]);
             }
         }
         return redirect()->route('failure.message');
