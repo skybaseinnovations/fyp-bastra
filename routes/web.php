@@ -50,9 +50,18 @@ Route::get('/register', [App\Http\Controllers\Front\HomeController::class, 'regi
 Route::get('/productdetails/{id}', [App\Http\Controllers\Front\HomeController::class,'details'])->name('details')->middleware('cartaccess');
 Route::post('/product/addcart/{id}', [App\Http\Controllers\Front\HomeController::class, 'productcartAdd'])->name('productcart.add');
 Route::get('/cartshow',[App\Http\Controllers\Front\HomeController::class, 'cartshow'])->name('cartshow')->middleware('cartaccess');
-Route::get('/orderhistory',[App\Http\Controllers\Front\HomeController::class, 'orderhistory'])->name('orderhistory');
+Route::get('/order-history',[App\Http\Controllers\Front\HomeController::class, 'orderhistory'])->name('orderhistory');
 Route::get('/cartItem/delete/{id}',[App\Http\Controllers\Front\HomeController::class, 'deleteCartItem'])->name('cartItem.delete')->middleware('cartaccess');
+Route::resource('/orders',App\Http\Controllers\Front\OrderController::class);
+
+Route::post('/checkout/payment',[App\Http\Controllers\Front\OrderController::class, 'checkout'])->name('checkout');
 // Backend
+
+
+Route::get('/success-message',[App\Http\Controllers\Front\HomeController::class, 'getSuccess'])->name('success.message');
+Route::get('/failure-message',[App\Http\Controllers\Front\HomeController::class, 'getFailure'])->name('failure.message');
+Route::get('/order-confirmation',[App\Http\Controllers\Front\HomeController::class, 'orderConfirm'])->name('order-confirm');
+
 
 Route::prefix('admin')->middleware('auth:admin')->group(function(){
         //  Product Category

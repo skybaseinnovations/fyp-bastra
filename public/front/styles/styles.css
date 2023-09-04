@@ -423,12 +423,13 @@ section
 	-ms-transition: opacity 0.3s ease;
 	-o-transition: opacity 0.3s ease;
 	transition: all 0.3s ease;
+	padding: 0;
 }
 .account_selection li
 {
 	padding-left: 10px;
 	padding-right: 10px;
-	line-height: 10px;
+	line-height: 25px;
 }
 .account_selection li a
 {
@@ -650,7 +651,7 @@ section
 .main_slider
 {
 	width: 100%;
-	height: 800px;
+	height: 700px;
 	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center center;
@@ -682,7 +683,7 @@ section
 	align-items: center;
 	width: auto;
 	height: 40px;
-	background: #7e4cfe;
+	border:4px solid #ebebeb !important;
 	border-radius: 3px;
 	-webkit-transition: all 0.3s ease;
 	-moz-transition: all 0.3s ease;
@@ -692,12 +693,16 @@ section
 }
 .red_button:hover
 {
-	background: #fc7cfe !important;
+	/* background: #fc7cfe !important; */
+	border:4px solid #7e4cfe !important;
+	transition: all 0.3s ease;
+
+
 }
 .red_button a
 {
 	display: block;
-	color: #FFFFFF;
+	color: black;
 	text-transform: uppercase;
 	font-size: 14px;
 	font-weight: 500;
@@ -709,6 +714,9 @@ section
 {
 	width: 140px;
 	margin-top: 32px;
+	background-color: #ab4cfe;
+	border: none !important;
+	color: ghostwhite !important;
 }
 
 /*********************************
@@ -795,15 +803,15 @@ section
 	padding-left: 25px;
 	padding-right: 25px;
 	cursor: pointer;
-	border: solid 1px #ebebeb;
+	border: solid 2px #ebebeb;
 	font-size: 14px;
 	font-weight: 500;
 	text-transform: uppercase;
 	background: #FFFFFF;
 	border-radius: 3px;
 	margin: 0;
-	float: left;
-	margin-left: -1px;
+	/* float: left; */
+	/* margin-left: -1px; */
 }
 .grid_sorting_button:first-child
 {
@@ -813,14 +821,14 @@ section
 {
 
 }
-.grid_sorting_button.active:hover
+.grid_sorting_button:hover
 {
-	background: #fc7cfe !important;
+	border:2px solid #ab4cfe !important;
 }
 .grid_sorting_button.active
 {
-	color: #FFFFFF;
-	background: #ab4cfe;
+	border:2px solid #ab4cfe !important;
+
 }
 
 /*********************************
@@ -912,48 +920,6 @@ section
 	color: #b5aec4;
 	text-decoration: line-through;
 }
-/* .product_bubble
-{
-	position: absolute;
-	top: 15px;
-	width: 50px;
-	height: 22px;
-	border-radius: 3px;
-	text-transform: uppercase;
-}
-.product_bubble span
-{
-	font-size: 12px;
-	font-weight: 600;
-	color: #FFFFFF;
-}
-.product_bubble_right::after
-{
-	content: ' ';
-	position: absolute;
-	width: 0;
-	height: 0;
-	left: 6px;
-	right: auto;
-	top: auto;
-	bottom: -6px;
-	border: 6px solid;
-}
-.product_bubble_left::after
-{
-	content: ' ';
-	position: absolute;
-	width: 0;
-	height: 0;
-	left: auto;
-	right: 6px;
-	bottom: -6px;
-	border: 6px solid;
-} */
-/* .product_bubble_red::after
-{
-	border-color: transparent transparent transparent #fe4c50;
-} */
 
 
 .product_bubble_left
@@ -1186,4 +1152,33 @@ section
 .footer_social ul li a:hover
 {
 	color: #fe4c50;
+}
+/* Custom Owl Carousel Navigation Buttons */
+.owl-nav{
+	
+    display: flex !important;
+    width: 100% !important;
+    justify-content: center !important;
+    align-items: center !important;
+}
+.owl-next, .owl-prev,.btn{
+		margin: 0 6px;
+		/* background-color: #ab4cfe; */
+	    border: solid 2px #ebebeb ;
+		border-radius: 3px;
+}
+.owl-next:hover, .owl-prev:hover{
+	border:2px solid #ab4cfe !important;
+}
+.owl-style{
+	height: 40px;
+    min-width: 102px;
+    padding-left: 25px;
+    padding-right: 25px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: 500;
+	line-height: 40px;
+    text-transform: uppercase;
+    background: #FFFFFF;
 }

@@ -15,33 +15,41 @@
                         <div class="main_slider_content">
                             <h6>Spring / Summer Collection 2023</h6>
                             <h1>Get up to 30% Off New Arrivals</h1>
-                            <div class="red_button shop_now_button"><a href="#">shop now</a>
+                            <div class="red_button shop_now_button"><a href="#"
+                                    style="	color: ghostwhite !important;
+                                ">shop now</a>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-
-        <!-- Banner -->
-
-        <div class="banner ">
-            <div class="container ">
-                <div class="row ">
-
-                    @foreach ($items as $item)
-                        <div class="col-md-4 mx-auto mt-4">
-                            <div class="banner_item align-items-center"
-                                style="background-image:url({{ asset('uploads/' . $item->img_url) }})">
-                                <div class="banner_category">
-                                    <a href="{{ route('category.item', $item->id) }}">{{ $item->name }}</a>
+        <!-- slider -->
+        <div class="banner">
+            <div class="container">
+                <div class="row mx-auto">
+                    <div class="col-md-12">
+                        <div class="owl-carousel">
+                            @foreach ($items as $item)
+                                <div class="mx-auto mt-4">
+                                    <div class="banner_item align-items-center"
+                                        style="background-image:url({{ asset('uploads/' . $item->img_url) }})">
+                                        <div class="banner_category">
+                                            <a href="{{ route('category.item', $item->id) }}">{{ $item->name }}</a>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
+                            @endforeach
+
                         </div>
-                    @endforeach
+
+                    </div>
                 </div>
             </div>
         </div>
+
+
+
 
         <!-- New Arrivals -->
 
@@ -120,13 +128,59 @@
                                     </div>
                                 @endforeach
 
-                            </div>
-                        </div>
+                                </li>
 
+                            </ul>
+                        </div>
                     </div>
+                </div>
+
+
+
+
+                <div class="image-container w-100">
+                    {{-- Images for each group --}}
+                    <div class="col">
+                        <div class="product-grid"
+                            data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
+                            @foreach ($items as $item)
+                                <div class="images-group" id="group-{{ $item->id }}">
+                                    @foreach ($item->products as $product)
+                                        {{-- <img src="{{ asset('uploads/' . $product->img_url) }}" height="100px"
+                                                width="100px"> --}}
+                                        <div class="product-item men">
+                                            <div class="product discount product_filter">
+                                                <div class="product_image">
+                                                    <img src="{{ asset('uploads/' . $product->img_url) }}" alt=""
+                                                        height="250px" width="" style="object-fit:cover;">
+                                                </div>
+                                                <div
+                                                    class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
+                                                </div>
+                                                <div class="product_info">
+                                                    <div class="favorite"></div>
+
+                                                    <h6 class="product_name"><a href="">{{ $product->name }}</a>
+                                                    </h6>
+                                                    <div class="product_price">Rs. {{ $product->price }}</div>
+                                                </div>
+                                            </div>
+                                            <div class="red_button add_to_cart_button"><a
+                                                    href="{{ route('details', $product->id) }}">View
+                                                    Product</a>
+                                            </div>
+                                        </div>
+                                    @endforeach
+                                </div>
+                            @endforeach
+
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>
+    </div>
     </div>
 
     {{-- <div class="row">
@@ -186,6 +240,26 @@
                 </div> --}}
     </div>
     </div>
+
+    <!-- Add Owl Carousel JavaScript at the end of your body -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <script>
+        $(document).ready(function() {
+            $('.owl-carousel').owlCarousel({
+                items: 3, // Number of items to show in each slide
+                loop: true, // Infinite loop
+                nav: true, // Show navigation buttons
+                margin: 10, // Space between items
+                navText: ['<span class="custom-prev-btn owl-style  ">Previous</span>',
+                    '<span class="custom-next-btn owl-style">Next</span>'
+                ],
+            });
+        });
+    </script>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {

@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('order_items', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('product_id')->references('id')->on('products')->onDelete('set null')->onUpdate('set null');
+            $table->foreignId('product_id')->references('id')->on('products');
             $table->string('product_title')->nullable();
-            $table->foreignId('order_id')->references('id')->on('orders')->onDelete('set null')->onUpdate('set null');
+            $table->foreignId('order_id')->references('id')->on('orders');
             $table->double('total_amount')->nullable();
             $table->integer('quantity')->nullable();
             $table->timestamps();

@@ -84,7 +84,7 @@
 
 
     <div class="container pt-5">
-        <form action="{{ route('test') }}" method="POST" id="form">
+        <form action="{{ route('orders.store') }}" method="POST" id="form">
             @csrf
             <section>
                 <div class="section">
@@ -92,26 +92,27 @@
                         <div class="container1 cart-page">
                             <table>
                                 <tr>
-                                    <th>S.N</th>
+{{--                                    <th>S.N</th>--}}
                                     <th>Product</th>
                                     <th>Quantity</th>
                                     <th>Subtotal</th>
                                 </tr>
                                 @foreach ($carts as $key => $cart)
                                     <tr>
-                                        <td>
-                                            <input name="selected[]" type="checkbox"
-                                                class="btn-check item-checkbox cartSelector" autocomplete="off"
-                                                data-index="{{ $key }}">
+{{--                                        <td>--}}
+{{--                                            <input name="selected[]" type="checkbox"--}}
+{{--                                                class="btn-check item-checkbox cartSelector" autocomplete="off"--}}
+{{--                                                data-index="{{ $key }}">--}}
                                             <input type="hidden" name="product_ids[]" value="{{ $cart->product->id }}">
-                                        </td>
+                                            <input type="hidden" name="cart_ids[]" value="{{ $cart->id }}">
+{{--                                        </td>--}}
                                         {{-- <td>{{ ++$key }}</td> --}}
                                         <td>
                                             <div class="cart-info " style="justify-content: center">
                                                 <img src="{{ asset('uploads/' . $cart->product->img_url) }}" alt="">
                                                 <div style="justify-content: center">
-                                                    <h5>{{ $cart->product->name }}</h5>
-                                                    <p class="price">Price: ${{ $cart->product->price }}</p>
+                                                    <input type="text" value="{{ $cart->product->name }}" name="product_titles[]">
+                                                    Price: <input type="text" value="{{ $cart->product->price }}" name="product_prices[]">
                                                     <a href="{{ route('cartItem.delete', $cart->id) }}"
                                                         style="color: red">Remove</a>
                                                 </div>
@@ -123,16 +124,16 @@
                                                     style="background-color:#ab4cfe;color:white;width:30px;height:30px;font-size:1.5rem;border:1px solid white;"
                                                     type="button" class="">-</button>&nbsp;&nbsp;
                                                 <input type="text" style="width:30px;text-align:center;"
-                                                    name="quantity[]" value="{{ $cart->quantity }}"
+                                                    name="quantities[]" value="{{ $cart->quantity }}"
                                                     class="quantity">&nbsp;&nbsp;
                                                 <button class="increase"
                                                     style="background-color:#ab4cfe;color:white;width:30px;font-size:1.5rem;height:30px;border:1px solid white;"
                                                     type="button" class="" value="">+</button>
                                             </div>
                                         </td>
-                                        <td class="subtotal-cell" name="subtotals[]">${{ $cart->total }}
+                                        <td class="subtotal-cell"><input type="text" name="subtotals[]" value="{{ $cart->total }}">
                                         </td>
-
+                                        <input type="hidden" name="total" value="100">
                                     </tr>
                                 @endforeach
 
@@ -156,10 +157,11 @@
                                 <tr>
 
                                     <td>Total</td>
-                                    <td id="totalCell">$00.00</td>
+                                    <td id="totalCell">$0.00
+                                    </td>
                                 </tr>
                             </table>
-                            <button type="button" class="btn btn-success btn-sm mx-auto m-3 submitBtn" id="submitBtn"
+                            <button type="submit" class="btn btn-success btn-sm mx-auto m-3 submitBtn" id="submitBtn"
                                 style="background-color:#ab4cfe;">
                                 Proceed
                                 To
@@ -169,10 +171,9 @@
 
                         </div>
                     </div>
+                </div>
             </section>
         </form>
-
-
     </div>
 
 
@@ -315,14 +316,4 @@
         //     // form.submit();
         // })
 
-        $(document).on('click', '.submitBtn', function(e) {
-            e.preventDefault();
-            const formData = JSON.stringify(selectedValue);
-
-
-            let html = <input type="hidden" name="selected" value=${formData}>;
-            $('#hidden-selected').html(html);
-
-            $('#form').submit();
-        });
     </script>
