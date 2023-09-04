@@ -172,12 +172,12 @@ h6::selection
 	font-weight: 500;
 	color: #777777 !important;
 }
-::input-placeholder
-{
-	font-size: 16px !important;
-	font-weight: 500;
-	color: #777777 !important;
-}
+/*::input-placeholder*/
+/*{*/
+/*	font-size: 16px !important;*/
+/*	font-weight: 500;*/
+/*	color: #777777 !important;*/
+/*}*/
 .form-control
 {
 	color: #db5246;

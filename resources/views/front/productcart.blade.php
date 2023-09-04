@@ -96,6 +96,7 @@
                                     <th>Product</th>
                                     <th>Quantity</th>
                                     <th>Subtotal</th>
+                                    <th></th>
                                 </tr>
                                 @foreach ($carts as $key => $cart)
                                     <tr>
@@ -108,15 +109,14 @@
 {{--                                        </td>--}}
                                         {{-- <td>{{ ++$key }}</td> --}}
                                         <td>
-                                            <div class="cart-info " style="justify-content: center">
+                                            <div class="cart-info">
                                                 <img src="{{ asset('uploads/' . $cart->product->img_url) }}" alt="">
-                                                <div style="justify-content: center">
-                                                    <input type="text" value="{{ $cart->product->name }}" name="product_titles[]">
-                                                    Price: <input type="text" value="{{ $cart->product->price }}" name="product_prices[]">
-                                                    <a href="{{ route('cartItem.delete', $cart->id) }}"
-                                                        style="color: red">Remove</a>
+                                                <div class="d-block" style="justify-content: center">
+                                                    <h5>{{ $cart->product->name }}</h5>
+                                                    <input type="hidden" value="{{ $cart->product->name }}" name="product_titles[]">
+                                                    <p>Price: Rs. {{$cart->product->price}}</p>
+                                                    <input type="hidden" value="{{ $cart->product->price }}" name="product_prices[]">
                                                 </div>
-                                            </div>
                                         </td>
                                         <td>
                                             <div class="increment d-flex" style="justify-content: center">
@@ -131,7 +131,10 @@
                                                     type="button" class="" value="">+</button>
                                             </div>
                                         </td>
-                                        <td class="subtotal-cell"><input type="text" name="subtotals[]" value="{{ $cart->total }}">
+                                        <td class="subtotal-cell"><p>Rs. {{$cart->total }}</p><input type="hidden" name="subtotals[]" value="{{ $cart->total }}">
+                                        </td>
+                                        <td>
+                                            <a href="{{ route('cartItem.delete', $cart->id) }}" class="btn btn-outline-danger p-2"><i class="fas fa-trash"></i></a>
                                         </td>
                                         <input type="hidden" name="total" value="100">
                                     </tr>

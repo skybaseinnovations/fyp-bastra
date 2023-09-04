@@ -673,7 +673,7 @@ section
 }
 .red_button
 {
-	display: -webkit-inline-box;
+	/*display: -webkit-inline-box;*/
 	display: -moz-inline-box;
 	display: -ms-inline-flexbox;
 	display: -webkit-inline-flex;
@@ -949,6 +949,7 @@ section
 {
 	font-size: 12px;
 	font-weight: 600;
+    color:black !important;
 }
 .product-item:hover .add_to_cart_button
 {

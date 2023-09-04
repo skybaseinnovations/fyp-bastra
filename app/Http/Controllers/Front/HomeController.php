@@ -16,6 +16,7 @@ use Illuminate\Http\Request;
 class HomeController extends BaseController
 {
 
+
 //    public function test(Request $request)
 //    {
 //        $selected = json_decode($request->selected);
@@ -59,15 +60,17 @@ class HomeController extends BaseController
 //    }
 
 
-public function index()
+    public function index()
     {
         $data['items'] = $this->productCategoryInfo();
+        $data['count'] = $this->cartCount();
         return view('front.index', $data);
     }
 
     public function contact()
     {
         $data['items'] = $this->productCategoryInfo();
+        $data['count'] = $this->cartCount();
         return view('front.contact', $data);
     }
 
@@ -81,6 +84,7 @@ public function index()
     public function categoryItem($id)
     {
         $data['productCategories'] = $this->productCategoryInfo();
+        $data['count'] = $this->cartCount();
         $data['products'] = Product::where('product_category_id', $id)->get();
         $data['items'] = $this->productCategoryInfo();
 
@@ -95,6 +99,8 @@ public function deleteCartItem($id){
 public function details($id)
 {
     $data['items']=$this->productCategoryInfo();
+    $data['count'] = $this->cartCount();
+
     $data['product']=Product::find($id);
     return view('front.description',$data);
 }
@@ -102,6 +108,8 @@ public function details($id)
     public function productshow($id)
     {
         $data['items'] = $this->productCategoryInfo();
+        $data['count'] = $this->cartCount();
+
         $data['productcategory'] = ProductCategory::find($id);
         return view('front.productshow', $data);
     }
@@ -109,18 +117,24 @@ public function details($id)
     public function login()
     {
         $data['items'] = $this->productCategoryInfo();
+        $data['count'] = $this->cartCount();
+
         return view('front.login', $data);
     }
 
     public function register()
     {
         $data['items'] = $this->productCategoryInfo();
+        $data['count'] = $this->cartCount();
+
         return view('front.register', $data);
     }
 
     public function productcartAdd(Request $request, $id)
     {
         $data['items'] = $this->productCategoryInfo();
+        $data['count'] = $this->cartCount();
+
         $data = CartItem::where('product_id', $id)->where('user_id', auth()->user()->id)->first();
         if ($data) {
             return redirect()->back()->with('error', 'The product already is added to the cart.');
@@ -135,20 +149,21 @@ public function details($id)
 
         $data['cart'] = $cart;
         return redirect()->back()->with('message', 'Cart Added Successfully');
-    
+
 
 }
 public function cartshow()
 {
     $data['items']=$this->productCategoryInfo();
+    $data['count'] = $this->cartCount();
     $data['carts']=CartItem::with('product')->where('user_id',auth()->user()->id)->get();
-    $data['count']=count($data['carts']);
     return view('front.productcart',$data);
 }
 
     public function orderhistory(Request $request)
     {
         $data['items'] = $this->productCategoryInfo();
+        $data['count'] = $this->cartCount();
 
         return view('front.orderhistory', $data);
     }
@@ -156,24 +171,31 @@ public function cartshow()
     public function orderConfirm(Request $request)
     {
         $data['items'] = $this->productCategoryInfo();
+        $data['count'] = $this->cartCount();
+
         $data['order'] = Order::with('orderItems')->findOrFail($request->order_id);
         return view('orderConfirmation', $data);
     }
 
     function getSuccess(Request $request)
     {
-//        dd($request->ref);
         $order = Order::with('orderItems')->findOrFail($request->order_id);
 
         $order->update([
-            'payment_reference_id' => $request->ref,
-            'payment_status' => 'Completed'
+            'payment_reference_id' => $request->ref ?? null,
+            'payment_status' =>  $request->message ? 'Completed' :'Pending'
         ]);
         return view('success', compact('order'));
     }
-    function getFailure()
+    function getFailure(Request $request)
     {
-        return view('failure');
+        $order = Order::with('orderItems')->findOrFail($request->order_id);
+
+        $order->update([
+            'payment_status' =>  'Failed',
+            'order_status' => 'Failed'
+        ]);
+        return view('failure', compact('order'));
     }
 }
 

@@ -11,7 +11,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="{{ asset('front/styles/bootstrap4/bootstrap.min.css') }}">
     <link href="{{ asset('front/plugins/font-awesome-4.7.0/css/font-awesome.min.css') }}" rel="stylesheet"
-        type="text/css">
+          type="text/css">
     <link rel="stylesheet" type="text/css" href="{{ asset('front/plugins/OwlCarousel2-2.2.1/owl.carousel.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('front/plugins/OwlCarousel2-2.2.1/owl.theme.default.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('front/plugins/OwlCarousel2-2.2.1/animate.css') }}">
@@ -39,21 +39,22 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css">
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Open+Sans:ital,wght@0,400;1,300&family=Roboto:wght@500&family=Source+Code+Pro:ital@1&display=swap"
         rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+            integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
 
         .button {
-            /*display:flex;*/
-            /*justify-content: flex-start !important;*/
+            float: right;
         }
 
         .navbar_menu .button button:hover {
@@ -69,11 +70,11 @@
 
 <body>
 
-    <div class="super_container">
-        <!-- Header -->
+<div class="super_container">
+    <!-- Header -->
 
-        <header class="header trans_300">
-            <!-- Main Navigation -->
+    <header class="header trans_300">
+        <!-- Main Navigation -->
 
             <div class="main_nav_container">
                 <div class="container">
@@ -142,38 +143,38 @@
                                                         class="fa fa-user-plus"></i>&nbsp;&nbsp;Register</a>
 
 
-                                            </div>
-                                        @endauth
-                                    </div>
-                                </ul>
-
-                                <div class="hamburger_container">
-                                    <i class="fa fa-bars" aria-hidden="true"></i>
+                                        </div>
+                                    @endauth
                                 </div>
-                            </nav>
-                        </div>
+                            </ul>
+
+                            <div class="hamburger_container">
+                                <i class="fa fa-bars" aria-hidden="true"></i>
+                            </div>
+                        </nav>
                     </div>
                 </div>
             </div>
+        </div>
 
 
-        </header>
+    </header>
 
-        {{-- Hamburger menu --}}
-        <div class="fs_menu_overlay"></div>
-        <div class="hamburger_menu">
-            <div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
-            <div class="hamburger_menu_content text-right">
-                <ul class="menu_top_nav">
+    {{-- Hamburger menu --}}
+    <div class="fs_menu_overlay"></div>
+    <div class="hamburger_menu">
+        <div class="hamburger_close"><i class="fa fa-times" aria-hidden="true"></i></div>
+        <div class="hamburger_menu_content text-right">
+            <ul class="menu_top_nav">
 
-                    <li class="menu_item"><a href="{{ route('index') }}">home</a></li>
-                    <li class="menu_item"><a href="">Category</a></li>
+                <li class="menu_item"><a href="{{ route('index') }}">home</a></li>
+                <li class="menu_item"><a href="">Category</a></li>
 
-                    <li class="menu_item"><a href="{{ route('contact') }}">contact</a></li>
-                </ul>
-            </div>
+                <li class="menu_item"><a href="{{ route('contact') }}">contact</a></li>
+            </ul>
         </div>
     </div>
-    @yield('scripts')
+</div>
+@yield('scripts')
 
 </body>

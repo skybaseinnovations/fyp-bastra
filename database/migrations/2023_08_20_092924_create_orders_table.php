@@ -19,7 +19,7 @@ return new class extends Migration
             $table->string('payment_reference_id')->nullable();
             $table->enum('payment_method', ['cod', 'skypay'])->nullable();
             $table->enum('payment_status',['Pending','Completed','Cancelled', 'Failed'])->default("Pending");
-            $table->enum('order_status',['Pending','Processing','Problem','Pickup Available','Delivered','Cancelled'])->default("Pending");
+            $table->enum('order_status',['Pending','Processing','Problem','Failed', 'Pickup Available','Delivered','Cancelled'])->default("Pending");
             $table->double('subtotal')->default(0);
             $table->double('total')->default(0);
             $table->timestamps();
