@@ -33,8 +33,6 @@ class OrderController extends Controller
      */
     public function store(Request $request)
     {
-//        dd($request->all());
-        $data = $request->all();
         $order = new Order();
         $order->user_id = auth()->user()->id;
         $order->location = "Pokhara";
