@@ -3,6 +3,8 @@
 
 <head>
     <title>Bastra</title>
+    <link rel="icon" type="image/x-icon" href="/front/images/clothes-hanger.png">
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="description" content="Bastra">
@@ -24,7 +26,6 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('front/styles/contact_styles.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('front/styles/contact_responsive.css') }}">
 
-    <link rel="icon" type="image/x-icon" href="/front/images/clothes-hanger.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -49,8 +50,10 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
+
         .button {
-            float: right;
+            /*display:flex;*/
+            /*justify-content: flex-start !important;*/
         }
 
         .navbar_menu .button button:hover {
@@ -80,13 +83,13 @@
                                 <a href="#">Bas<span>tra</span></a>
                             </div>
                             <nav class="navbar">
-                                <ul class="navbar_menu">
+                                <ul class="navbar_menu" style="display:flex !important;align-items: center; !important">
                                     <li><a href="{{ route('index') }}">home</a></li>
                                     <li class="account">
                                         <a>Category
                                             <i class="fa fa-angle-down"></i>
                                         </a>
-                                        <ul class="account_selection " style="width:200px !important;height:150px !important;">
+                                        <ul class="account_selection " style="width:150px !important;height:150px !important;" >
                                             @foreach ($items as $item)
                                                 <li><a href="{{ route('category.item',$item->id) }}">{{ $item->name}}</a></li>
                                             @endforeach
@@ -94,69 +97,43 @@
                                     </li>
                                     <li><a href="{{ route('contact') }}">contact</a></li>
 
-                                    {{-- <li class="account">
-                                        <a>Category
-                                            <i class="fa fa-angle-down"></i>
-                                        </a>
-                                        <ul class="account_selection">
-                                            @foreach ($items as $item)
-                                                <li>
-                                                    <a shref="{{ route('category.item', $item->id) }}">{{ $item->name }}</a>
-                                                </li>
-                                            @endforeach
-                                        </ul>
-                                    </li> --}}
-                                    <div class="button">
+                                    <div class="button" style="">
                                         @auth
-                                            <li class="account" style="width:250px !important;">
-                                                <a>Orders & Account
-                                                    <i class="fa fa-angle-down"></i>
+
+                                            <li class="checkout">
+                                                <a href="{{ route('cartshow') }}">
+                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
                                                 </a>
-                                                <ul class="account_selection">
+                                            </li>
+
+                                            <li class="ml-3">
+                                            <li class="account">
+                                                <a style="text-transform:lowercase;background-color:grey;border-radius:3rem;width:auto;">
+                                                    <i
+                                                        class="fa fa-user"></i>&nbsp;&nbsp;{{auth()->user()->name}}
+                                                    <i class="fa fa-angle-down"></i>
+
+                                                </a>
+                                                <ul class="account_selection " style="padding:0.7rem;min-width:200px !important;line-height:50px !important;" >
                                                     <li><a href="#">Manage
                                                             Account</a>
                                                     </li>
 
                                                     <li><a href="#">My Order</a>
                                                     </li>
-
-                                                    <li><a href="#">Returns & Cancelation</a>
-                                                    </li>
-
-                                                    <li><a href="#">Manage Account</a>
-                                                    </li>
-
-                                                    <li class="ml-3">
-                                                        <form action="{{ route('logout') }}" method="POST">
+                                                    <li>
+                                                        <form action="{{ route('logout') }}" method="POST" >
                                                             @csrf
-                                                            <button type="submit" class="m-2"
-                                                                style="border-radius: 2rem;border:1px solid white;padding:0.9rem;background-color:#e92556;color:white;">
-                                                                <i
-                                                                    class="fa-solid fa-arrow-right-from-bracket"></i></a>&nbsp;&nbsp;Logout</button>
-
-
+                                                            <button type="submit"
+                                                                    style="width:auto;margin-top:1rem;border-radius: 2rem;border:1px solid white;padding:0.5rem;background-color:#e92556;color:white;"><i class="fa-solid fa-power-off"></i></a>&nbsp;&nbsp;Logout</button>
                                                         </form>
                                                     </li>
                                                 </ul>
                                             </li>
-                                            <li class="checkout">
-                                                <a href="{{ route('cartshow') }}">
-                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                </a>
-                                            </li>
-                                            <li class="ml-3">
-                                                <form action="{{ route('logout') }}" method="POST">
-                                                    @csrf
-                                                    <button type="submit"
-                                                        style="border-radius: 2rem;border:1px solid white;padding:0.9rem;background-color:#e92556;color:white;"><i
-                                                            class="fa fa-user-plus"></i></a>&nbsp;&nbsp;Logout</button>
 
 
-                                                </form>
-                                            </li>
+
                                         @else
-                                            <div class="button">
-
                                                 <a href="{{ route('login') }}" class="btn btn-success"
                                                     style="border-radius: 2rem;border:1px solid white;padding:0.9rem;color:ghostwhite;"><i
                                                         class="fa fa-user"></i>&nbsp;&nbsp;Login</a>

@@ -3,6 +3,7 @@
 @section('title', 'Contact')
 
 @section('content')
+    <link rel="icon" type="image/x-icon" href="/front/images/clothes-hanger.png">
 
     <div class="super_container">
 
@@ -47,10 +48,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
         <!-- New Arrivals -->
 
         <div class="new_arrivals">
@@ -66,12 +63,12 @@
                     <div class="col text-center">
                         <div class="new_arrivals_sorting">
                             <ul class="arrivals_grid_sorting clearfix button-group filters-button-group">
-                                <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center active is-checked " data-filter="*" data-group="all">                            
+                                <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center active is-checked " data-filter="*" data-group="all">
                                     <a href="#" style="color:black;" class="show-images mx-2" data-group="all">Show All</a>
                                 </li>
-                               
+
                       @foreach ($items as $item)
-                                    <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter=""> 
+                                    <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter="">
                                         <a href="#" style="color:black;" class="show-images mx-2"
                                         data-group="{{ $item->id }}">{{ $item->name }}</a></li>
                                 @endforeach
@@ -96,7 +93,7 @@
                     <div class="image-container w-100">
                         {{-- Images for each group --}}
                         <div class="col">
-                            <div class="product-grid"
+                            <div class="product-grid m-3"
                                 data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
                                 @foreach ($items as $item)
                                     <div class="images-group" id="group-{{ $item->id }}">
@@ -138,47 +135,6 @@
 
 
 
-                <div class="image-container w-100">
-                    {{-- Images for each group --}}
-                    <div class="col">
-                        <div class="product-grid"
-                            data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
-                            @foreach ($items as $item)
-                                <div class="images-group" id="group-{{ $item->id }}">
-                                    @foreach ($item->products as $product)
-                                        {{-- <img src="{{ asset('uploads/' . $product->img_url) }}" height="100px"
-                                                width="100px"> --}}
-                                        <div class="product-item men">
-                                            <div class="product discount product_filter">
-                                                <div class="product_image">
-                                                    <img src="{{ asset('uploads/' . $product->img_url) }}" alt=""
-                                                        height="250px" width="" style="object-fit:cover;">
-                                                </div>
-                                                <div
-                                                    class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                                                </div>
-                                                <div class="product_info">
-                                                    <div class="favorite"></div>
-
-                                                    <h6 class="product_name"><a href="">{{ $product->name }}</a>
-                                                    </h6>
-                                                    <div class="product_price">Rs. {{ $product->price }}</div>
-                                                </div>
-                                            </div>
-                                            <div class="red_button add_to_cart_button"><a
-                                                    href="{{ route('details', $product->id) }}">View
-                                                    Product</a>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                </div>
-                            @endforeach
-
-                        </div>
-                    </div>
-
-                </div>
-            </div>
         </div>
     </div>
     </div>
@@ -254,8 +210,8 @@
                 loop: true, // Infinite loop
                 nav: true, // Show navigation buttons
                 margin: 10, // Space between items
-                navText: ['<span class="custom-prev-btn owl-style  ">Previous</span>',
-                    '<span class="custom-next-btn owl-style">Next</span>'
+                navText: ['<span class="custom-prev-btn owl-style  "><i class="fa-solid fa-chevron-left text-secondary"></i></span>',
+                    '<span class="custom-next-btn owl-style"><i class="fa-solid fa-chevron-right text-secondary"></i></span>'
                 ],
             });
         });

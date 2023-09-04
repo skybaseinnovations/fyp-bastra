@@ -1,14 +1,15 @@
 
 	<!-- Footer -->
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+          integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+          crossorigin="anonymous" referrerpolicy="no-referrer" />
 	<footer class="footer">
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-6">
 					<div class="footer_nav_container d-flex flex-sm-row flex-column align-items-center justify-content-lg-start justify-content-center text-center">
 						<ul class="footer_nav">
-							<li><a href="#">Blog</a></li>
-							<li><a href="#">FAQs</a></li>
+
 							<li><a href="contact.html">Contact us</a></li>
 						</ul>
 					</div>
@@ -16,11 +17,11 @@
 				<div class="col-lg-6">
 					<div class="footer_social d-flex flex-row align-items-center justify-content-lg-end justify-content-center">
 						<ul>
-							<li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-instagram" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-skype" aria-hidden="true"></i></a></li>
-							<li><a href="#"><i class="fa fa-pinterest" aria-hidden="true"></i></a></li>
+							<li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+							<li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+							<li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                            <li><a href="#"><i class="fa-brands fa-skype"></i></a></li>
+							<li><a href="#"><i class="fa-brands fa-square-pinterest"></i></a></li>
 						</ul>
 					</div>
 				</div>
