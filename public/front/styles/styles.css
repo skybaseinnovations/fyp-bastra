@@ -315,7 +315,7 @@ section
 	font-size: 13px;
 	font-weight: 500;
 	text-transform: uppercase;
-	padding: 20px;
+	/*padding: 20px;*/
 	-webkit-transition: color 0.3s ease;
 	-moz-transition: color 0.3s ease;
 	-ms-transition: color 0.3s ease;
@@ -455,7 +455,7 @@ section
 .account_selection li a i
 {
 	margin-right: 10px;
-} 
+}
 
 
 /*********************************
@@ -673,7 +673,7 @@ section
 }
 .red_button
 {
-	display: -webkit-inline-box;
+	/*display: -webkit-inline-box;*/
 	display: -moz-inline-box;
 	display: -ms-inline-flexbox;
 	display: -webkit-inline-flex;
@@ -944,6 +944,7 @@ section
 {
 	font-size: 12px;
 	font-weight: 600;
+    color:black !important;
 }
 .product-item:hover .add_to_cart_button
 {
@@ -1154,7 +1155,7 @@ section
 }
 /* Custom Owl Carousel Navigation Buttons */
 .owl-nav{
-	
+
     display: flex !important;
     width: 100% !important;
     justify-content: center !important;

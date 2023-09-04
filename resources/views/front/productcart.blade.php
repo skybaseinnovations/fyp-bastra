@@ -109,7 +109,7 @@
                                         {{-- <td>{{ ++$key }}</td> --}}
                                         <td>
                                             <div class="cart-info " style="justify-content: center">
-                                                <img src="{{ asset('uploads/' . $cart->product->img_url) }}" alt="">
+                                                <img src="{{ isset($cart->product->img_url) ? asset('uploads/' . $cart->product->img_url) : asset('uploads/'.'null_img.jpg')  }}" alt="">
                                                 <div style="justify-content: center">
                                                     <input type="text" value="{{ $cart->product->name }}" name="product_titles[]">
                                                     Price: <input type="text" value="{{ $cart->product->price }}" name="product_prices[]">
@@ -312,7 +312,7 @@
 
         //     let form = document.getElementById('form');
 
-        //     form.append(<input type="hidden" name="" value=${formData}/>);
+        //     form.append(`<input type="hidden" name="" value=${formData}/>`);
         //     // form.submit();
         // })
 
