@@ -156,9 +156,7 @@ public function cartshow()
 {
     $data['items']=$this->productCategoryInfo();
     $data['count'] = $this->cartCount();
-
     $data['carts']=CartItem::with('product')->where('user_id',auth()->user()->id)->get();
-//    $data['count']=count($data['carts']);
     return view('front.productcart',$data);
 }
 

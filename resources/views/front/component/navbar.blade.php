@@ -145,20 +145,22 @@
                                             </ul>
                                         </li>
 
+                                    @auth()
                                         <li class="checkout">
                                             <form action="{{route('cartshow')}}" method="get">
                                                 @csrf
                                                 <button type="submit" class="btn rounded-circle p-3 position-relative"
-                                                        style="background-color: #ede9f0">
+                                                        style="background-color: #efedf0">
                                                     <i class="fa fa-shopping-cart fa-xs" aria-hidden="true"></i>
                                                     <span
-                                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">
+                                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill" style="background-color: #e92556; font-size: 10px!important;">
                                                 {{$count}}
                                                 <span class="visually-hidden">Cart Count</span>
                                               </span>
                                                 </button>
                                             </form>
                                         </li>
+                                        @endauth
                                         <li class="ml-3">
                                             <form action="{{ route('logout') }}" method="POST">
                                                 @csrf

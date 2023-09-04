@@ -16,7 +16,11 @@ class BaseController extends Controller
 
     public function cartCount()
     {
-        $count = CartItem::where('user_id', auth()->user()->id)->count();
+        $count = 0;
+        if (auth()->user()){
+            $count = CartItem::where('user_id', auth()->user()->id)->count();
+        }
+
         return $count;
     }
 }
