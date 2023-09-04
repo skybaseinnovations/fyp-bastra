@@ -13,48 +13,48 @@ use Illuminate\Http\Request;
 class HomeController extends BaseController
 {
 
-public function test(Request $request){
-    $selected = json_decode($request->selected);
-    $product_ids = $request->product_ids;
-    $quantities= $request->quantity;
-    $order = new Order();
-    $order->user_id = auth()->user()->id;
+//    public function test(Request $request)
+//    {
+//        $selected = json_decode($request->selected);
+//        $product_ids = $request->product_ids;
+//        $quantities = $request->quantity;
+//        $order = new Order();
+//        $order->user_id = auth()->user()->id;
+//
+//        $order->location = "Pokhara";
+//        $order->payment_reference_id = auth()->user()->id;
+//
+//
+//        $order->save();
+//
+//        $order->update(['order_id' => $order->id]);
+//
+//
+//        foreach ($selected as $key => $data) {
+//            if ($data == "on") {
+//                $orderItems = new OrderItem();
+//                $product_id = $product_ids[$key];
+//                $quantity = $quantities[$key];
+//                $product = Product::find($product_id);
+//                $total_amount = $quantity * $product->price;
+//                $title = $product->name;
+//
+//                $orderItems->product_id = $product_id;
+//                $orderItems->quantity = $quantity;
+//                $orderItems->order_id = $order->id;
+//                $orderItems->total_amount = $total_amount;
+//                $orderItems->product_title = $title;
+//                $orderItems->save();
+//            }
+//        }
+//        return redirect()->back();
+//
+//
+//        //  foreach($formData as $form){
+//        //     CartItem::create($form);
+//        //  }
+//    }
 
-    $order->location = "Pokhara";
-    $order->payment_reference_id = auth()->user()->id;
-
-    
-    $order->save();
-
-    $order->update(['order_id' => $order->id]);
-
-
-
-    foreach($selected as $key=>$data){
-        if($data == "on"){
-            $orderItems = new OrderItem();
-            $product_id = $product_ids[$key];
-            $quantity = $quantities[$key];
-            $product = Product::find($product_id);
-            $total_amount = $quantity * $product->price;
-            $title=$product->name;
-
-            $orderItems->product_id = $product_id;
-            $orderItems->quantity = $quantity;
-            $orderItems->order_id = $order->id;
-            $orderItems->total_amount = $total_amount;
-            $orderItems->product_title = $title;
-            $orderItems->save();
-        }
-    }
-    return redirect()->back();
-    
-
-    //  foreach($formData as $form){
-    //     CartItem::create($form);
-    //  }
-}
-    
 
     public function index()
     {
@@ -81,67 +81,97 @@ public function test(Request $request){
         $data['products'] = Product::where('product_category_id', $id)->get();
         $data['items'] = $this->productCategoryInfo();
 
-    return view('front.categoryItem',$data);
-}
-
-public function deleteCartItem($id){
-    $cartItem = CartItem::findOrFail($id);
-    $cartItem->delete();
-    return redirect()->back();
-}
-public function details($id)
-{
-    $data['items']=$this->productCategoryInfo();
-    $data['product']=Product::find($id);
-    return view('front.description',$data);
-}
-
-public function productshow($id)
-{
-    $data['items']=$this->productCategoryInfo();
-    $data['productcategory']=ProductCategory::find($id);
-    return view('front.productshow',$data);
-}
-public function login()
-{
-    $data['items']=$this->productCategoryInfo();
-    return view('front.login',$data);
-}
-public function register()
-{
-    $data['items']=$this->productCategoryInfo();
-    return view('front.register',$data);
-}
-public function productcartAdd(Request $request,$id)
-{
-    $data['items']=$this->productCategoryInfo();
-    $data = CartItem::where('product_id',$id)->where('user_id', auth()->user()->id)->first();
-    if($data){
-        return redirect()->back()->with('error', 'The product already is added to the cart.');
+        return view('front.categoryItem', $data);
     }
-    $cart = new CartItem();
-    $product = Product::find($id);
-    $cart->product_id = $id;
-    $cart->quantity = $request->quantity;
-    $cart->total = $request->quantity*$product->price;
-    $cart->user_id= auth()->user()->id;
-    $cart->save();
-   
-    $data['cart']=$cart;
-    return redirect()->back()->with('message', 'Cart Added Successfully');
 
-}
-public function cartshow()
-{
-    $data['items']=$this->productCategoryInfo();
-    $data['carts']=CartItem::with('product')->where('user_id',auth()->user()->id)->get();
-    $data['count']=count($data['carts']);
-    return view('front.productcart',$data);
-}
+    public function deleteCartItem($id)
+    {
+        $cartItem = CartItem::findOrFail($id);
+        $cartItem->delete();
+        return redirect()->back();
+    }
 
-    public function orderhistory()
+    public function details($id)
     {
         $data['items'] = $this->productCategoryInfo();
+        $data['product'] = Product::find($id);
+        return view('front.description', $data);
+    }
+
+    public function productshow($id)
+    {
+        $data['items'] = $this->productCategoryInfo();
+        $data['productcategory'] = ProductCategory::find($id);
+        return view('front.productshow', $data);
+    }
+
+    public function login()
+    {
+        $data['items'] = $this->productCategoryInfo();
+        return view('front.login', $data);
+    }
+
+    public function register()
+    {
+        $data['items'] = $this->productCategoryInfo();
+        return view('front.register', $data);
+    }
+
+    public function productcartAdd(Request $request, $id)
+    {
+        $data['items'] = $this->productCategoryInfo();
+        $data = CartItem::where('product_id', $id)->where('user_id', auth()->user()->id)->first();
+        if ($data) {
+            return redirect()->back()->with('error', 'The product already is added to the cart.');
+        }
+        $cart = new CartItem();
+        $product = Product::find($id);
+        $cart->product_id = $id;
+        $cart->quantity = $request->quantity;
+        $cart->total = $request->quantity * $product->price;
+        $cart->user_id = auth()->user()->id;
+        $cart->save();
+
+        $data['cart'] = $cart;
+        return redirect()->back()->with('message', 'Cart Added Successfully');
+
+    }
+
+    public function cartshow()
+    {
+        $data['items'] = $this->productCategoryInfo();
+        $data['carts'] = CartItem::with('product')->where('user_id', auth()->user()->id)->get();
+        $data['count'] = count($data['carts']);
+        return view('front.productcart', $data);
+    }
+
+    public function orderhistory(Request $request)
+    {
+        $data['items'] = $this->productCategoryInfo();
+
         return view('front.orderhistory', $data);
+    }
+
+    public function orderConfirm(Request $request)
+    {
+        $data['items'] = $this->productCategoryInfo();
+        $data['order'] = Order::with('orderItems')->findOrFail($request->order_id);
+        return view('orderConfirmation', $data);
+    }
+
+    function getSuccess(Request $request)
+    {
+//        dd($request->ref);
+        $order = Order::with('orderItems')->findOrFail($request->order_id);
+
+        $order->update([
+            'payment_reference_id' => $request->ref,
+            'payment_status' => 'Completed'
+        ]);
+        return view('success', compact('order'));
+    }
+    function getFailure()
+    {
+        return view('failure');
     }
 }

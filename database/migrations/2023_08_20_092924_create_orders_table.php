@@ -13,12 +13,15 @@ return new class extends Migration
     {
         Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->integer('number')->unique();
+            $table->integer('number')->unique()->nullable();
             $table->foreignId('user_id')->references('id')->on('users');
             $table->string('location')->nullable();
-            $table->integer('payment_reference_id')->nullable();
-            $table->enum('payment_status',['Pending','Accepted','Cancelled'])->default("Pending");
-            $table->enum('order_status',['Pending','Delivering','Delivered','Cancelled'])->default("Pending");
+            $table->string('payment_reference_id')->nullable();
+            $table->enum('payment_method', ['cod', 'skypay'])->nullable();
+            $table->enum('payment_status',['Pending','Completed','Cancelled', 'Failed'])->default("Pending");
+            $table->enum('order_status',['Pending','Processing','Problem','Pickup Available','Delivered','Cancelled'])->default("Pending");
+            $table->double('subtotal')->default(0);
+            $table->double('total')->default(0);
             $table->timestamps();
         });
     }
