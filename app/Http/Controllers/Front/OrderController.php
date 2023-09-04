@@ -105,7 +105,7 @@ class OrderController extends Controller
             if ($request->payment_method == "skypay") {
                 $url = "https://pay.skybase.com.np/payments/initiate";
                 $params = [
-                    "access_key" => "925366",
+                    "access_key" => "698049",
                     "amount" => $request->total,
                     "success_url" => route('success.message'),
                     "failure_url" => route('failure.message'),
