@@ -3,12 +3,16 @@
 @section('title', 'Contact')
 
 @section('content')
+    <head>
+
+    <link rel="icon" type="image/x-icon" href="/front/images/clothes-hanger.png">
+    </head>
 
     <div class="super_container">
 
         <!-- Slider -->
 
-        <div class="main_slider" style="background-image:url(front/images/1st.jpg)">
+        <div class="main_slider" style="background-image:url('front/images/1st.jpg')">
             <div class="container fill_height">
                 <div class="row align-items-center fill_height">
                     <div class="col">
@@ -49,6 +53,8 @@
         </div>
 
 
+
+
         <!-- New Arrivals -->
 
         <div class="new_arrivals">
@@ -71,7 +77,7 @@
                                 </li>
 
                                 @foreach ($items as $item)
-                                    <li class="grid_sorting_button button d-flex mx-1 flex-column justify-content-center align-items-center"
+                                    <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center"
                                         data-filter="">
                                         <a href="#" style="color:black;" class="show-images mx-2"
                                            data-group="{{ $item->id }}">{{ $item->name }}</a></li>
@@ -122,8 +128,8 @@
                 loop: true, // Infinite loop
                 nav: true, // Show navigation buttons
                 margin: 10, // Space between items
-                navText: ['<span class="custom-prev-btn owl-style  ">Previous</span>',
-                    '<span class="custom-next-btn owl-style">Next</span>'
+                navText: ['<span class="custom-prev-btn owl-style  "><i class="fa-solid fa-chevron-left text-secondary"></i></span>',
+                    '<span class="custom-next-btn owl-style"><i class="fa-solid fa-chevron-right text-secondary"></i></span>'
                 ],
             });
         });

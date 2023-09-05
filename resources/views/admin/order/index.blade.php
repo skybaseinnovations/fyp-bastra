@@ -7,11 +7,12 @@
         <thead>
             <tr>
                 <th scope="col">S.N</th>
-                <th scope="col">Order Number</th>
-                <th scope="col">User Id</th>
-                <th scope="col" class="">Location</th>
+                <th scope="col"> Order no.</th>
+                <th scope="col"> Number of Items</th>
                 <th scope="col">Payment Reference Id</th>
-                <th scope="col"> Payment Status</th>
+                <th scope="col" class="">Payment Method</th>
+                <th scope="col">Payment Status </th>
+                <th scope="col"> Order Status</th>
                 <th scope="col">Action</th>
             </tr>
         </thead>
@@ -19,11 +20,12 @@
             @foreach ($items as $key => $item)
                 <tr>
                     <th scope="row">{{ ++$key }}</th>
+                    <td>{{ $item->id }}</td>
                     <td>{{ $item->number }}</td>
-                    <td>{{ $item->user_id }}</td>
-                    <td>{{ $item->location }}</td>
-                    <td>{{ $item->payment_reference_id }}</td>
-                    <td>{{ $item->payment_status }}</td>
+                    <td>{{ isset($item->payment_reference_id)?$item->payment_reference_id:'N/A' }}</td>
+                    <td>{{ $item->payment_method }}</td>
+                    <td>{{ $item->payment_status}}</td>
+                    <td>{{ $item->order_status }}</td>
                     <td>
                         <div class="d-flex justify-content-around">
                             <a href="{{ route($view, $item->id) }}" class="btn btn-sm btn-primary"> <i

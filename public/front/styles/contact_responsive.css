@@ -24,7 +24,7 @@
 
 @media only screen and (max-width: 1600px)
 {
-	
+
 }
 
 /************
@@ -33,7 +33,7 @@
 
 @media only screen and (max-width: 1540px)
 {
-	
+
 }
 
 /************
@@ -42,7 +42,7 @@
 
 @media only screen and (max-width: 1380px)
 {
-	
+
 }
 
 /************
@@ -51,7 +51,7 @@
 
 @media only screen and (max-width: 1280px)
 {
-	
+
 }
 
 /************
@@ -76,7 +76,7 @@
 
 @media only screen and (max-width: 1024px)
 {
-	
+
 }
 
 /************
@@ -97,7 +97,7 @@
 	}
 	.hamburger_container
 	{
-		display: block;
+		display: none;
 	}
 	.contact_container
 	{
@@ -151,7 +151,7 @@
 
 @media only screen and (max-width: 959px)
 {
-	
+
 }
 
 /************
@@ -160,7 +160,7 @@
 
 @media only screen and (max-width: 880px)
 {
-	
+
 }
 
 /************
@@ -169,7 +169,7 @@
 
 @media only screen and (max-width: 768px)
 {
-	
+
 }
 
 /************
@@ -288,12 +288,12 @@
 	{
 		font-size: 14px !important;
 	}
-	.input_ph::-moz-placeholder /* Firefox 19+ */ 
+	.input_ph::-moz-placeholder /* Firefox 19+ */
 	{
 		font-size: 14px !important;
-	} 
+	}
 	.input_ph:-ms-input-placeholder
-	{ 
+	{
 		font-size: 14px !important;
 	}
 	.input_ph::input-placeholder
@@ -328,7 +328,7 @@
 
 @media only screen and (max-width: 539px)
 {
-	
+
 }
 
 /************
@@ -337,7 +337,7 @@
 
 @media only screen and (max-width: 480px)
 {
-	
+
 }
 
 /************
@@ -402,7 +402,7 @@
 	{
 		width: 15px;
 		height: 15px;
-		font-size: 10px;		
+		font-size: 10px;
 	}
 	.red_button a
 	{
@@ -449,12 +449,12 @@
 	{
 		font-size: 12px !important;
 	}
-	#newsletter_email::-moz-placeholder /* Firefox 19+ */ 
+	#newsletter_email::-moz-placeholder /* Firefox 19+ */
 	{
 		font-size: 12px !important;
-	} 
+	}
 	#newsletter_email:-ms-input-placeholder
-	{ 
+	{
 		font-size: 12px !important;
 	}
 	#newsletter_email::input-placeholder
@@ -490,5 +490,5 @@
 
 @media only screen and (max-width: 400px)
 {
-	
+
 }

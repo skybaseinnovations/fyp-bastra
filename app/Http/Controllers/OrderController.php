@@ -15,7 +15,7 @@ class OrderController extends Controller
             $items= Order::where('location','LIKE',"%".$search."%");
         }
         $items=$items->paginate(6);
-        
+
 
         if($search){
             $data['search']=$search;
@@ -43,15 +43,12 @@ class OrderController extends Controller
 
     public function update(Request $request, $id){
         $order=Order::find($id);
-        $order->number=$request->number;
-        $order->user_id=$request->user_id;
         $order->location=$request->location;
-        $order->payment_reference_id=$request->payment_reference_id;
         $order->payment_status=$request->payment_status;
         $order->order_status=$request->order_status;
-        
+//        dd($request->payment_status);
         $order->update();
         return redirect()->route('order.index')->with('message','Order Updated Successfully');
     }
-   
+
 }

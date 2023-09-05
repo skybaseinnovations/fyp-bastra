@@ -326,39 +326,39 @@ section
 {
 	color: #b5aec4;
 }
-.navbar_user
-{
-	margin-left: 37px;
-}
-.navbar_user li
-{
-	display: inline-block;
-	text-align: center;
-}
-.navbar_user li a
-{
-	display: -webkit-box;
-	display: -moz-box;
-	display: -ms-flexbox;
-	display: -webkit-flex;
-	display: flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items: center;
-	position: relative;
-	width: 40px;
-	height: 40px;
-	color: #1e1e27;
-	-webkit-transition: color 0.3s ease;
-	-moz-transition: color 0.3s ease;
-	-ms-transition: color 0.3s ease;
-	-o-transition: color 0.3s ease;
-	transition: color 0.3s ease;
-}
-.navbar_user li a:hover
-{
-	color: #b5aec4;
-}
+/*.navbar_user*/
+/*{*/
+/*	margin-left: 37px;*/
+/*}*/
+/*.navbar_user li*/
+/*{*/
+/*	display: inline-block;*/
+/*	text-align: center;*/
+/*}*/
+/*.navbar_user li a*/
+/*{*/
+/*	display: -webkit-box;*/
+/*	display: -moz-box;*/
+/*	display: -ms-flexbox;*/
+/*	display: -webkit-flex;*/
+/*	display: flex;*/
+/*	flex-direction: column;*/
+/*	justify-content: center;*/
+/*	align-items: center;*/
+/*	position: relative;*/
+/*	width: 40px;*/
+/*	height: 40px;*/
+/*	color: #1e1e27;*/
+/*	-webkit-transition: color 0.3s ease;*/
+/*	-moz-transition: color 0.3s ease;*/
+/*	-ms-transition: color 0.3s ease;*/
+/*	-o-transition: color 0.3s ease;*/
+/*	transition: color 0.3s ease;*/
+/*}*/
+/*.navbar_user li a:hover*/
+/*{*/
+/*	color: #b5aec4;*/
+/*}*/
 .checkout a
 {
 	background: #eceff6;
@@ -390,7 +390,7 @@ section
 	display: inline-block;
 	position: relative;
 	min-width: 50px;
-	padding-left: 10px;
+	/*padding-left: 0px;*/
 	text-align: center;
 	vertical-align: middle;
 }
@@ -840,13 +840,17 @@ section
 	margin-top: 57px;
 	height:400px;
 }
-.products-items
+.product-item
 {
-	width: 20%;
-	height: 380px;
-	cursor: pointer;
+	/*width: 20%;*/
+	/*height: 100px;*/
+	/*cursor: pointer;*/
 }
-.product-items::after
+.menu_item{
+    margin:-20px;
+
+}
+.product-item::after
 {
 	display: block;
 	position: absolute;
@@ -932,6 +936,7 @@ section
 .add_to_cart_button
 {
 	width: 100% !important;
+
 	/*visibility: hidden;*/
 	opacity: 1;
 	-webkit-transition: all 0.3s ease;
@@ -991,9 +996,6 @@ section
 {
 	color: #fe4c50;
 }
-
-/*********************************
-
 
 /*********************************
 7. Best Sellers
@@ -1079,9 +1081,6 @@ section
 	top: 50%;
 	right: 0;
 }
-
-
-
 /*********************************
 11. Footer
 *********************************/
