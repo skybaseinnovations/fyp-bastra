@@ -16,7 +16,7 @@
                             <h6>Spring / Summer Collection 2023</h6>
                             <h1>Get up to 30% Off New Arrivals</h1>
                             <div class="red_button shop_now_button"><a href="#"
-                                    style="	color: ghostwhite !important;
+                                                                       style="	color: ghostwhite !important;
                                 ">shop now</a>
                             </div>
                         </div>
@@ -33,7 +33,7 @@
                             @foreach ($items as $item)
                                 <div class="mx-auto mt-4">
                                     <div class="banner_item align-items-center"
-                                        style="background-image:url({{ isset($item->img_url)?asset('uploads/' . $item->img_url): asset('uploads/'.'null_img.jpg') }})">
+                                         style="background-image:url({{ isset($item->img_url)?asset('uploads/' . $item->img_url): asset('uploads/'.'null_img.jpg') }})">
                                         <div class="banner_category">
                                             <a href="{{ route('category.item', $item->id) }}">{{ $item->name }}</a>
                                         </div>
@@ -47,8 +47,6 @@
                 </div>
             </div>
         </div>
-
-
 
 
         <!-- New Arrivals -->
@@ -66,58 +64,47 @@
                     <div class="col text-center">
                         <div class="new_arrivals_sorting">
                             <ul class="arrivals_grid_sorting clearfix button-group filters-button-group">
-                                <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center active is-checked " data-filter="*" data-group="all">
-                                    <a href="#" style="color:black;" class="show-images mx-2" data-group="all">Show All</a>
+                                <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center active is-checked "
+                                    data-filter="*" data-group="all">
+                                    <a href="#" style="color:black;" class="show-images mx-2" data-group="all">Show
+                                        All</a>
                                 </li>
 
-                      @foreach ($items as $item)
-                                    <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center" data-filter="">
+                                @foreach ($items as $item)
+                                    <li class="grid_sorting_button button d-flex mx-1 flex-column justify-content-center align-items-center"
+                                        data-filter="">
                                         <a href="#" style="color:black;" class="show-images mx-2"
-                                        data-group="{{ $item->id }}">{{ $item->name }}</a></li>
+                                           data-group="{{ $item->id }}">{{ $item->name }}</a></li>
                                 @endforeach
                             </ul>
                         </div>
                     </div>
                 </div>
 
-                    <div class="col-12">
-                        <div class="product-grid"
-                            data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
-                            @foreach ($items as $item)
-                                <div class="images-group" id="group-{{ $item->id }}">
-                                    @foreach ($item->products as $product)
-                                        {{-- <img src="{{ asset('uploads/' . $product->img_url) }}" height="100px"
-                                                width="100px"> --}}
-                                        <div class="product-item men">
-                                            <div class="product discount product_filter">
-                                                <div class="product_image">
-                                                    <img src="{{ isset($product->imgurl) ?asset('uploads/' . $product->img_url):asset('uploads/'.'null_img.jpg') }}"
-                                                        height="250px" width="" style="object-fit:cover;">
-                                                </div>
-                                                <div
-                                                    class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                                                </div>
-                                                <div class="product_info">
-                                                    <div class="favorite"></div>
-
-                                                    <h6 class="product_name"><a href="">{{ $product->name }}</a>
-                                                    </h6>
-                                                    <div class="product_price">Rs. {{ $product->price }}</div>
-                                                </div>
-                                            </div>
-                                            <div class="red_button add_to_cart_button"><a
-                                                    href="{{ route('details', $product->id) }}">View
-                                                    Product</a>
+                    <div class="row mt-5 mb-5">
+                        @foreach ($items as $item)
+                            <div class=" col-3 images-group mx-auto" id="group-{{ $item->id }}">
+                                @foreach ($item->products as $product)
+                                    <div class=" bg-danger">
+                                        <div class="card " style="width: 100%;">
+                                            <img
+                                                src="{{ isset($product->img_url) ?asset('uploads/' . $product->img_url):asset('uploads/'.'null_img.jpg') }}"
+                                                height="250px" width="" style="object-fit:cover;">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{$product->name}}</h5>
+                                                <p class="card-text"> Rs {{$product->price}}</p>
+                                                <a  href="{{ route('details', $product->id) }}" class="btn btn-outline-primary">View Product</a>
                                             </div>
                                         </div>
-                                    @endforeach
-                                </div>
-                            @endforeach
+                                    </div>
 
-                        </div>
+                                @endforeach
+                            </div>
+                            @endforeach
                     </div>
 
-                </div>
+
+            </div>
         </div>
     </div>
 
@@ -129,7 +116,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('.owl-carousel').owlCarousel({
                 items: 3, // Number of items to show in each slide
                 loop: true, // Infinite loop
@@ -143,12 +130,12 @@
     </script>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function () {
             const showImagesLinks = document.querySelectorAll(".show-images");
             const imageGroups = document.querySelectorAll(".images-group");
 
             showImagesLinks.forEach(link => {
-                link.addEventListener("click", function(event) {
+                link.addEventListener("click", function (event) {
                     event.preventDefault();
                     const groupId = this.getAttribute("data-group");
 
@@ -160,12 +147,12 @@
                     if (groupId === "all") {
                         // Show all image groups
                         imageGroups.forEach(group => {
-                            group.style.display = "block";
+                            group.style.display = "flex";
                         });
                     } else {
                         // Display the selected image group
                         const selectedGroup = document.getElementById("group-" + groupId);
-                        selectedGroup.style.display = "block";
+                        selectedGroup.style.display = "flex";
                     }
                 });
             });

@@ -131,7 +131,7 @@
                                                     type="button" class="" value="">+</button>
                                             </div>
                                         </td>
-                                        <td class="subtotal-cell"><p>Rs. {{$cart->total }}</p><input type="hidden" name="subtotals[]" value="{{ $cart->total }}">
+                                        <td> class="subtotal-cell"><p>Rs. {{$cart->total }}</p><input type="hidden" name="subtotals[]" value="{{ $cart->total }}">
                                         </td>
                                         <td>
                                             <a href="{{ route('cartItem.delete', $cart->id) }}" class="btn btn-outline-danger p-2"><i class="fas fa-trash"></i></a>

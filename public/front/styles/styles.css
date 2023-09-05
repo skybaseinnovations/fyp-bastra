@@ -932,8 +932,8 @@ section
 .add_to_cart_button
 {
 	width: 100% !important;
-	visibility: hidden;
-	opacity: 0;
+	/*visibility: hidden;*/
+	opacity: 1;
 	-webkit-transition: all 0.3s ease;
 	-moz-transition: all 0.3s ease;
 	-ms-transition: all 0.3s ease;
@@ -948,8 +948,8 @@ section
 }
 .product-item:hover .add_to_cart_button
 {
-	visibility: visible;
-	opacity: 1;
+	/*visibility: visible;*/
+	/*opacity: 1;*/
 }
 .favorite
 {
