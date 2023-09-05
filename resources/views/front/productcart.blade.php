@@ -118,32 +118,30 @@
                                                     <input type="hidden" value="{{ $cart->product->price }}"
                                                            name="product_prices[]">
                                                 </div>
-                                            </div>
                                         </td>
                                         <td>
                                             <div class="increment d-flex" style="justify-content: center">
                                                 <button class="decrease"
                                                         style="background-color:#ab4cfe;color:white;width:30px;height:30px;font-size:1.5rem;border:1px solid white;"
-                                                        type="button" class="">-
+                                                        type="button">-
                                                 </button>&nbsp;&nbsp;
                                                 <input type="text" style="width:30px;text-align:center;"
                                                        name="quantities[]" value="{{ $cart->quantity }}"
                                                        class="quantity">&nbsp;&nbsp;
                                                 <button class="increase"
                                                         style="background-color:#ab4cfe;color:white;width:30px;font-size:1.5rem;height:30px;border:1px solid white;"
-                                                        type="button" class="" value="">+
+                                                        type="button" value="">+
                                                 </button>
                                             </div>
                                         </td>
                                         <td class="subtotal-cell">
-                                            <p>Rs. {{$cart->total }}</p>
-                                            <input type="hidden" name="subtotals[]" value="{{ $cart->total }}">
+                                            <p class="product_total">Rs. {{$cart->total }}</p>
+                                            <input type="hidden" name="subtotals[]" value="{{ $cart->total }}" class="product_total">
                                         </td>
                                         <td>
                                             <a href="{{ route('cartItem.delete', $cart->id) }}"
                                                class="btn btn-outline-danger p-2"><i class="fas fa-trash"></i></a>
                                         </td>
-                                        <input type="hidden" name="total" value="100">
                                     </tr>
                                 @endforeach
 
@@ -191,15 +189,18 @@
     <script>
         function getGrandTotal()
         {
-            $('.totalp').each(function (index,item) {
-                let total = 0.00;
-                total += $(this).text();
-                console.log(total);
+            let total = 0.00;
+            $('input[type=hidden].product_total').each(function (index, item) {
+                total += parseFloat($(this).val());
+                $('.totalp').text(total);
+                $('#total').val(total);
             })
         }
         $(document).ready(function () {
             getGrandTotal();
         });
+
+
     </script>
 
     {{-- <script>
