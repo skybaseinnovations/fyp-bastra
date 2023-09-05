@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Order;
 use Illuminate\Http\Request;
+use App\Notifications\AdminOrderStatusChangeNotification;
 
 class OrderController extends Controller
 {
@@ -15,7 +16,7 @@ class OrderController extends Controller
             $items= Order::where('location','LIKE',"%".$search."%");
         }
         $items=$items->paginate(6);
-        
+
 
         if($search){
             $data['search']=$search;
@@ -49,9 +50,20 @@ class OrderController extends Controller
         $order->payment_reference_id=$request->payment_reference_id;
         $order->payment_status=$request->payment_status;
         $order->order_status=$request->order_status;
-        
+
         $order->update();
+
+
+        $notification = Order::first();
+        #store notification info into notifications table
+        $notification->notify(new AdminOrderStatusChangeNotification($order));
+        dd('user registered successfully, Notification send to Admin Successfully.');
+
         return redirect()->route('order.index')->with('message','Order Updated Successfully');
+
     }
-   
 }
+
+
+
+

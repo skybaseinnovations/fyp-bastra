@@ -9,6 +9,8 @@ use App\Http\Controllers\OrderItemController;
 use App\Http\Kernel;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front\HomeController;
+use App\Http\Controllers\UserRegisterController;
+use App\Http\Controllers\AdminController;
 
 
 
@@ -129,5 +131,18 @@ Route::prefix('admin')->middleware('auth:admin')->group(function(){
         Route::put('/orderitem/edit/update/{id}', [OrderItemController::class,'update'])->name('orderitem.update');
         Route::get('/orderitem/show/{id}', [OrderItemController::class,'show'])->name('orderitem.show');
         Route::delete('/orderitem/edit/delete/{id}', [OrderItemController::class,'destroy'])->name('orderitem.delete');
+
+        //Notification
+
+#Display all notifications to Admin
+
+    Route::get('/notification', [App\Http\Controllers\Front\HomeController::class,'showNotificaton']);
+
+#Notification mark as Read
+
+    Route::post('/mark-as-read',[App\Http\Controllers\Front\HomeController::class, 'markNotification'])->name('markNotification');
+
+
+
 
 });
