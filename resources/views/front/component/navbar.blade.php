@@ -26,6 +26,7 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('front/styles/contact_styles.css') }}">
     <link rel="stylesheet" type="text/css" href="{{ asset('front/styles/contact_responsive.css') }}">
 
+    <link rel="icon" type="image/x-icon" href="/front/images/clothes-hanger.png">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -52,7 +53,9 @@
             integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
-
+        *{
+            font-family: 'Poppins', sans-serif;
+        }
         .button {
             float: right;
         }
@@ -101,9 +104,18 @@
                                     <div class="button" style="">
                                         @auth
                                             <li class="checkout">
-                                                <a href="{{ route('cartshow') }}">
-                                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
-                                                </a>
+                                                <form action="{{route('cartshow')}}" method="get">
+                                                    @csrf
+                                                    <button type="submit" class="btn rounded-circle btn-lg px-2 py-3 position-relative"
+                                                            style="background-color: #efedf0">
+                                                        <i class="fa fa-shopping-cart fa-xs" aria-hidden="true"></i>
+                                                        <span
+                                                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill" style="background-color: #e92556; font-size: 10px!important;">
+                                                {{$count}}
+                                                <span class="visually-hidden">Cart Count</span>
+                                              </span>
+                                                    </button>
+                                                </form>
                                             </li>
 
                                             <li class="ml-3">
@@ -131,19 +143,19 @@
                                                 </ul>
                                             </li>
                                         @else
-                                                <a href="{{ route('login') }}" class="btn btn-success"
-                                                    style="border-radius: 2rem;border:1px solid white;padding:0.9rem;color:ghostwhite;"><i
-                                                        class="fa fa-user"></i>&nbsp;&nbsp;Login</a>
-                                                <a href="{{ route('register') }}" class="btn"
-                                                    style="border-radius: 2rem;border:1px solid white;padding:0.9rem;background-color:#0096c7;color:white;"><i
-                                                        class="fa fa-user-plus"></i>&nbsp;&nbsp;Register</a>
-
-
-                                        </div>
-                                    @endauth
-                                </div>
+                                            <li>
+                                                <a href="{{route('login')}}" class="btn rounded-pill login-btn py-2" style="border: 1px solid #6d4cfe; color: 6d4cfe" >Login</a>
+                                            </li>
+                                            <li>
+                                                <a href="{{route('register')}}" class="btn text-white register-btn  py-2 rounded-pill" style="background-color: #6d4cfe">Register</a>
+                                            </li>
+                                        @endauth
+                                    </div>
                             </ul>
-                            <div class="hamburger_container" style="">
+
+
+
+                            <div class="hamburger_container">
                                 <i class="fa fa-bars" aria-hidden="true"></i>
                             </div>
                         </nav>
