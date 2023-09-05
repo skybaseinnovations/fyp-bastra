@@ -51,6 +51,9 @@
             integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
+        *{
+            font-family: 'Poppins', sans-serif;
+        }
         .button {
             float: right;
         }
@@ -149,7 +152,7 @@
                                         <li class="checkout">
                                             <form action="{{route('cartshow')}}" method="get">
                                                 @csrf
-                                                <button type="submit" class="btn rounded-circle p-3 position-relative"
+                                                <button type="submit" class="btn rounded-circle px-3 py-4 m-0 position-relative"
                                                         style="background-color: #efedf0">
                                                     <i class="fa fa-shopping-cart fa-xs" aria-hidden="true"></i>
                                                     <span
