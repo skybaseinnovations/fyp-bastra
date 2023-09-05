@@ -117,6 +117,46 @@
                                                     </button>
                                                 </form>
                                             </li>
+                                            <li class="account">
+{{--                                                <form action="#" method="get">--}}
+{{--                                                    @csrf--}}
+                                                    <button type="submit" class="btn rounded-circle btn-lg px-2 py-3 position-relative"
+                                                            style="background-color: #efedf0">
+                                                        <i class="fa-solid fa-bell fa-xs"  aria-hidden="true"></i>
+                                                        <span
+                                                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill" style="background-color: #e92556; font-size: 10px!important;">
+                                                {{$notification_count}}
+                                                <span class="visually-hidden">Cart Count</span>
+                                              </span>
+                                                    </button>
+
+{{--                                                </form>--}}
+                                                <ul class="account_selection " style="width:250px !important;height:250px !important; overflow-y:scroll;" >
+                                                        <div class="" role="" aria-labelledby="navbarDropdownMenuLink">
+                                                            @if (count($notifications) > 0 )
+                                                                @foreach($notifications as $notification)
+                                                                    <div class="" >
+                                                                        {{ $notification->id  }}
+                                                                        {{--                                                                    <p class="dropdown-item"><b> {{ $notification->data['order_status'] }} </b>&nbsp; ({{ $notification->data['email'] }}) has just registered.   [{{  date('j \\ F Y, g:i A', strtotime($notification->created_at)) }}]</p>--}}
+                                                                        <a href="#"><button type="button" rel="tooltip" title="Mark as read" class="btn btn-danger btn-link btn-sm mark-as-read" data-id="{{ $notification->id }}">
+                                                                                <i class="material-icons">close</i>
+                                                                            </button>
+                                                                        </a>
+                                                                    </div>
+                                                                    <hr>
+                                                                @endforeach
+                                                                <button type="submit" class="dropdown-item" id="mark-all">
+                                                                    Mark all as read
+                                                                </button>
+                                                            @else
+                                                                <p class="dropdown-item">There are no new notifications</p>
+                                                            @endif
+                                                        </div>
+                                                </ul>
+                                            </li>
+                                            <li class="notification">
+
+                                            </li>
 
                                             <li class="ml-3">
                                             <li class="account">
@@ -140,8 +180,13 @@
                                                                     style="width:auto;margin-top:1rem;border-radius: 2rem;border:1px solid white;padding:0.5rem;background-color:#e92556;color:white;"><i class="fa-solid fa-power-off"></i></a>&nbsp;&nbsp;Logout</button>
                                                         </form>
                                                     </li>
+
                                                 </ul>
+                                            <li>
+
                                             </li>
+
+
                                         @else
                                             <li>
                                                 <a href="{{route('login')}}" class="btn rounded-pill login-btn py-2" style="border: 1px solid #6d4cfe; color: 6d4cfe" >Login</a>
@@ -152,8 +197,6 @@
                                         @endauth
                                     </div>
                             </ul>
-
-
 
                             <div class="hamburger_container">
                                 <i class="fa fa-bars" aria-hidden="true"></i>

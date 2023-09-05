@@ -6,38 +6,23 @@
         <div class="row">
 
             <div class="col-md-8">
-                <label for="">Order Number</label>
-                <input type="text" name="name" value="{{ $item->number }}" id="" class="form-control"
-                    placeholder="" aria-describedby="helpId" required {{ isset($show) ? $show : '' }}>
-
-                <label for="">User Id</label>
-                <input type="number" name="price" value="{{ $item->user_id }}" id="" class="form-control"
-                    placeholder="" aria-describedby="helpId" required {{ isset($show) ? $show : '' }}>
-
-                <label for="">Order Location</label>
-                <input type="text" name="description" value="{{ $item->location }} "id="" class="form-control"
-                    placeholder="" aria-describedby="helpId" required {{ isset($show) ? $show : '' }}>
-
-                <label for=""> Payment Reference Id</label>
-                <input type="number" name="rate_count" id="" value="{{ $item->payment_reference_id }}"
-                    class="form-control" placeholder="" aria-describedby="helpId" required {{ isset($show) ? $show : '' }}>
-
-                <label for=""> Payment Status</label>
-                <input type="text" name="rate_count" id="" value="{{ $item->payment_status }}"
-                    class="form-control" placeholder="" aria-describedby="helpId" required {{ isset($show) ? $show : '' }}>
-
-                <label for=""> Order Status</label>
-                <input type="text" name="rate_count" id="" value="{{ $item->order_status }}"
-                    class="form-control" placeholder="" aria-describedby="helpId" required {{ isset($show) ? $show : '' }}>
-
+                <div class="border shadow p-3 rounded-3 w-50 my-3">
+                    <label for="">Order Number : {{ $item->number}}</label><br>
+                    <label for="">User Id : {{ $item->user_id}}</label><br>
+                    <label for="">Order Location : {{ $item->location}}</label><br>
+                    <label for="">Payment Reference Id : {{ $item->payment_referenceid}}</label><br>
+                    <label for="">Payment Status : {{ $item->payment_status}}</label><br>
+                    <label for="">Order Status : {{ $item->order_status}}</label><br>
+                    <label for="">Total Cost : {{ $item->total}}</label><br>
+                </div>
                 <label class="mt-4"> Order Details</label>
                 <table class="table table-striped">
                     <thead>
                         <tr>
                             <th scope="col">S.N</th>
                             <th scope="col">Product Name</th>
-                            <th scope="col">Total Amount</th>
                             <th scope="col">Order Quantity</th>
+                            <th scope="col">Total Amount</th>
                         </tr>
                     </thead>
                     <tbody>

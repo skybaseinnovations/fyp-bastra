@@ -10,6 +10,8 @@
 
     <div class="super_container">
 
+
+
         <!-- Slider -->
 
         <div class="main_slider" style="background-image:url('front/images/1st.jpg')">
@@ -51,6 +53,10 @@
                 </div>
             </div>
         </div>
+
+
+
+
         <!-- New Arrivals -->
 
         <div class="new_arrivals">
@@ -82,53 +88,58 @@
                         </div>
                     </div>
                 </div>
+{{--                <i class="fa-solid fa-bell"></i>--}}
+{{--                @if ($notifications->count() > 0 )--}}
+{{--                                    @foreach($notifications as $notification)--}}
+{{--                    <div class="alert alert-light" role="alert">--}}
+{{--                                                <p class="dropdown-item"><b> {{ $notification->data['order_status'] }}--}}
+{{--                        <p class="dropdown-item"><b>--}}
+{{--                        </p>--}}
 
-                <div class="col-12">
-                    <div class="product-grid"
-                         data-isotope='{ "itemSelector": ".product-item", "layoutMode": "fitRows" }'>
+{{--                        <a href="#"><button type="button" rel="tooltip" title="Mark as read" class="btn btn-danger btn-link btn-sm mark-as-read" data-id=" {{$notification->id}} ">--}}
+{{--                                <i class="material-icons">close</i>--}}
+{{--                            </button>--}}
+{{--                        </a>--}}
+{{--                    </div>--}}
+{{--                    <hr>--}}
+{{--                                    @endforeach--}}
+{{--                    <a href="#" class="dropdown-item" id="mark-all">--}}
+{{--                        Mark all as read--}}
+{{--                    </a>--}}
+{{--                @else--}}
+{{--                    <p class="dropdown-item">There are no new notifications</p>--}}
+{{--                @endif--}}
 
+                    <div class="row mt-5 mb-5">
                         @foreach ($items as $item)
-                            <div class="images-group" id="group-{{ $item->id }}">
+                            <div class=" col-3 images-group mx-auto" id="group-{{ $item->id }}">
                                 @foreach ($item->products as $product)
-                                    {{-- <img src="{{ asset('uploads/' . $product->img_url) }}" height="100px"
-                                        width="100px"> --}}
-                                    <div class="product-item men">
-                                        <div class="product discount product_filter">
-                                            <div class="product_image">
-                                                <img
-                                                    src="{{ isset($product->imgurl) ?asset('uploads/' . $product->img_url):asset('uploads/'.'null_img.jpg') }}"
-                                                    height="250px" width=""
-                                                    style="object-fit:cover;">
+                                    <div class=" bg-danger">
+                                        <div class="card " style="width: 100%;">
+                                            <img
+                                                src="{{ isset($product->img_url) ?asset('uploads/' . $product->img_url):asset('uploads/'.'null_img.jpg') }}"
+                                                height="250px" width="" style="object-fit:cover;">
+                                            <div class="card-body">
+                                                <h5 class="card-title">{{$product->name}}</h5>
+                                                <p class="card-text"> Rs {{$product->price}}</p>
+                                                <a  href="{{ route('details', $product->id) }}" class="btn btn-outline-primary">View Product</a>
                                             </div>
-                                            <div
-                                                class="product_bubble product_bubble_right product_bubble_red d-flex flex-column align-items-center">
-                                            </div>
-                                            <div class="product_info">
-                                                <div class="favorite"></div>
-
-                                                <h6 class="product_name"><a
-                                                        href="">{{ $product->name }}</a>
-                                                </h6>
-                                                <div class="product_price">
-                                                    Rs. {{ $product->price }}</div>
-                                            </div>
-                                        </div>
-                                        <div class="red_button add_to_cart_button"><a
-                                                href="{{ route('details', $product->id) }}">View
-                                                Product</a>
                                         </div>
                                     </div>
+
                                 @endforeach
                             </div>
-                        @endforeach
-
+                            @endforeach
                     </div>
-                </div>
+
 
             </div>
         </div>
+
+
+
     </div>
-@endsection
+
 
     <!-- Add Owl Carousel JavaScript at the end of your body -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
@@ -168,14 +179,42 @@
                     if (groupId === "all") {
                         // Show all image groups
                         imageGroups.forEach(group => {
-                            group.style.display = "block";
+                            group.style.display = "flex";
                         });
                     } else {
                         // Display the selected image group
                         const selectedGroup = document.getElementById("group-" + groupId);
-                        selectedGroup.style.display = "block";
+                        selectedGroup.style.display = "flex";
                     }
                 });
             });
+        });
+    </script>
+
+        <script>
+            function sendMarkRequest(id = null) {
+            return $.ajax("{{ route('markNotification') }}", {
+            method: 'POST',
+
+            data: {
+            _token: '{{ csrf_token() }}',
+            id
+        }
+        });
+        }
+            $(function() {
+            $('.mark-as-read').click(function() {
+                let request = sendMarkRequest($(this).data('id'));
+                request.done(() => {
+                    $(this).parents('div.alert').remove();
+                });
+            });
+            $('#mark-all').click(function() {
+            let request = sendMarkRequest();
+            request.done(() => {
+                window.location.href ="/"
+            // $('div.alert').remove();
+        })
+        });
         });
     </script>

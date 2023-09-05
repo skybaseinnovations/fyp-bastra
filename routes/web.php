@@ -136,7 +136,7 @@ Route::prefix('admin')->middleware('auth:admin')->group(function(){
 
 #Display all notifications to Admin
 
-    Route::get('/notification', [App\Http\Controllers\Front\HomeController::class,'showNotificaton']);
+//    Route::get('/notification', [App\Http\Controllers\Front\HomeController::class,'showNotificaton']);
 
 #Notification mark as Read
 

@@ -52,6 +52,7 @@ class AdminOrderStatusChangeNotification extends Notification
     {
         return [
             'order_status'=> $this->order->order_status,
+            'user_id'=> $this->order->user_id,
         ];
     }
 }

@@ -11,7 +11,9 @@ use App\Models\OrderItem;
 // use App\Models\OrderItem;
 use App\Models\ProductCategory;
 use App\Models\Product;
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Notification;
 
 class HomeController extends BaseController
 {
@@ -64,6 +66,11 @@ class HomeController extends BaseController
     {
         $data['items'] = $this->productCategoryInfo();
         $data['count'] = $this->cartCount();
+        $data['notification_count']=$this->notificationCount();
+
+
+        $data['notifications'] = auth()->user()->unreadNotifications()->get();
+//        dd($data['notifications']);
         return view('front.index', $data);
     }
 
@@ -73,6 +80,11 @@ class HomeController extends BaseController
         $data['count'] = $this->cartCount();
         return view('front.contact', $data);
     }
+//    public function showNotificaton()
+//    {
+//        $notifications = auth()->user()->unreadNotifications;
+//        return view('showNotification', compact('notifications'));
+//    }
 
 // public function category()
 // {
@@ -197,5 +209,25 @@ public function cartshow()
         ]);
         return view('failure', compact('order'));
     }
+
+
+    public function markNotification(Request $request)
+    {
+        $user = User::findOrfail(auth()->user()->id);
+        $s = $user->unreadNotifications()->update(['read_at' => now()]);
+
+
+//        dd(auth()->user()->notifications()->count());
+//        auth()->user()
+//            ->unreadNotifications()->get()->each(function(\
+//            ->when($request->input('id'), function ($query) use ($request) {
+//                return $query->where('id', $request->input('id'));
+//            })
+//            ->markAsRead();
+        return response()->noContent();
+    }
+
+
+
 }
 

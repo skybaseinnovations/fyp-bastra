@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 use App\Models\Order;
 use Illuminate\Http\Request;
 use App\Notifications\AdminOrderStatusChangeNotification;
+use App\Models\User;
 
 class OrderController extends Controller
 {
@@ -26,8 +27,12 @@ class OrderController extends Controller
         $data['edit']='order.edit';
         $data['delete']='order.delete';
         $data['hideCreate']=true;
+
+
         return view('admin.order.index',$data);
+
     }
+
     public function show($id){
         $data['title']="Show Order";
         $data['item']=Order::with('orderItems')->find($id);
@@ -44,25 +49,26 @@ class OrderController extends Controller
 
     public function update(Request $request, $id){
         $order=Order::find($id);
-        $order->number=$request->number;
-        $order->user_id=$request->user_id;
         $order->location=$request->location;
-        $order->payment_reference_id=$request->payment_reference_id;
         $order->payment_status=$request->payment_status;
         $order->order_status=$request->order_status;
-
+//        dd($request->payment_status);
         $order->update();
 
 
-        $notification = Order::first();
+        $notification = User::find($order->user_id);
+
         #store notification info into notifications table
         $notification->notify(new AdminOrderStatusChangeNotification($order));
-        dd('user registered successfully, Notification send to Admin Successfully.');
+//      dd('user registered successfully, Notification send to Admin Successfully.');
 
         return redirect()->route('order.index')->with('message','Order Updated Successfully');
 
     }
+
 }
+
+
 
 
 
