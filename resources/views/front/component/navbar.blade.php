@@ -84,7 +84,7 @@
                                 <a href="#">Bas<span>tra</span></a>
                             </div>
                             <nav class="navbar">
-                                <ul class="navbar_menu" style="display:flex !important;align-items: center; !important">
+                                <ul class="navbar_menu" style="">
                                     <li><a href="{{ route('index') }}">home</a></li>
                                     <li class="account">
                                         <a>Category
@@ -100,7 +100,6 @@
 
                                     <div class="button" style="">
                                         @auth
-
                                             <li class="checkout">
                                                 <a href="{{ route('cartshow') }}">
                                                     <i class="fa fa-shopping-cart" aria-hidden="true"></i>
@@ -131,9 +130,6 @@
                                                     </li>
                                                 </ul>
                                             </li>
-
-
-
                                         @else
                                                 <a href="{{ route('login') }}" class="btn btn-success"
                                                     style="border-radius: 2rem;border:1px solid white;padding:0.9rem;color:ghostwhite;"><i
@@ -147,15 +143,13 @@
                                     @endauth
                                 </div>
                             </ul>
-
-                            <div class="hamburger_container">
+                            <div class="hamburger_container" style="">
                                 <i class="fa fa-bars" aria-hidden="true"></i>
                             </div>
                         </nav>
                     </div>
                 </div>
             </div>
-        </div>
 
 
     </header>
@@ -174,7 +168,6 @@
             </ul>
         </div>
     </div>
-</div>
 @yield('scripts')
 
 </body>

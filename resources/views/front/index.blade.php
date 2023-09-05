@@ -3,7 +3,10 @@
 @section('title', 'Contact')
 
 @section('content')
+    <head>
+
     <link rel="icon" type="image/x-icon" href="/front/images/clothes-hanger.png">
+    </head>
 
     <div class="super_container">
 
