@@ -111,7 +111,7 @@
                                                         <i class="fa fa-shopping-cart fa-xs" aria-hidden="true"></i>
                                                         <span
                                                             class="position-absolute top-0 start-100 translate-middle badge rounded-pill" style="background-color: #e92556; font-size: 10px!important;">
-                                                {{$count}}
+                                                {{$cartCount}}
                                                 <span class="visually-hidden">Cart Count</span>
                                               </span>
                                                     </button>
@@ -125,7 +125,7 @@
                                                         <i class="fa-solid fa-bell fa-xs"  aria-hidden="true"></i>
                                                         <span
                                                             class="position-absolute top-0 start-100 translate-middle badge rounded-pill" style="background-color: #e92556; font-size: 10px!important;">
-                                                {{$notification_count}}
+                                                {{$notificationCount}}
                                                 <span class="visually-hidden">Cart Count</span>
                                               </span>
                                                     </button>
@@ -223,6 +223,7 @@
             </ul>
         </div>
     </div>
+    <script src="{{asset('front/js/quantity.js')}}"></script>
 @yield('scripts')
 
 </body>
