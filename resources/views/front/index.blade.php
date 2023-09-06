@@ -120,6 +120,42 @@
                                                 src="{{ isset($product->img_url) ?asset('uploads/' . $product->img_url):asset('uploads/'.'null_img.jpg') }}"
                                                 height="250px" width="" style="object-fit:cover;">
                                             <div class="card-body">
+{{--                                                --}}
+{{--                                                <div class="favourites">--}}
+
+{{--                                                            <i class="fa-regular fa-heart float-right fs-4 text-danger" id="fav" onclick="favourite()"></i>--}}
+
+{{--                                                </div>--}}
+
+
+                                                <div class="d-flex align-items-center">
+                                                    @if(auth()->user())
+                                                        <form action="{{route('favorite.store')}}" method="GET">
+                                                            <input type="hidden" id="favHidden" name="favorite">
+                                                        </form>
+                                                            <?php
+                                                            $favourite = \App\Models\Favorite::where(['user_id' => auth()->user()->id, 'listing_id' => $item->id])->first();
+                                                            ?>
+                                                        <i class="{{$favourite?'fa-solid fa-heart fa-xl favorite' : 'fa-regular fa-heart fa-xl favorite'}}"
+                                                           data-value="{{$item->id}}"
+                                                           style="color: #fa0000;"></i>
+                                                    @endif
+                                                </div>
+                                                <div class="d-flex align-items-center">
+                                                    @if(auth()->user())
+                                                        <form action="{{route('favorite.store')}}" method="GET">
+                                                            <input type="hidden" id="favHidden" name="favorite">
+                                                        </form>
+                                                            <?php
+                                                            $favourite = \App\Models\Favorite::where(['user_id' => auth()->user()->id, 'listing_id' => $item->id])->first();
+                                                            ?>
+                                                        <i class="{{$favourite?'fa-solid fa-heart fa-xl favorite' : 'fa-regular fa-heart fa-xl favorite'}}"
+                                                           data-value="{{$item->id}}"
+                                                           style="color: #fa0000;"></i>
+                                                    @endif
+                                                </div>
+
+
                                                 <h5 class="card-title">{{$product->name}}</h5>
                                                 <p class="card-text"> Rs {{$product->price}}</p>
                                                 <a  href="{{ route('details', $product->id) }}" class="btn btn-outline-primary">View Product</a>
@@ -218,3 +254,63 @@
         });
         });
     </script>
+
+    <script>
+
+        let favClick=document.querySelector("#fav");
+        function favourite()
+        {
+            if (favClick.classList.contains("fa-solid"))
+            {
+                favClick.classList.remove("fa-solid");
+            }
+            else{
+                favClick.classList.add("fa-solid");
+            }
+            // favClick.style.backgroundColor="red";
+        }
+
+    </script>
+
+
+{{--    <script>--}}
+{{--        $('.properties').on('click', '.favorite', function () {--}}
+{{--            $.ajax({--}}
+{{--                url: "{{route('favorite.store')}}",--}}
+{{--                type: 'GET',--}}
+{{--                data: {--}}
+{{--                    'favorite': $(this).data('value')--}}
+{{--                },--}}
+{{--                success: function (data) {--}}
+
+
+{{--                    $(document).find('.favorite').each(function () {--}}
+{{--                        if ($(this).data('value') == data.listing_id) {--}}
+{{--                            if ($(this).hasClass('fa-solid')) {--}}
+{{--                                $(this).removeClass('fa-solid').addClass('fa-regular');--}}
+{{--                            } else if ($(this).hasClass('fa-regular')) {--}}
+{{--                                $(this).addClass('fa-solid').removeClass('fa-regular');--}}
+{{--                                $(document).find('.message').each(function () {--}}
+{{--                                    console.log($(this).data('id'))--}}
+{{--                                    if($(this).data('id') == data.listing_id)--}}
+{{--                                    {--}}
+{{--                                        $(this).empty();--}}
+{{--                                        $(this).css({'border-radius':'10px','padding':'10px' });--}}
+{{--                                        $(this).append('Added to Favorites!');--}}
+{{--                                        // Hide message after 3 seconds--}}
+{{--                                        setTimeout(() => {--}}
+{{--                                            $(this).empty();--}}
+{{--                                            $(this).css({'border-radius':'','padding':'' });--}}
+{{--                                        }, 3000);--}}
+{{--                                    }--}}
+{{--                                });--}}
+{{--                            }--}}
+{{--                        }--}}
+{{--                    })--}}
+{{--                    // $(document).find('.favorite').load(location.href+" .favorite>*","");--}}
+{{--                }--}}
+{{--            })--}}
+{{--            // $(this).prev().submit();--}}
+{{--        })--}}
+
+{{--    </script>--}}

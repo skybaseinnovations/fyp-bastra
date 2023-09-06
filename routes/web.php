@@ -9,8 +9,9 @@ use App\Http\Controllers\OrderItemController;
 use App\Http\Kernel;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Front\HomeController;
-use App\Http\Controllers\UserRegisterController;
-use App\Http\Controllers\AdminController;
+//use App\Http\Controllers\UserRegisterController;
+//use App\Http\Controllers\AdminController;
+use App\Http\Controllers\FavouriteController;
 
 
 
@@ -143,6 +144,3 @@ Route::prefix('admin')->middleware('auth:admin')->group(function(){
     Route::post('/mark-as-read',[App\Http\Controllers\Front\HomeController::class, 'markNotification'])->name('markNotification');
 
 
-
-
-});
