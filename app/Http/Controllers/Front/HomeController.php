@@ -227,7 +227,5 @@ public function cartshow()
         return response()->noContent();
     }
 
-
-
 }
 
