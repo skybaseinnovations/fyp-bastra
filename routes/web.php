@@ -56,6 +56,10 @@ Route::get('/order-history',[App\Http\Controllers\Front\HomeController::class, '
 Route::get('/cartItem/delete/{id}',[App\Http\Controllers\Front\HomeController::class, 'deleteCartItem'])->name('cartItem.delete')->middleware('cartaccess');
 Route::resource('/orders',App\Http\Controllers\Front\OrderController::class);
 
+//favorites
+//Route::get('/', [App\Http\Controllers\FavoriteController::class, 'index'])->name('index');
+Route::get('/favorite/store',[App\Http\Controllers\FavoriteController::class, 'store'])->name('favorite.store');
+
 Route::post('/checkout/payment',[App\Http\Controllers\Front\OrderController::class, 'checkout'])->name('checkout');
 // Backend
 
