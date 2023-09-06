@@ -171,7 +171,7 @@
                                                             Account</a>
                                                     </li>
 
-                                                    <li><a href="#">My Order</a>
+                                                    <li><a href="{{route('order-history')}}">My Order</a>
                                                     </li>
                                                     <li>
                                                         <form action="{{ route('logout') }}" method="POST" >

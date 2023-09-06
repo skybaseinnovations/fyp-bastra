@@ -53,6 +53,7 @@ Route::get('/productdetails/{id}', [App\Http\Controllers\Front\HomeController::c
 Route::post('/product/addcart/{id}', [App\Http\Controllers\Front\HomeController::class, 'productcartAdd'])->name('productcart.add');
 Route::get('/cartshow',[App\Http\Controllers\Front\HomeController::class, 'cartshow'])->name('cartshow')->middleware('cartaccess');
 Route::get('/order-history',[App\Http\Controllers\Front\HomeController::class, 'orderhistory'])->name('order-history');
+Route::get('/cancel/product/{id}',[App\Http\Controllers\Front\HomeController::class,'cancelProduct'])->name('cancel.product');
 Route::get('/cartItem/delete/{id}',[App\Http\Controllers\Front\HomeController::class, 'deleteCartItem'])->name('cartItem.delete')->middleware('cartaccess');
 Route::resource('/orders',App\Http\Controllers\Front\OrderController::class);
 
