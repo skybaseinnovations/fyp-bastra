@@ -118,25 +118,19 @@ class HomeController extends BaseController
     public function productshow($id)
     {
         $data = $this->getInfo();
-
-
         $data['productcategory'] = ProductCategory::find($id);
         return view('front.productshow', $data);
     }
 
     public function login()
     {
-        $data = $this->getInfo();
-
-
+                $data = $this->getInfo();
         return view('front.login', $data);
     }
 
     public function register()
     {
-        $data = $this->getInfo();
-
-
+                $data = $this->getInfo();
         return view('front.register', $data);
     }
 
@@ -195,7 +189,6 @@ class HomeController extends BaseController
         ]);
         return view('success', compact('order'));
     }
-
     function getFailure(Request $request)
     {
         $order = Order::with('orderItems')->findOrFail($request->order_id);

@@ -1,6 +1,6 @@
 @extends('front.component.layout');
 
-@section('title', 'Contact')
+@section('title', 'index')
 
 @section('content')
 
@@ -119,7 +119,7 @@
                                         <div class="card " style="width: 100%;">
                                             <img
                                                 src="{{ isset($product->img_url) ?asset('uploads/' . $product->img_url):asset('uploads/'.'null_img.jpg') }}"
-                                                height="250px" width="" style="object-fit:cover;">
+                                                height="200px" width="" style="object-fit:cover;">
                                             <div class="card-body">
                                                 <div class="d-flex align-items-center float-right">
                                                     @if(auth()->user())

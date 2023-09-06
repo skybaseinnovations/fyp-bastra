@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use App\Models\Favorite;
+use App\Models\ProductCategory;
+use App\Models\Product;
 
-class FavoriteController extends Controller
+class FavoriteController extends BaseController
 {
     public function index()
     {
@@ -31,5 +34,20 @@ class FavoriteController extends Controller
         ];
         return $data;
     }
+
+    public function favourite(Request $request)
+    {
+
+
+//        $data['product']=Product::with('product')->where('user_id',auth()->user()->id)->get();
+
+        $data=$this->getInfo();
+        $user = User::findOrfail(auth()->user()->id);
+        $data['products'] = $user->favourites()->paginate(10);
+
+//        dd($data['products']);
+        return view('front.favourite', $data);
+    }
+
 
 }

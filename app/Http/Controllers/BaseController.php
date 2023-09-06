@@ -15,7 +15,6 @@ class BaseController extends Controller
     protected $items = "";
 
 
-
     public function productCategoryInfo()
     {
         $productCategoryNav = ProductCategory::with('products')->get();

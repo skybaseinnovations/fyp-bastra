@@ -13,26 +13,15 @@ COLOR PALETTE
 1. Fonts
 2. Body and some general stuff
 3. Home
-	3.1 Currency
-	3.2 Language
-	3.3 Account
-	3.4 Main Navigation
-	3.5 Hamburger Menu
-	3.6 Logo
-	3.7 Main Slider
-4. Banner
-5. New Arrivals
-	5.1 New Arrivals Sorting
-	5.2 New Arrivals Products Grid
-6. Deal of the week
-7. Best Sellers
-	7.1 Slider Nav
-8. Benefit
-9. Blogs
-10. Newsletter
-11. Footer
 
-
+	3.1 Main Navigation
+	3.2 Hamburger Menu
+	3.3 Logo
+	3.4 Account
+	3.5 Main Slider
+4. New Arrivals
+	4.1 New Arrivals Sorting
+	4.2 New Arrivals Products Grid
 
 ******************************/
 
@@ -312,10 +301,10 @@ section
 {
 	display: block;
 	color: #1e1e27;
-	font-size: 13px;
+	font-size: 15px;
 	font-weight: 500;
 	text-transform: uppercase;
-	/*padding: 20px;*/
+	padding: 6px;
 	-webkit-transition: color 0.3s ease;
 	-moz-transition: color 0.3s ease;
 	-ms-transition: color 0.3s ease;
@@ -406,6 +395,7 @@ section
 }
 .account_selection
 {
+    font-size:15px;
 	background-color: green;
 	display: block;
 	position: absolute;

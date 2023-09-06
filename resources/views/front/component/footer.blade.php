@@ -10,7 +10,7 @@
 					<div class="footer_nav_container d-flex flex-sm-row flex-column align-items-center justify-content-lg-start justify-content-center text-center">
 						<ul class="footer_nav">
 
-							<li><a href="contact.html">Contact us</a></li>
+							<li><a href="{{route('contact')}}">Contact us</a></li>
 						</ul>
 					</div>
 				</div>
