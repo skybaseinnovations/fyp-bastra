@@ -64,20 +64,17 @@ class HomeController extends BaseController
 
     public function index()
     {
-        $data['items'] = $this->productCategoryInfo();
-        $data['count'] = $this->cartCount();
-        $data['notification_count']=$this->notificationCount();
+        $data = $this->getInfo();
+//        dd($data);
 
-
-        $data['notifications'] = auth()->user()->unreadNotifications()->get();
 //        dd($data['notifications']);
         return view('front.index', $data);
     }
 
     public function contact()
     {
-        $data['items'] = $this->productCategoryInfo();
-        $data['count'] = $this->cartCount();
+                $data = $this->getInfo();
+
         return view('front.contact', $data);
     }
 //    public function showNotificaton()
@@ -95,10 +92,9 @@ class HomeController extends BaseController
 // }
     public function categoryItem($id)
     {
+        $data = $this->getInfo();
         $data['productCategories'] = $this->productCategoryInfo();
-        $data['count'] = $this->cartCount();
         $data['products'] = Product::where('product_category_id', $id)->get();
-        $data['items'] = $this->productCategoryInfo();
 
     return view('front.categoryItem',$data);
 }
@@ -110,8 +106,7 @@ public function deleteCartItem($id){
 }
 public function details($id)
 {
-    $data['items']=$this->productCategoryInfo();
-    $data['count'] = $this->cartCount();
+    $data=$this->getInfo();
 
     $data['product']=Product::find($id);
     return view('front.description',$data);
@@ -119,8 +114,8 @@ public function details($id)
 
     public function productshow($id)
     {
-        $data['items'] = $this->productCategoryInfo();
-        $data['count'] = $this->cartCount();
+                $data = $this->getInfo();
+
 
         $data['productcategory'] = ProductCategory::find($id);
         return view('front.productshow', $data);
@@ -128,24 +123,24 @@ public function details($id)
 
     public function login()
     {
-        $data['items'] = $this->productCategoryInfo();
-        $data['count'] = $this->cartCount();
+                $data = $this->getInfo();
+
 
         return view('front.login', $data);
     }
 
     public function register()
     {
-        $data['items'] = $this->productCategoryInfo();
-        $data['count'] = $this->cartCount();
+                $data = $this->getInfo();
+
 
         return view('front.register', $data);
     }
 
     public function productcartAdd(Request $request, $id)
     {
-        $data['items'] = $this->productCategoryInfo();
-        $data['count'] = $this->cartCount();
+                $data = $this->getInfo();
+
 
         $data = CartItem::where('product_id', $id)->where('user_id', auth()->user()->id)->first();
         if ($data) {
@@ -166,24 +161,24 @@ public function details($id)
 }
 public function cartshow()
 {
-    $data['items']=$this->productCategoryInfo();
-    $data['count'] = $this->cartCount();
+    $data = $this->getInfo();
+
     $data['carts']=CartItem::with('product')->where('user_id',auth()->user()->id)->get();
     return view('front.productcart',$data);
 }
 
     public function orderhistory(Request $request)
     {
-        $data['items'] = $this->productCategoryInfo();
-        $data['count'] = $this->cartCount();
+                $data = $this->getInfo();
+
 
         return view('front.orderhistory', $data);
     }
 
     public function orderConfirm(Request $request)
     {
-        $data['items'] = $this->productCategoryInfo();
-        $data['count'] = $this->cartCount();
+                $data = $this->getInfo();
+
 
         $data['order'] = Order::with('orderItems')->findOrFail($request->order_id);
         return view('orderConfirmation', $data);

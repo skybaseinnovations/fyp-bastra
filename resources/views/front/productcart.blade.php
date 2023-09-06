@@ -123,14 +123,14 @@
                                             <div class="increment d-flex" style="justify-content: center">
                                                 <button class="decrease"
                                                         style="background-color:#ab4cfe;color:white;width:30px;height:30px;font-size:1.5rem;border:1px solid white;"
-                                                        type="button">-
+                                                        type="button" onclick="decrement()">-
                                                 </button>&nbsp;&nbsp;
                                                 <input type="text" style="width:30px;text-align:center;"
                                                        name="quantities[]" value="{{ $cart->quantity }}"
-                                                       class="quantity">&nbsp;&nbsp;
+                                                       class="quantity" id="quantity">&nbsp;&nbsp;
                                                 <button class="increase"
                                                         style="background-color:#ab4cfe;color:white;width:30px;font-size:1.5rem;height:30px;border:1px solid white;"
-                                                        type="button" value="">+
+                                                        type="button" value="" onclick="increment()">+
                                                 </button>
                                             </div>
                                         </td>

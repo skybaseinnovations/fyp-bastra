@@ -9,6 +9,13 @@ use Illuminate\Http\Request;
 
 class BaseController extends Controller
 {
+
+    protected $cartCount = 0;
+    protected $notificationCount = 0;
+    protected $items = "";
+
+
+
     public function productCategoryInfo()
     {
         $productCategoryNav = ProductCategory::with('products')->get();
@@ -32,4 +39,14 @@ class BaseController extends Controller
         }
         return $count;
     }
+
+    public function getInfo()
+    {
+        $data['cartCount'] = $this->cartCount();
+        $data['items'] = $this->productCategoryInfo();
+        $data['notificationCount'] = $this->notificationCount();
+        $data['notifications'] = auth()->user()->unreadNotifications()->get();
+        return $data;
+    }
+
 }

@@ -94,12 +94,12 @@
                         <div class="increment d-flex">
                             <button class="b1 decrease"
                                 style="background-color:#ab4cfe;color:white;width:30px;height:30px;font-size:1.5rem;border:1px solid white;"
-                                type="button" class="">-</button>&nbsp;&nbsp;
+                                type="button" class="" onclick="decrement()">-</button>&nbsp;&nbsp;
                             <input type="text" style="width:30px;text-align:center;" name="quantity" value="1"
-                                class="quantity">&nbsp;&nbsp;
+                                class="quantity" id="quantity">&nbsp;&nbsp;
                             <button class="increase"
                                 style="background-color:#ab4cfe;color:white;width:30px;font-size:1.5rem;height:30px;border:1px solid white;"
-                                type="button" class="">+</button>
+                                type="button" class="" onclick="increment()">+</button>
                         </div>
                         <br>
                         <div class="product_price">Unit price:${{ $product->price }}</div>
@@ -117,22 +117,22 @@
                 </div>
         </section>
     @endsection
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const decreaseButton = document.querySelector(".decrease");
-            const increaseButton = document.querySelector(".increase");
-            const quantityInput = document.querySelector(".quantity");
+{{--    <script>--}}
+{{--        document.addEventListener("DOMContentLoaded", function() {--}}
+{{--            const decreaseButton = document.querySelector(".decrease");--}}
+{{--            const increaseButton = document.querySelector(".increase");--}}
+{{--            const quantityInput = document.querySelector(".quantity");--}}
 
-            decreaseButton.addEventListener("click", () => {
-                let currentValue = parseInt(quantityInput.value);
-                if (currentValue > 1) {
-                    quantityInput.value = currentValue - 1;
-                }
-            });
+{{--            decreaseButton.addEventListener("click", () => {--}}
+{{--                let currentValue = parseInt(quantityInput.value);--}}
+{{--                if (currentValue > 1) {--}}
+{{--                    quantityInput.value = currentValue - 1;--}}
+{{--                }--}}
+{{--            });--}}
 
-            increaseButton.addEventListener("click", () => {
-                let currentValue = parseInt(quantityInput.value);
-                quantityInput.value = currentValue + 1;
-            });
-        });
-    </script>
+{{--            increaseButton.addEventListener("click", () => {--}}
+{{--                let currentValue = parseInt(quantityInput.value);--}}
+{{--                quantityInput.value = currentValue + 1;--}}
+{{--            });--}}
+{{--        });--}}
+{{--    </script>--}}
