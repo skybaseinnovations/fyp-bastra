@@ -73,7 +73,7 @@ class HomeController extends BaseController
 
     public function contact()
     {
-                $data = $this->getInfo();
+        $data = $this->getInfo();
 
         return view('front.contact', $data);
     }
@@ -114,9 +114,7 @@ public function details($id)
 
     public function productshow($id)
     {
-                $data = $this->getInfo();
-
-
+        $data = $this->getInfo();
         $data['productcategory'] = ProductCategory::find($id);
         return view('front.productshow', $data);
     }
@@ -124,16 +122,12 @@ public function details($id)
     public function login()
     {
                 $data = $this->getInfo();
-
-
         return view('front.login', $data);
     }
 
     public function register()
     {
                 $data = $this->getInfo();
-
-
         return view('front.register', $data);
     }
 
@@ -221,6 +215,7 @@ public function cartshow()
 //            ->markAsRead();
         return response()->noContent();
     }
+
 
 }
 

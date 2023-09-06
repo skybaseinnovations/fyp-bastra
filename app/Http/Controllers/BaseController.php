@@ -15,7 +15,6 @@ class BaseController extends Controller
     protected $items = "";
 
 
-
     public function productCategoryInfo()
     {
         $productCategoryNav = ProductCategory::with('products')->get();
@@ -45,11 +44,9 @@ class BaseController extends Controller
         $data['cartCount'] = $this->cartCount();
         $data['items'] = $this->productCategoryInfo();
         $data['notificationCount'] = $this->notificationCount();
-        if (auth()->user())
-        {
+        if(auth()->user()){
             $data['notifications'] = auth()->user()->unreadNotifications()->get();
         }
-
         return $data;
     }
 
