@@ -70,6 +70,10 @@
         .navbar_menu button:hover {
             background-color: #fdcfde;
         }
+
+        .bg-code {
+            background-color: #d6d6d6;
+        }
         @yield('styles')
     </style>
 </head>
@@ -141,43 +145,55 @@
 
                                             {{--                                                </form>--}}
                                             <ul class="account_selection "
-                                                style="width:250px !important;height:250px !important; overflow-y:scroll;">
+                                                style="width:35vw !important; max-height:60vh!important; overflow:auto;">
+                                                <div class="" role="" aria-labelledby="navbarDropdownMenuLink">
+                                                    @if (count($notifications) > 0 )
+                                                        <div class="float-right">
+                                                            <form action="{{route('markNotification')}}" method="get">
 
-                                                    <div class="" role="" aria-labelledby="navbarDropdownMenuLink">
-                                                        @if (count($notifications) > 0 )
-                                                            @foreach($notifications as $notification)
-                                                                <div class="{{ $notification->read_at ? '' : 'bg-secondary'}}">
-                                                                    {{ $notification->data['message']  ?? 'Message' }}
-                                                                    {{--
-                                                                                                                                                                                                              <p class="dropdown-item"><b> {{ $notification->data['order_status'] }} </b>&nbsp; ({{ $notification->data['email'] }}) has just registered.   [{{  date('j \\ F Y, g:i A', strtotime($notification->created_at)) }}]</p>--}}
-                                                                    <form action="{{route('markNotification')}}" type="get">
-                                                                        @csrf
-                                                                    <a>
-                                                                        <input type="hidden" name="id" value="{{$notification->id}}">
+                                                                <button type="submit" class="dropdown-item px-3" id="mark-all"
+                                                                        style="align-items: center">
+                                                                    Mark all as read
+                                                                </button>
+                                                            </form>
+                                                        </div>
+                                                        <br>
+                                                        @foreach($notifications as $notification)
+                                                            <div class="d-flex justify-content-between py-2 border-bottom {{ $notification->read_at ? '' : 'bg-code'}}">
+                                                                <p class="px-3">{{ $notification->data['message']  ?? 'Message' }}</p>
+                                                                {{--
+
+                                                                                                                                                                                               <p class="dropdown-item"><b> {{ $notification->data['order_status'] }} </b>&nbsp; ({{ $notification->data['email'] }}) has just registered.   [{{  date('j \\ F Y, g:i A', strtotime($notification->created_at)) }}]</p>--}}
+                                                                <form action="{{route('markNotification')}}" type="get">
+                                                                    @csrf
+
+                                                                        <input type="hidden" name="id"
+                                                                               value="{{$notification->id}}">
                                                                         <button type="submit" rel="tooltip"
                                                                                 title="Mark as read"
                                                                                 class="btn btn-danger btn-link btn-sm mark-as-read"
                                                                                 data-id="{{ $notification->id }}">
-                                                                            @if(!$notification->read_at)<i class="material-icons">Mark As Read</i>@endif
+                                                                            @if(!$notification->read_at)<i
+                                                                                class="material-icons">Mark As
+                                                                                Read</i>
+                                                                            @else
+                                                                            @endif
                                                                         </button>
-                                                                    </a>
-                                                                    </form>
+                                                                    <p class="px-2">{{$notification->created_at->diffForHumans()}}</p>
 
-                                                                </div>
-                                                                <hr>
-                                                            @endforeach
-                                                                <form action="{{route('markNotification')}}" method="get">
 
-                                                                <button type="submit" class="dropdown-item" id="mark-all" style="align-items: center">
-                                                                Mark all as read
-                                                            </button>
                                                                 </form>
 
+                                                            </div>
 
-                                                        @else
-                                                            <p class="dropdown-item">There are no new notifications</p>
-                                                        @endif
-                                                    </div>
+                                                        @endforeach
+
+
+
+                                                    @else
+                                                        <p class="dropdown-item">There are no new notifications</p>
+                                                    @endif
+                                                </div>
 
                                             </ul>
                                         </li>
@@ -227,7 +243,7 @@
                                                class="btn text-white register-btn  py-2 rounded-pill"
                                                style="background-color: #6d4cfe">Register</a>
                                         </li>
-                                    @endauth
+                                @endauth
                             </ul>
 
                             <div class="hamburger_container">

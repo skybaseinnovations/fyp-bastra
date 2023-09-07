@@ -326,12 +326,7 @@ return [
             'route'  => 'order.index',
             'icon' => 'fas fa-fw fa-user',
         ],
-        [
-            'text' => 'Order Item ',
-            'route'  => 'orderitem.index',
-            'icon' => 'fas fa-fw fa-user',
-        ],
-       
+
     ],
 
     /*

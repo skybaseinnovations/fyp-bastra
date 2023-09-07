@@ -182,7 +182,7 @@ class HomeController extends BaseController
         $notification = [
             'order_status' => $order->order_status,
             'user_id' => $order->user_id,
-            'message' => 'Your order has been placed'
+            'message' => 'Your order #'. $order->number. ' has been placed.'
         ];
         $user = User::find($order->user_id);
         $user->notify(new AdminOrderStatusChangeNotification($notification));
@@ -201,7 +201,7 @@ class HomeController extends BaseController
         $data = [
             'order_status' => $order->order_status,
             'user_id' => $order->user_id,
-            'message' => 'Payment has been successful. '
+            'message' => 'Your Payment for order #'.$order->number.' has been successful. '
         ];
         $user = User::find($order->user_id);
         $user->notify(new AdminOrderStatusChangeNotification($data));
@@ -218,7 +218,8 @@ class HomeController extends BaseController
         $data = [
             'order_status' => $order->order_status,
             'user_id' => $order->user_id,
-            'message' => 'Payment failed. Your order also cancelled '
+            'message' => 'Your Payment for order #'.$order->number.' was failed following your order. ',
+
         ];
         $user = User::find($order->user_id);
         $user->notify(new AdminOrderStatusChangeNotification($data));
@@ -250,7 +251,7 @@ class HomeController extends BaseController
         $data = [
             'order_status' => $order->order_status,
             'user_id' => $order->user_id,
-            'message' => 'Your order has been Cancelled'
+            'message' => 'Your order for #'.$order->number.' has been Cancelled'
         ];
 
 
