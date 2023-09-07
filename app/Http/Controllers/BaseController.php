@@ -45,7 +45,7 @@ class BaseController extends Controller
         $data['cartCount'] = $this->cartCount();
         $data['items'] = $this->productCategoryInfo();
         $data['notificationCount'] = $this->notificationCount();
-        $data['notifications'] = auth()->user()->unreadNotifications()->get();
+        $data['notifications'] = auth()->user() ? auth()->user()->unreadNotifications()->get() : null;
         return $data;
     }
 

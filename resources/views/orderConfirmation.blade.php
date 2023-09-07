@@ -68,6 +68,7 @@
                                                             <input class="form-check-input" type="radio"
                                                                    name="payment_method" id="cod" value="cod">
                                                             <label class="form-check-label" for="cod">
+                                                                <img src="{{asset('front/images/cod.png')}}" alt="COD" height="25vh">
                                                                 Cash On Delivery
                                                             </label>
                                                         </div>
@@ -79,6 +80,7 @@
                                                             <input class="form-check-input" type="radio"
                                                                    name="payment_method" id="skypay" value="skypay" checked>
                                                             <label class="form-check-label" for="skypay">
+                                                                <img src="{{asset('front/images/skypay.png')}}" alt="SkyPay" height="25vh">
                                                                 SkyPay
                                                             </label>
                                                         </div>

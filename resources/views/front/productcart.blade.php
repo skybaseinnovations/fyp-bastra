@@ -123,20 +123,20 @@
                                             <div class="increment d-flex" style="justify-content: center">
                                                 <button class="decrease"
                                                         style="background-color:#ab4cfe;color:white;width:30px;height:30px;font-size:1.5rem;border:1px solid white;"
-                                                        type="button" onclick="decrement()">-
+                                                        type="button" onclick="decrement({{$cart->product->id}})">-
                                                 </button>&nbsp;&nbsp;
                                                 <input type="text" style="width:30px;text-align:center;"
                                                        name="quantities[]" value="{{ $cart->quantity }}"
-                                                       class="quantity" id="quantity">&nbsp;&nbsp;
+                                                       class="quantity" id="quantity" data-id="{{$cart->product->id}}">&nbsp;&nbsp;
                                                 <button class="increase"
                                                         style="background-color:#ab4cfe;color:white;width:30px;font-size:1.5rem;height:30px;border:1px solid white;"
-                                                        type="button" value="" onclick="increment()">+
+                                                        type="button" value="" onclick="increment({{$cart->product->id}})">+
                                                 </button>
                                             </div>
                                         </td>
-                                        <td class="subtotal-cell">
-                                            <p class="product_total">Rs. {{$cart->total }}</p>
-                                            <input type="hidden" name="subtotals[]" value="{{ $cart->total }}" class="product_total">
+                                        <td class="subtotal-cell d-flex align-items-center py-2-">
+                                            <span>Rs. </span> <p class="product_total m-0 p-0" data-id="{{$cart->product->id}}">{{$cart->total }}</p>
+                                            <input type="hidden" name="subtotals[]" value="{{ $cart->total }}" class="product_total" data-id="{{$cart->product->id}}">
                                         </td>
                                         <td>
                                             <a href="{{ route('cartItem.delete', $cart->id) }}"
@@ -187,15 +187,7 @@
             integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
 
     <script>
-        function getGrandTotal()
-        {
-            let total = 0.00;
-            $('input[type=hidden].product_total').each(function (index, item) {
-                total += parseFloat($(this).val());
-                $('.totalp').text(total);
-                $('#total').val(total);
-            })
-        }
+
         $(document).ready(function () {
             getGrandTotal();
         });

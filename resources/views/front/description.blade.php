@@ -54,7 +54,6 @@
         }
     </style>
 
-    <body>
         <br>
         <br>
         <section>
@@ -92,17 +91,22 @@
                         @method('POST')
 
                         <div class="increment d-flex">
-                            <button class="b1 decrease"
-                                style="background-color:#ab4cfe;color:white;width:30px;height:30px;font-size:1.5rem;border:1px solid white;"
-                                type="button" class="" onclick="decrement()">-</button>&nbsp;&nbsp;
-                            <input type="text" style="width:30px;text-align:center;" name="quantity" value="1"
-                                class="quantity" id="quantity">&nbsp;&nbsp;
+                            <button class="decrease"
+                                    style="background-color:#ab4cfe;color:white;width:30px;height:30px;font-size:1.5rem;border:1px solid white;"
+                                    type="button" onclick="decrement({{$product->id}})">-
+                            </button>&nbsp;&nbsp;
+                            <input type="text" style="width:30px;text-align:center;"
+                                   name="quantity" value="1"
+                                   class="quantity" id="quantity" data-id="{{$product->id}}">&nbsp;&nbsp;
                             <button class="increase"
-                                style="background-color:#ab4cfe;color:white;width:30px;font-size:1.5rem;height:30px;border:1px solid white;"
-                                type="button" class="" onclick="increment()">+</button>
+                                    style="background-color:#ab4cfe;color:white;width:30px;font-size:1.5rem;height:30px;border:1px solid white;"
+                                    type="button" value="" onclick="increment({{$product->id}})">+
+                            </button>
                         </div>
                         <br>
-                        <div class="product_price">Unit price:${{ $product->price }}</div>
+                        <div class="product_price d-flex">Price:Rs. <p class="product_total" data-id="{{$product->id}}">{{ $product->price }}</p></div>
+                        <input type="hidden" value="{{ $product->price }}" class="product_total" data-id="{{$product->id}}">
+
                         <br>
                         <h3>Product Description</h3>
                         {{-- <p style="font-size:1rem;color:black;text-align:justify;">{{ $item->description }}</p> --}}
@@ -116,6 +120,7 @@
 
                 </div>
         </section>
+
     @endsection
 {{--    <script>--}}
 {{--        document.addEventListener("DOMContentLoaded", function() {--}}

@@ -139,11 +139,11 @@ public function details($id)
 
     public function productcartAdd(Request $request, $id)
     {
-                $data = $this->getInfo();
+        $data = $this->getInfo();
 
 
-        $data = CartItem::where('product_id', $id)->where('user_id', auth()->user()->id)->first();
-        if ($data) {
+        $info = CartItem::where('product_id', $id)->where('user_id', auth()->user()->id)->first();
+        if ($info) {
             return redirect()->back()->with('error', 'The product already is added to the cart.');
         }
         $cart = new CartItem();
