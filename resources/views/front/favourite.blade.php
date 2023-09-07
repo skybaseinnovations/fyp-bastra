@@ -12,7 +12,7 @@
     <div class="bastra-product row mt-5 mb-5">
         @foreach ($products as $product)
             <div class=" col-3 images-group mx-auto" id="group-">
-                    <div class="bg-danger">
+                    <div>
                         <div class="card " style="width: 100%;">
                             <img
                                 src="{{ isset($product->img_url) ?asset('uploads/' . $product->img_url):asset('uploads/'.'placeholder.png') }}"

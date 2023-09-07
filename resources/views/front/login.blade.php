@@ -49,7 +49,7 @@
 {{--                    <img class="align-items-center" style="width:100%;" src="front/images/shopping.avif" alt="">--}}
 
                 </div>
-                <div class="info1">
+                <div class="info1 ml-5">
                     <h2 class="mb-4 mt-0">Welcome to Bas<span style="color: #6d4cfe">tra</span></h2>
                     <p class="text-secondary font-weight-lighter">Lorem ipsum dolor sit amet, consectetur adipisicing elit. In, repudiandae.</p>
                     <div class="col-12 mx-auto">

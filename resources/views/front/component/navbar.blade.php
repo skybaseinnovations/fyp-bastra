@@ -168,7 +168,7 @@
                                                             @endforeach
                                                                 <form action="{{route('markNotification')}}" method="get">
 
-                                                                <button type="submit" class="dropdown-item" id="mark-all">
+                                                                <button type="submit" class="dropdown-item" id="mark-all" style="align-items: center">
                                                                 Mark all as read
                                                             </button>
                                                                 </form>
@@ -228,7 +228,6 @@
                                                style="background-color: #6d4cfe">Register</a>
                                         </li>
                                     @endauth
-                                </div>
                             </ul>
 
                             <div class="hamburger_container">
