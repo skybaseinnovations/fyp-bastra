@@ -87,15 +87,15 @@
                                 <a href="#">Bas<span>tra</span></a>
                             </div>
                             <nav class="navbar">
-                                <ul class="navbar_menu" style="">
+                                <ul class="navbar_menu ">
                                     <li><a href="{{ route('index') }}">home</a></li>
                                     <li class="account">
                                         <a>Category
                                             <i class="fa fa-angle-down"></i>
                                         </a>
-                                        <ul class="account_selection " style="width:150px !important;height:150px !important;" >
+                                        <ul class="account_selection " style="min-width:120px !important;height:auto !important;" >
                                             @foreach ($items as $item)
-                                                <li><a href="{{ route('category.item',$item->id) }}">{{ $item->name}}</a></li>
+                                                <li><a style="font-size:14px !important;" href="{{ route('category.item',$item->id) }}">{{ $item->name}}</a></li>
                                             @endforeach
                                         </ul>
                                     </li>
@@ -166,12 +166,12 @@
                                                     <i class="fa fa-angle-down"></i>
 
                                                 </a>
-                                                <ul class="account_selection " style="padding:0.7rem;min-width:200px !important;line-height:50px !important;" >
-                                                    <li><a href="#">Manage
-                                                            Account</a>
-                                                    </li>
+                                                <ul class="account_selection " style="padding:0.8rem;min-width:150px !important;line-height:50px !important;" >
 
-                                                    <li><a href="#">My Order</a>
+
+                                                    <li><a href="{{route('order-history')}}">My Order</a>
+                                                    </li>
+                                                    <li><a href="{{route('favourite')}}">favourites</a>
                                                     </li>
                                                     <li>
                                                         <form action="{{ route('logout') }}" method="POST" >

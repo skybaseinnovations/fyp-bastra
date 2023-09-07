@@ -6,6 +6,7 @@ use App\Http\Controllers\BaseController;
 use App\Models\CartItem;
 use App\Models\Order;
 use App\Models\OrderItem;
+
 // use App\Models\Home;
 // use App\Models\Order;
 // use App\Models\OrderItem;
@@ -73,7 +74,7 @@ class HomeController extends BaseController
 
     public function contact()
     {
-                $data = $this->getInfo();
+        $data = $this->getInfo();
 
         return view('front.contact', $data);
     }
@@ -96,27 +97,27 @@ class HomeController extends BaseController
         $data['productCategories'] = $this->productCategoryInfo();
         $data['products'] = Product::where('product_category_id', $id)->get();
 
-    return view('front.categoryItem',$data);
-}
+        return view('front.categoryItem', $data);
+    }
 
-public function deleteCartItem($id){
-    $cartItem = CartItem::findOrFail($id);
-    $cartItem->delete();
-    return redirect()->back();
-}
-public function details($id)
-{
-    $data=$this->getInfo();
+    public function deleteCartItem($id)
+    {
+        $cartItem = CartItem::findOrFail($id);
+        $cartItem->delete();
+        return redirect()->back();
+    }
 
-    $data['product']=Product::find($id);
-    return view('front.description',$data);
-}
+    public function details($id)
+    {
+        $data = $this->getInfo();
+
+        $data['product'] = Product::find($id);
+        return view('front.description', $data);
+    }
 
     public function productshow($id)
     {
-                $data = $this->getInfo();
-
-
+        $data = $this->getInfo();
         $data['productcategory'] = ProductCategory::find($id);
         return view('front.productshow', $data);
     }
@@ -124,16 +125,12 @@ public function details($id)
     public function login()
     {
                 $data = $this->getInfo();
-
-
         return view('front.login', $data);
     }
 
     public function register()
     {
                 $data = $this->getInfo();
-
-
         return view('front.register', $data);
     }
 
@@ -158,28 +155,26 @@ public function details($id)
         return redirect()->back()->with('message', 'Cart Added Successfully');
 
 
-}
-public function cartshow()
-{
-    $data = $this->getInfo();
+    }
 
-    $data['carts']=CartItem::with('product')->where('user_id',auth()->user()->id)->get();
-    return view('front.productcart',$data);
-}
+    public function cartshow()
+    {
+        $data = $this->getInfo();
+
+        $data['carts'] = CartItem::with('product')->where('user_id', auth()->user()->id)->get();
+        return view('front.productcart', $data);
+    }
 
     public function orderhistory(Request $request)
     {
-                $data = $this->getInfo();
-
-
+        $data = $this->getInfo();
+        $data['orders'] = auth()->user()->orders()->with('orderItems', 'orderItems.product')->get();
         return view('front.orderhistory', $data);
     }
 
     public function orderConfirm(Request $request)
     {
-                $data = $this->getInfo();
-
-
+        $data = $this->getInfo();
         $data['order'] = Order::with('orderItems')->findOrFail($request->order_id);
         return view('orderConfirmation', $data);
     }
@@ -190,7 +185,7 @@ public function cartshow()
 
         $order->update([
             'payment_reference_id' => $request->ref ?? null,
-            'payment_status' =>  $request->message ? 'Completed' :'Pending'
+            'payment_status' => $request->message ? 'Completed' : 'Pending'
         ]);
         return view('success', compact('order'));
     }
@@ -199,7 +194,7 @@ public function cartshow()
         $order = Order::with('orderItems')->findOrFail($request->order_id);
 
         $order->update([
-            'payment_status' =>  'Failed',
+            'payment_status' => 'Failed',
             'order_status' => 'Failed'
         ]);
         return view('failure', compact('order'));
@@ -222,6 +217,14 @@ public function cartshow()
         return response()->noContent();
     }
 
+    public function cancelProduct($id)
+    {
+        $order = Order::find($id);
+        $order->order_status = 'Cancelled';
+        $order->update();
+        return redirect()->back()->with('message', 'Product Cancelled Successfully');
+
+    }
 
 
 }
