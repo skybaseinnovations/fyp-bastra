@@ -45,7 +45,8 @@ class BaseController extends Controller
         $data['items'] = $this->productCategoryInfo();
         $data['notificationCount'] = $this->notificationCount();
         if(auth()->user()){
-            $data['notifications'] = auth()->user()->unreadNotifications()->get();
+//            $data['notifications'] = auth()->user()->unreadNotifications()->get();
+            $data['notifications'] = auth()->user()->notifications;
         }
         return $data;
     }

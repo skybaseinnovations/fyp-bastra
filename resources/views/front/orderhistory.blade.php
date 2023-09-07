@@ -41,7 +41,7 @@
 
                             <td class="text-left" width="auto">
                                 <div class="card m-4" style="width: 15rem;">
-                                    <img class="card-img-top" src="{{isset($orderItem->product->img_url)? asset('uploads/'.$orderItem->product->img_url):asset('uploads/'.'null_img.jpg')}}" alt="Card image cap" style="height: 150px;width: 150px;object-fit: contain;">
+                                    <img class="card-img-top" src="{{isset($orderItem->product->img_url)? asset('uploads/'.$orderItem->product->img_url):asset('uploads/'.'placeholder.png')}}" alt="Card image cap" style="height: 150px;width: 150px;object-fit: contain;">
                                     <div class="card-body">
                                         <h5 class="card-title">{{$orderItem->product->name}}</h5>
                                         <p class="card-text">{{$orderItem->product->description}}</p>
@@ -103,7 +103,7 @@
 {{--                                    <p>Order - ID : {{$order->id}}</p>--}}
 
 {{--                                @foreach($order->orderItems as $orderItem)--}}
-{{--                                        <img src="{{isset($orderItem->product->img_url)? asset('uploads/'.$orderItem->product->img_url):asset('uploads/'.'null_img.jpg')}}" alt="">--}}
+{{--                                        <img src="{{isset($orderItem->product->img_url)? asset('uploads/'.$orderItem->product->img_url):asset('uploads/'.'placeholder.png')}}" alt="">--}}
 {{--                                        <div style="justify-content:center" class="my-5">--}}
 {{--                                            <p>{{$orderItem->product->name}}</p>--}}
 {{--                                            <p>Qty: {{$orderItem->quantity}}</p>--}}

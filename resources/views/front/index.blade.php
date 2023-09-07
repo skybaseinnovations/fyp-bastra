@@ -40,7 +40,7 @@
                             @foreach ($items as $item)
                                 <div class="mx-auto mt-4">
                                     <div class="banner_item align-items-center"
-                                         style="background-image:url({{ isset($item->img_url)?asset('uploads/' . $item->img_url): asset('uploads/'.'null_img.jpg') }})">
+                                         style="background-image:url({{ isset($item->img_url)?asset('uploads/' . $item->img_url): asset('uploads/'.'placeholder.png') }})">
                                         <div class="banner_category">
                                             <a href="{{ route('category.item', $item->id) }}">{{ $item->name }}</a>
                                         </div>
@@ -115,10 +115,10 @@
                         @foreach ($items as $item)
                             <div class=" col-3 images-group mx-auto" id="group-{{ $item->id }}">
                                 @foreach ($item->products as $product)
-                                    <div class="bg-danger">
+                                    <div>
                                         <div class="card " style="width: 100%;">
                                             <img
-                                                src="{{ isset($product->img_url) ?asset('uploads/' . $product->img_url):asset('uploads/'.'null_img.jpg') }}"
+                                                src="{{ isset($product->img_url) ?asset('uploads/' . $product->img_url):asset('uploads/'.'placeholder.png') }}"
                                                 height="200px" width="" style="object-fit:cover;">
                                             <div class="card-body">
                                                 <div class="d-flex align-items-center float-right">

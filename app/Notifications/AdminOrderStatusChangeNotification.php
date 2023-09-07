@@ -51,8 +51,9 @@ class AdminOrderStatusChangeNotification extends Notification
     public function toDatabase(object $notifiable): array
     {
         return [
-            'order_status'=> $this->order->order_status,
-            'user_id'=> $this->order->user_id,
+            'order_status'=> $this->order['order_status'],
+            'user_id'=> $this->order['user_id'],
+            'message'=> $this->order['message'],
         ];
     }
 }

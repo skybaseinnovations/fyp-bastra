@@ -18,7 +18,7 @@
 
             <div class="col-md-4 {{ isset($item) ? '' : 'd-none' }}">
                 <img id='imgContainer'
-                    src="{{ isset($item->img_url) ? asset('uploads/' . $item->img_url) : asset('uploads/' . 'null_img.jpg') }}"
+                    src="{{ isset($item->img_url) ? asset('uploads/' . $item->img_url) : asset('uploads/' . 'placeholder.png') }}"
                     alt="" class="rounded " style="width:250px;height:300px;object-fit:contain;">
             </div>
         </div>

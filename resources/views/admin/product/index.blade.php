@@ -25,10 +25,10 @@
                     <td>{{ $item->description }}</td>
                     <td>{{ $item->rate_count }}</td>
                     <td>{{ $item->productCategory->name }}</td>
-                    <td><img src="{{ isset($item->img_url) ? asset('uploads/' . $item->img_url) : asset('uploads/' . 'null_img.jpg') }}"
+                    <td><img src="{{ isset($item->img_url) ? asset('uploads/' . $item->img_url) : asset('uploads/' . 'placeholder.png') }}"
                             alt="" class="rounded" style="width:60px;height:60px;object-fit:cover;"></td>
                     <td>
-                        
+
                         @include('admin.templates.index_action')</td>
                 </tr>
             @endforeach

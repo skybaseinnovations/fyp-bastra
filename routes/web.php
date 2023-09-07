@@ -69,6 +69,7 @@ Route::post('/checkout/payment',[App\Http\Controllers\Front\OrderController::cla
 Route::get('/success-message',[App\Http\Controllers\Front\HomeController::class, 'getSuccess'])->name('success.message');
 Route::get('/failure-message',[App\Http\Controllers\Front\HomeController::class, 'getFailure'])->name('failure.message');
 Route::get('/order-confirmation',[App\Http\Controllers\Front\HomeController::class, 'orderConfirm'])->name('order-confirm');
+Route::get('/mark-as-read', [App\Http\Controllers\Front\HomeController::class, 'markNotification'])->name('markNotification');
 
 
 Route::prefix('admin')->middleware('auth:admin')->group(function() {
@@ -147,7 +148,6 @@ Route::prefix('admin')->middleware('auth:admin')->group(function() {
 
 #Notification mark as Read
 
-    Route::post('/mark-as-read', [App\Http\Controllers\Front\HomeController::class, 'markNotification'])->name('markNotification');
 });
 
 

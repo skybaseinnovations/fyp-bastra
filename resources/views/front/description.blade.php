@@ -73,7 +73,7 @@
             </div>
             <div class="section mx-auto">
                 <div class="photo3 info1" style="heigh:400px;">
-                    <img src="{{ isset($product->img_url)?asset('uploads/' . $product->img_url):asset('uploads/'.'null_img.jpg') }}"
+                    <img src="{{ isset($product->img_url)?asset('uploads/' . $product->img_url):asset('uploads/'.'placeholder.png') }}"
                         style="width:400px;height:400px; object-fit:contain;">
                 </div>
                 <div class="photo4 info1">

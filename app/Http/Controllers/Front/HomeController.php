@@ -203,17 +203,18 @@ class HomeController extends BaseController
 
     public function markNotification(Request $request)
     {
-        $user = User::findOrfail(auth()->user()->id);
-        $s = $user->unreadNotifications()->update(['read_at' => now()]);
 
+//        dd($request->all());
+        auth()->user()
+            ->unreadNotifications()
+            ->when($request->input('id'), function ($query) use ($request) {
+                return $query->where('id', $request->input('id'));
+            })
+            ->get()
+            ->each(function ($notification) {
+                $notification->markAsRead();
+            });
 
-//        dd(auth()->user()->notifications()->count());
-//        auth()->user()
-//            ->unreadNotifications()->get()->each(function(\
-//            ->when($request->input('id'), function ($query) use ($request) {
-//                return $query->where('id', $request->input('id'));
-//            })
-//            ->markAsRead();
         return response()->noContent();
     }
 

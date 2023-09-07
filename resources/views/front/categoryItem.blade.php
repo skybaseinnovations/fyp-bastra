@@ -46,7 +46,7 @@
                                                 <div class="product-item women">
                                                     <div class="product product_filter">
                                                         <div class="product_image">
-                                                            <img src="{{ isset($item->img_url)?asset('uploads/' . $item->img_url):asset('uploads/'.'null_img.jpg') }}"
+                                                            <img src="{{ isset($item->img_url)?asset('uploads/' . $item->img_url):asset('uploads/'.'placeholder.png') }}"
                                                                 height="200px" style="object-fit: cover" alt="">
                                                         </div>
                                                         <div

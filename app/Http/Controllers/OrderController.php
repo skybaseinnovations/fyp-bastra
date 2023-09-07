@@ -54,12 +54,17 @@ class OrderController extends Controller
         $order->order_status=$request->order_status;
 //        dd($request->payment_status);
         $order->update();
+        $data = [
+            'order_status' => $order->order_status,
+            'user_id' => $order->user_id,
+            'message' => 'Your order has been '. $order->order_status
+        ];
 
 
         $notification = User::find($order->user_id);
 
         #store notification info into notifications table
-        $notification->notify(new AdminOrderStatusChangeNotification($order));
+        $notification->notify(new AdminOrderStatusChangeNotification($data));
 //      dd('user registered successfully, Notification send to Admin Successfully.');
 
         return redirect()->route('order.index')->with('message','Order Updated Successfully');

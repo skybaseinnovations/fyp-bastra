@@ -44,7 +44,9 @@
     <link
         href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500&family=Open+Sans:ital,wght@0,400;1,300&family=Roboto:wght@500&family=Source+Code+Pro:ital@1&display=swap"
         rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+          integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+          crossorigin="anonymous" referrerpolicy="no-referrer"/>
     {{-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
         integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" /> --}}
@@ -53,9 +55,10 @@
             integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
             crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <style>
-        *{
+        * {
             font-family: 'Poppins', sans-serif;
         }
+
         .button {
             float: right;
         }
@@ -79,123 +82,153 @@
     <header class="header trans_300">
         <!-- Main Navigation -->
 
-            <div class="main_nav_container">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-lg-12 text-right">
-                            <div class="logo_container">
-                                <a href="#">Bas<span>tra</span></a>
-                            </div>
-                            <nav class="navbar">
-                                <ul class="navbar_menu ">
-                                    <li><a href="{{ route('index') }}">home</a></li>
-                                    <li class="account">
-                                        <a>Category
-                                            <i class="fa fa-angle-down"></i>
-                                        </a>
-                                        <ul class="account_selection " style="min-width:120px !important;height:auto !important;" >
-                                            @foreach ($items as $item)
-                                                <li><a style="font-size:14px !important;" href="{{ route('category.item',$item->id) }}">{{ $item->name}}</a></li>
-                                            @endforeach
-                                        </ul>
-                                    </li>
-                                    <li><a href="{{ route('contact') }}">contact</a></li>
+        <div class="main_nav_container">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-12 text-right">
+                        <div class="logo_container">
+                            <a href="#">Bas<span>tra</span></a>
+                        </div>
+                        <nav class="navbar">
+                            <ul class="navbar_menu ">
+                                <li><a href="{{ route('index') }}">home</a></li>
+                                <li class="account">
+                                    <a>Category
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                    <ul class="account_selection "
+                                        style="min-width:120px !important;height:auto !important;">
+                                        @foreach ($items as $item)
+                                            <li><a style="font-size:14px !important;"
+                                                   href="{{ route('category.item',$item->id) }}">{{ $item->name}}</a>
+                                            </li>
+                                        @endforeach
+                                    </ul>
+                                </li>
+                                <li><a href="{{ route('contact') }}">contact</a></li>
 
-                                    <div class="button" style="">
-                                        @auth
-                                            <li class="checkout">
-                                                <form action="{{route('cartshow')}}" method="get">
-                                                    @csrf
-                                                    <button type="submit" class="btn rounded-circle btn-lg px-2 py-3 position-relative"
-                                                            style="background-color: #efedf0">
-                                                        <i class="fa fa-shopping-cart fa-xs" aria-hidden="true"></i>
-                                                        <span
-                                                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill" style="background-color: #e92556; font-size: 10px!important;">
+                                <div class="button" style="">
+                                    @auth
+                                        <li class="checkout">
+                                            <form action="{{route('cartshow')}}" method="get">
+                                                @csrf
+                                                <button type="submit"
+                                                        class="btn rounded-circle btn-lg px-2 py-3 position-relative"
+                                                        style="background-color: #efedf0">
+                                                    <i class="fa fa-shopping-cart fa-xs" aria-hidden="true"></i>
+                                                    <span
+                                                        class="position-absolute top-0 start-100 translate-middle badge rounded-pill"
+                                                        style="background-color: #e92556; font-size: 10px!important;">
                                                 {{$cartCount}}
                                                 <span class="visually-hidden">Cart Count</span>
                                               </span>
-                                                    </button>
-                                                </form>
-                                            </li>
-                                            <li class="account">
-{{--                                                <form action="#" method="get">--}}
-{{--                                                    @csrf--}}
-                                                    <button type="submit" class="btn rounded-circle btn-lg px-2 py-3 position-relative"
-                                                            style="background-color: #efedf0">
-                                                        <i class="fa-solid fa-bell fa-xs"  aria-hidden="true"></i>
-                                                        <span
-                                                            class="position-absolute top-0 start-100 translate-middle badge rounded-pill" style="background-color: #e92556; font-size: 10px!important;">
+                                                </button>
+                                            </form>
+                                        </li>
+                                        <li class="account">
+                                            @csrf
+                                            <button type="submit"
+                                                    class="btn rounded-circle btn-lg px-2 py-3 position-relative"
+                                                    style="background-color: #efedf0">
+                                                <i class="fa-solid fa-bell fa-xs" aria-hidden="true"></i>
+                                                <span
+                                                    class="position-absolute top-0 start-100 translate-middle badge rounded-pill"
+                                                    style="background-color: #e92556; font-size: 10px!important;">
                                                 {{$notificationCount}}
                                                 <span class="visually-hidden">Cart Count</span>
                                               </span>
-                                                    </button>
+                                            </button>
 
-{{--                                                </form>--}}
-                                                <ul class="account_selection " style="width:250px !important;height:250px !important; overflow-y:scroll;" >
-                                                        <div class="" role="" aria-labelledby="navbarDropdownMenuLink">
-                                                            @if (count($notifications) > 0 )
-                                                                @foreach($notifications as $notification)
-                                                                    <div class="" >
-                                                                        {{ $notification->id  }}
-                                                                        {{--                                                                    <p class="dropdown-item"><b> {{ $notification->data['order_status'] }} </b>&nbsp; ({{ $notification->data['email'] }}) has just registered.   [{{  date('j \\ F Y, g:i A', strtotime($notification->created_at)) }}]</p>--}}
-                                                                        <a href="#"><button type="button" rel="tooltip" title="Mark as read" class="btn btn-danger btn-link btn-sm mark-as-read" data-id="{{ $notification->id }}">
-                                                                                <i class="material-icons">close</i>
-                                                                            </button>
-                                                                        </a>
-                                                                    </div>
-                                                                    <hr>
-                                                                @endforeach
+                                            {{--                                                </form>--}}
+                                            <ul class="account_selection "
+                                                style="width:250px !important;height:250px !important; overflow-y:scroll;">
+
+                                                    <div class="" role="" aria-labelledby="navbarDropdownMenuLink">
+                                                        @if (count($notifications) > 0 )
+                                                            @foreach($notifications as $notification)
+                                                                <div class="{{ $notification->read_at ? '' : 'bg-secondary'}}">
+                                                                    {{ $notification->data['message']  ?? 'Message' }}
+                                                                    {{--
+                                                                                                                                                                                                              <p class="dropdown-item"><b> {{ $notification->data['order_status'] }} </b>&nbsp; ({{ $notification->data['email'] }}) has just registered.   [{{  date('j \\ F Y, g:i A', strtotime($notification->created_at)) }}]</p>--}}
+                                                                    <form action="{{route('markNotification')}}" type="get">
+                                                                        @csrf
+                                                                    <a>
+                                                                        <input type="hidden" name="id" value="{{$notification->id}}">
+                                                                        <button type="submit" rel="tooltip"
+                                                                                title="Mark as read"
+                                                                                class="btn btn-danger btn-link btn-sm mark-as-read"
+                                                                                data-id="{{ $notification->id }}">
+                                                                            @if(!$notification->read_at)<i class="material-icons">Mark As Read</i>@endif
+                                                                        </button>
+                                                                    </a>
+                                                                    </form>
+
+                                                                </div>
+                                                                <hr>
+                                                            @endforeach
+                                                                <form action="{{route('markNotification')}}" method="get">
+
                                                                 <button type="submit" class="dropdown-item" id="mark-all">
-                                                                    Mark all as read
-                                                                </button>
-                                                            @else
-                                                                <p class="dropdown-item">There are no new notifications</p>
-                                                            @endif
-                                                        </div>
-                                                </ul>
-                                            </li>
-                                            <li class="notification">
-
-                                            </li>
-
-                                            <li class="ml-3">
-                                            <li class="account">
-                                                <a style="text-transform:lowercase;background-color:grey;border-radius:3rem;width:auto;">
-                                                    <i
-                                                        class="fa fa-user"></i>&nbsp;&nbsp;{{auth()->user()->name}}
-                                                    <i class="fa fa-angle-down"></i>
-
-                                                </a>
-                                                <ul class="account_selection " style="padding:0.8rem;min-width:150px !important;line-height:50px !important;" >
+                                                                Mark all as read
+                                                            </button>
+                                                                </form>
 
 
-                                                    <li><a href="{{route('order-history')}}">My Order</a>
-                                                    </li>
-                                                    <li><a href="{{route('favourite')}}">favourites</a>
-                                                    </li>
-                                                    <li>
-                                                        <form action="{{ route('logout') }}" method="POST" >
-                                                            @csrf
-                                                            <button type="submit"
-                                                                    style="width:auto;margin-top:1rem;border-radius: 2rem;border:1px solid white;padding:0.5rem;background-color:#e92556;color:white;"><i class="fa-solid fa-power-off"></i></a>&nbsp;&nbsp;Logout</button>
-                                                        </form>
-                                                    </li>
+                                                        @else
+                                                            <p class="dropdown-item">There are no new notifications</p>
+                                                        @endif
+                                                    </div>
 
-                                                </ul>
-                                            <li>
+                                            </ul>
+                                        </li>
+                                        <li class="notification">
 
-                                            </li>
+                                        </li>
+
+                                        <li class="ml-3">
+                                        <li class="account">
+                                            <a style="text-transform:lowercase;background-color:#dedede;border-radius:3rem;width:auto;">
+                                                <i
+                                                    class="fa fa-user"></i>&nbsp;&nbsp;{{auth()->user()->name}}
+                                                <i class="fa fa-angle-down"></i>
+
+                                            </a>
+                                            <ul class="account_selection "
+                                                style="padding:0.8rem;min-width:150px !important;line-height:50px !important;">
 
 
-                                        @else
-                                            <li>
-                                                <a href="{{route('login')}}" class="btn rounded-pill login-btn py-2" style="border: 1px solid #6d4cfe; color: 6d4cfe" >Login</a>
-                                            </li>
-                                            <li>
-                                                <a href="{{route('register')}}" class="btn text-white register-btn  py-2 rounded-pill" style="background-color: #6d4cfe">Register</a>
-                                            </li>
-                                        @endauth
-                                    </div>
+                                                <li><a href="{{route('order-history')}}">My Order</a>
+                                                </li>
+                                                <li><a href="{{route('favourite')}}">Favourites</a>
+                                                </li>
+                                                <li>
+                                                    <form action="{{ route('logout') }}" method="POST">
+                                                        @csrf
+                                                        <button type="submit"
+                                                                style="width:auto;margin-top:1rem;border-radius: 2rem;border:1px solid white;padding:0.5rem;background-color:#e92556;color:white;">
+                                                            <i class="fa-solid fa-power-off"></i></a>&nbsp;&nbsp;Logout
+                                                        </button>
+                                                    </form>
+                                                </li>
+
+                                            </ul>
+                                        <li>
+
+                                        </li>
+
+
+                                    @else
+                                        <li>
+                                            <a href="{{route('login')}}" class="btn rounded-pill login-btn py-2"
+                                               style="border: 1px solid #6d4cfe; color: 6d4cfe">Login</a>
+                                        </li>
+                                        <li>
+                                            <a href="{{route('register')}}"
+                                               class="btn text-white register-btn  py-2 rounded-pill"
+                                               style="background-color: #6d4cfe">Register</a>
+                                        </li>
+                                    @endauth
+                                </div>
                             </ul>
 
                             <div class="hamburger_container">
@@ -216,10 +249,10 @@
         <div class="hamburger_menu_content text-right">
             <ul class="menu_top_nav">
 
-                <li class="menu_item"><a href="{{ route('index') }}">home</a></li>
+                <li class="menu_item"><a href="{{ route('index') }}">Home</a></li>
                 <li class="menu_item"><a href="">Category</a></li>
 
-                <li class="menu_item"><a href="{{ route('contact') }}">contact</a></li>
+                <li class="menu_item"><a href="{{ route('contact') }}">Contact</a></li>
             </ul>
         </div>
     </div>
