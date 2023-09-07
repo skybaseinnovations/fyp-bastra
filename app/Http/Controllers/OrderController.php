@@ -61,10 +61,10 @@ class OrderController extends Controller
         ];
 
 
-        $notification = User::find($order->user_id);
+        $user = User::find($order->user_id);
 
         #store notification info into notifications table
-        $notification->notify(new AdminOrderStatusChangeNotification($data));
+        $user->notify(new AdminOrderStatusChangeNotification($data));
 //      dd('user registered successfully, Notification send to Admin Successfully.');
 
         return redirect()->route('order.index')->with('message','Order Updated Successfully');

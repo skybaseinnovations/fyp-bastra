@@ -13,6 +13,7 @@ use App\Models\OrderItem;
 use App\Models\ProductCategory;
 use App\Models\Product;
 use App\Models\User;
+use App\Notifications\AdminOrderStatusChangeNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
 
@@ -174,8 +175,18 @@ class HomeController extends BaseController
 
     public function orderConfirm(Request $request)
     {
+
         $data = $this->getInfo();
-        $data['order'] = Order::with('orderItems')->findOrFail($request->order_id);
+        $order = Order::with('orderItems')->findOrFail($request->order_id);
+
+        $notification = [
+            'order_status' => $order->order_status,
+            'user_id' => $order->user_id,
+            'message' => 'Your order has been placed'
+        ];
+        $user = User::find($order->user_id);
+        $user->notify(new AdminOrderStatusChangeNotification($notification));
+        $data['order']=$order;
         return view('orderConfirmation', $data);
     }
 
@@ -187,6 +198,13 @@ class HomeController extends BaseController
             'payment_reference_id' => $request->ref ?? null,
             'payment_status' => $request->message ? 'Completed' : 'Pending'
         ]);
+        $data = [
+            'order_status' => $order->order_status,
+            'user_id' => $order->user_id,
+            'message' => 'Payment has been successful. '
+        ];
+        $user = User::find($order->user_id);
+        $user->notify(new AdminOrderStatusChangeNotification($data));
         return view('success', compact('order'));
     }
     function getFailure(Request $request)
@@ -197,25 +215,31 @@ class HomeController extends BaseController
             'payment_status' => 'Failed',
             'order_status' => 'Failed'
         ]);
+        $data = [
+            'order_status' => $order->order_status,
+            'user_id' => $order->user_id,
+            'message' => 'Payment failed. Your order also cancelled '
+        ];
+        $user = User::find($order->user_id);
+        $user->notify(new AdminOrderStatusChangeNotification($data));
         return view('failure', compact('order'));
     }
 
 
     public function markNotification(Request $request)
     {
-
 //        dd($request->all());
         auth()->user()
             ->unreadNotifications()
             ->when($request->input('id'), function ($query) use ($request) {
-                return $query->where('id', $request->input('id'));
+                $query->where('id', $request->input('id'));
             })
             ->get()
             ->each(function ($notification) {
                 $notification->markAsRead();
             });
 
-        return response()->noContent();
+        return redirect()->back();
     }
 
     public function cancelProduct($id)
@@ -223,6 +247,15 @@ class HomeController extends BaseController
         $order = Order::find($id);
         $order->order_status = 'Cancelled';
         $order->update();
+        $data = [
+            'order_status' => $order->order_status,
+            'user_id' => $order->user_id,
+            'message' => 'Your order has been Cancelled'
+        ];
+
+
+        $user = User::find($order->user_id);
+        $user->notify(new AdminOrderStatusChangeNotification($data));
         return redirect()->back()->with('message', 'Product Cancelled Successfully');
 
     }
