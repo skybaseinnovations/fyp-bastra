@@ -13,6 +13,7 @@ use App\Models\OrderItem;
 use App\Models\ProductCategory;
 use App\Models\Product;
 use App\Models\User;
+use App\Notifications\AdminOrderStatusChangeNotification;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Notification;
 
@@ -174,8 +175,18 @@ class HomeController extends BaseController
 
     public function orderConfirm(Request $request)
     {
+
         $data = $this->getInfo();
-        $data['order'] = Order::with('orderItems')->findOrFail($request->order_id);
+        $order = Order::with('orderItems')->findOrFail($request->order_id);
+
+        $notification = [
+            'order_status' => $order->order_status,
+            'user_id' => $order->user_id,
+            'message' => 'Your order has been placed'
+        ];
+        $user = User::find($order->user_id);
+        $user->notify(new AdminOrderStatusChangeNotification($notification));
+        $data['order']=$order;
         return view('orderConfirmation', $data);
     }
 
