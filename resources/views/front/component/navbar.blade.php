@@ -64,11 +64,12 @@
         }
 
         .navbar_menu .button button:hover {
-            color: #fdcfde;
+            color: #ab4cfe;
         }
 
         .navbar_menu button:hover {
-            background-color: #fdcfde;
+            color: #ab4cfe;
+            /*color: whitesmoke;*/
         }
 
         .bg-code {
@@ -171,7 +172,7 @@
                                                                                value="{{$notification->id}}">
                                                                         <button type="submit" rel="tooltip"
                                                                                 title="Mark as read"
-                                                                                class="btn btn-danger btn-link btn-sm mark-as-read"
+                                                                                class="btn btn-link btn-sm mark-as-read"
                                                                                 data-id="{{ $notification->id }}">
                                                                             @if(!$notification->read_at)<i
                                                                                 class="material-icons">Mark As
@@ -179,7 +180,7 @@
                                                                             @else
                                                                             @endif
                                                                         </button>
-                                                                    <p class="px-2">{{$notification->created_at->diffForHumans()}}</p>
+                                                                    <p class="px-2 text-secondary">{{$notification->created_at->diffForHumans()}}</p>
 
 
                                                                 </form>

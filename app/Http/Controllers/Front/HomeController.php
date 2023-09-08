@@ -203,8 +203,11 @@ class HomeController extends BaseController
             'user_id' => $order->user_id,
             'message' => 'Your Payment for order #'.$order->number.' has been successful. '
         ];
-        $user = User::find($order->user_id);
-        $user->notify(new AdminOrderStatusChangeNotification($data));
+        if($order->payment_status == 'Completed')
+        {
+            $user = User::find($order->user_id);
+            $user->notify(new AdminOrderStatusChangeNotification($data));
+        }
         return view('success', compact('order'));
     }
     function getFailure(Request $request)
