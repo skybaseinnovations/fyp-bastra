@@ -38,12 +38,11 @@
                             <div class="row">
                                 <div class="col">
                                     <!-- Product Grid -->
-                                    <div class="product-grid">
-                                        <div id="accessories ">
+                                    <div class="product-grid ">
                                             <!-- Product 1 -->
 
                                             @foreach ($products as $item)
-                                                <div class="product-item women">
+                                                <div class="product-item p-3">
                                                     <div class="card " style="width: 100%;">
                                                         <img
                                                             src="{{ isset($item->img_url) ?asset('uploads/' . $item->img_url):asset('uploads/'.'placeholder.png') }}"
@@ -128,7 +127,7 @@
 
 
     </div>
-
+<br>
     <script src="{{ asset('front/js/jquery-3.2.1.min.js') }}"></script>
 
     <script src="{{ asset('front/plugins/Isotope/isotope.pkgd.min.js') }}"></script>

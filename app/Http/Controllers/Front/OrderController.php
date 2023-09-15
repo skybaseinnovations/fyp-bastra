@@ -89,7 +89,7 @@ class OrderController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        
     }
 
     public function checkout(Request $request)

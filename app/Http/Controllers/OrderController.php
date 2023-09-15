@@ -28,11 +28,9 @@ class OrderController extends Controller
         $data['delete']='order.delete';
         $data['hideCreate']=true;
 
-
         return view('admin.order.index',$data);
 
     }
-
     public function show($id){
         $data['title']="Show Order";
         $data['item']=Order::with('orderItems')->find($id);

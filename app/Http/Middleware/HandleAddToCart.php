@@ -20,6 +20,5 @@ class HandleAddToCart
         }
     
         return $next($request);
-
     }
 }

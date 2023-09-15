@@ -83,7 +83,8 @@
                                     <li class="grid_sorting_button button d-flex flex-column justify-content-center align-items-center"
                                         data-filter="">
                                         <a href="#" style="color:black;" class="show-images mx-2"
-                                           data-group="{{ $item->id }}">{{ $item->name }}</a></li>
+                                           data-group="{{ $item->id }}">{{ $item->name }}</a>
+                                        </li>
                                 @endforeach
                             </ul>
                         </div>
@@ -110,18 +111,20 @@
 {{--                @else--}}
 {{--                    <p class="dropdown-item">There are no new notifications</p>--}}
 {{--                @endif--}}
+<br>
+<br>
+                    <div class="bastra-product row ">
 
-                    <div class="bastra-product row mt-5 mb-5">
                         @foreach ($items as $item)
-                            <div class=" col-3 images-group mx-auto" id="group-{{ $item->id }}">
+                            <div class=" col-lg-3 images-group" id="group-{{ $item->id }}">
                                 @foreach ($item->products as $product)
-                                    <div>
-                                        <div class="card " style="width: 100%;">
+                                    <div class="p-2">
+                                        <div class="card" style="width:300px">
                                             <img
                                                 src="{{ isset($product->img_url) ?asset('uploads/' . $product->img_url):asset('uploads/'.'placeholder.png') }}"
                                                 height="200px" width="" style="object-fit:cover;">
                                             <div class="card-body">
-                                                <div class="d-flex align-items-center float-right">
+                                                <div class="align-items-center float-right">
                                                     @if(auth()->user())
                                                         <form action="{{route('favorite.store')}}" method="GET">
                                                             <input type="hidden" id="favHidden" name="favorite">
@@ -145,7 +148,7 @@
                             </div>
                             @endforeach
                     </div>
-
+                </div>
 
             </div>
         </div>
@@ -193,12 +196,13 @@
                     if (groupId === "all") {
                         // Show all image groups
                         imageGroups.forEach(group => {
-                            group.style.display = "flex";
+                            group.style.display = "block";
                         });
                     } else {
                         // Display the selected image group
                         const selectedGroup = document.getElementById("group-" + groupId);
                         selectedGroup.style.display = "flex";
+                        selectedGroup.style.padding = "20px";
                     }
                 });
             });

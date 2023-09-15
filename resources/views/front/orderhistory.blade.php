@@ -4,6 +4,7 @@
 
 @section('content')
     <br><br>
+    <br>
 
     <style>
         table {
@@ -34,9 +35,9 @@
         @foreach($orders as $order)
             <div class="image-des p-5">
                 <table class="text-center mx-auto " style="width:80%;">
+                    
+                    @foreach($order->orderItems as $orderItem)
                     <p class="text-center">Order - ID : {{$order->id}}</p>
-
-                @foreach($order->orderItems as $orderItem)
                         <tr class="gap-3">
 
                             <td class="text-left" width="auto">
@@ -59,73 +60,23 @@
                                 <p>Payment Status: {{$order->payment_status}}</p>
                             </td>
                             <td class="" width="auto">Delivered on August 24, 2023</td>
-                            <td class="" width="auto"><a href="{{route('cancel.product',$order->id)}}" style="  {{( $order->order_status=="Delivered" || $order->order_status=="Cancelled" )? 'display:none;': ''  }}">Cancel Product</a></td>
-                        </tr>
+                            {{-- <td>
+
+                                <form  onsubmit="" class="d-inline" action="{{route('orderitem.delete',$order->id)}}" method="post">
+                                    @csrf
+                                    @method('DELETE')
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                                </form>
+                            </td> --}}
+
+                            <td class="" width="auto">
+                                <a href="{{route('cancel.product',$order->id)}}" style="{{( $order->order_status=="Delivered" || $order->order_status=="Cancelled" )? 'display:none;': ''  }}" class="btn btn-danger p-2">Cancel Product</a></td>              
+                            </tr>
                     @endforeach
                 </table>
             </div>
         @endforeach
 
     </section>
-@endsection
-{{-- Order Table: --}}
-{{--<table class="table p-3 text-center table-sm table-responsive-sm " style="border-radius:2rem;">--}}
-{{--                <thead>--}}
-{{--                    <tr class="p-3" style="background-color:#ab4cfe;color:white;">--}}
-{{--                        <th scope="col">Order Number</th>--}}
-{{--                        <th scope="col">Date Placed </th>--}}
-{{--                        <th scope="col">Total Amount</th>--}}
-{{--                        <th>--}}
-{{--                            <button type="button" class="btn">View Order</button> &nbsp;--}}
-{{--                            <button type="button" class="btn">View Invoice</button>--}}
-{{--                        </th>--}}
-{{--            </tr>--}}
-{{--                </thead>--}}
-{{--                <tbody>--}}
-{{--                    <tr>--}}
-{{--                        <th>1</th>--}}
-{{--                        <td>1</td>--}}
-{{--                        <td>111</td>--}}
-{{--                    </tr>--}}
-{{--                </tbody>--}}
-{{--            </table>--}}
-
-{{-- Image section --}}
-
-{{--            <div class="">--}}
-{{--                <table class="text-center" style="width:100%;padding:31rem;">--}}
-{{--                    @foreach($orders as $order)--}}
-
-{{--                        <tr >--}}
-
-{{--                            <div>--}}
-{{--                                <td class="d-flex">--}}
-{{--                                    <p>Order - ID : {{$order->id}}</p>--}}
-
-{{--                                @foreach($order->orderItems as $orderItem)--}}
-{{--                                        <img src="{{isset($orderItem->product->img_url)? asset('uploads/'.$orderItem->product->img_url):asset('uploads/'.'placeholder.png')}}" alt="">--}}
-{{--                                        <div style="justify-content:center" class="my-5">--}}
-{{--                                            <p>{{$orderItem->product->name}}</p>--}}
-{{--                                            <p>Qty: {{$orderItem->quantity}}</p>--}}
-{{--                                        </div>--}}
-{{--                                        --}}{{--                            {{dd($orderItem->product->img_url)}}--}}
-{{--                                    @endforeach--}}
-
-{{--                                <td>--}}
-{{--                                </td>--}}
 
 
-{{--                                <td>--}}
-{{--                                    $120.00--}}
-{{--                                </td>--}}
-{{--                            </div>--}}
-
-{{--                        </tr>--}}
-{{--                    @endforeach--}}
-
-{{--                </table>--}}
-
-
-{{--            --}}{{-- Image section --}}
-
-{{--

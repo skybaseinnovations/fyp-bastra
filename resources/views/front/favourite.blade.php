@@ -11,8 +11,8 @@
     <h4 style="color:#5f09a9">Favourite Lists</h4>
     <div class="bastra-product row mt-5 mb-5">
         @foreach ($products as $product)
-            <div class=" col-3 images-group mx-auto" id="group-">
-                    <div>
+            <div class=" col-lg-3 images-group mx-auto" id="group-">
+                    <div class="p-3">
                         <div class="card " style="width: 100%;">
                             <img
                                 src="{{ isset($product->img_url) ?asset('uploads/' . $product->img_url):asset('uploads/'.'placeholder.png') }}"

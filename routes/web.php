@@ -45,11 +45,17 @@ Auth::routes();
 
 // Frontend
 Route::get('/', [App\Http\Controllers\Front\HomeController::class, 'index'])->name('index');
+
+Route::prefix('user')->group(function(){
+
+    Route::get('/register', [App\Http\Controllers\Front\HomeController::class, 'register'])->name('register');
+    Route::get('/login', [App\Http\Controllers\Front\HomeController::class, 'login'])->name('login');
+    
+Route::middleware('auth')->group(function() {
+
 Route::get('/contact', [App\Http\Controllers\Front\HomeController::class, 'contact'])->name('contact');
 Route::get('/category/item/{id}', [App\Http\Controllers\Front\HomeController::class, 'categoryItem'])->name('category.item');
 Route::get('/productshow/{id}', [App\Http\Controllers\Front\HomeController::class, 'productshow'])->name('productshow');
-Route::get('/login', [App\Http\Controllers\Front\HomeController::class, 'login'])->name('login');
-Route::get('/register', [App\Http\Controllers\Front\HomeController::class, 'register'])->name('register');
 Route::get('/productdetails/{id}', [App\Http\Controllers\Front\HomeController::class,'details'])->name('details')->middleware('cartaccess');
 Route::post('/product/addcart/{id}', [App\Http\Controllers\Front\HomeController::class, 'productcartAdd'])->name('productcart.add');
 Route::get('/cartshow',[App\Http\Controllers\Front\HomeController::class, 'cartshow'])->name('cartshow')->middleware('cartaccess');
@@ -61,10 +67,20 @@ Route::resource('/orders',App\Http\Controllers\Front\OrderController::class);
 //favorites
 Route::get('/fav', [\App\Http\Controllers\FavoriteController::class, 'favourite'])->name('favourite');
 Route::get('/favorite/store',[App\Http\Controllers\FavoriteController::class, 'store'])->name('favorite.store');
-
 Route::post('/checkout/payment',[App\Http\Controllers\Front\OrderController::class, 'checkout'])->name('checkout');
-// Backend
 
+
+//order
+Route::delete('/orderitem/edit/delete/{id}', [OrderItemController::class, 'destroy'])->name('orderitem.delete');//  Product Category
+
+});
+
+});
+
+// Route::delete('/orderitem/edit/delete/{id}', [OrderItemController::class, 'destroy'])->name('orderitem.delete');//  Product Category
+
+
+// Backend
 
 Route::get('/success-message',[App\Http\Controllers\Front\HomeController::class, 'getSuccess'])->name('success.message');
 Route::get('/failure-message',[App\Http\Controllers\Front\HomeController::class, 'getFailure'])->name('failure.message');

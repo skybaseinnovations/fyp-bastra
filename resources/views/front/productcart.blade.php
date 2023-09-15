@@ -81,8 +81,6 @@
         }
     </style>
 
-
-
     <div class="container pt-5">
         <form action="{{ route('orders.store') }}" method="POST" id="form">
             @csrf

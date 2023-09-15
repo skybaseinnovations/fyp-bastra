@@ -67,7 +67,6 @@ class Kernel extends HttpKernel
         'throttle' => \Illuminate\Routing\Middleware\ThrottleRequests::class,
         'verified' => \Illuminate\Auth\Middleware\EnsureEmailIsVerified::class,
         'cartaccess' =>\App\Http\Middleware\HandleAddToCart::class,
-
     ];
     protected $routeMiddleware = [
         'auth.cartaccess' => \App\Http\Middleware\HandleAddToCart::class,

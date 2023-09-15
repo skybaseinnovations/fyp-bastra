@@ -246,18 +246,23 @@ class HomeController extends BaseController
     {
         $order = Order::find($id);
         $order->order_status = 'Cancelled';
-        $order->update();
+        $order->delete();
         $data = [
             'order_status' => $order->order_status,
             'user_id' => $order->user_id,
             'message' => 'Your order has been Cancelled'
         ];
 
+        
 
         $user = User::find($order->user_id);
         $user->notify(new AdminOrderStatusChangeNotification($data));
+
+        // $order=OrderItem::findOrFail($id);
+        // $order->delete();
         return redirect()->back()->with('message', 'Product Cancelled Successfully');
 
+       
     }
 
 

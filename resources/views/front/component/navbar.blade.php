@@ -197,9 +197,9 @@
                                                 style="padding:0.8rem;min-width:150px !important;line-height:50px !important;">
 
 
-                                                <li><a href="{{route('order-history')}}">My Order</a>
+                                                <li><a style="font-size:0.9rem;" href="{{route('order-history')}}">My Order</a>
                                                 </li>
-                                                <li><a href="{{route('favourite')}}">Favourites</a>
+                                                <li><a style="font-size:0.9rem;" href="{{route('favourite')}}">Favourites</a>
                                                 </li>
                                                 <li>
                                                     <form action="{{ route('logout') }}" method="POST">
