@@ -48,7 +48,7 @@ Route::get('/', [App\Http\Controllers\Front\HomeController::class, 'index'])->na
 
 Route::prefix('user')->group(function(){
 
-    Route::get('/register', [App\Http\Controllers\Front\HomeController::class, 'register'])->name('register');
+    Route::get('/register', [App\Http\Controllers\Front\HomeController::class, 'register'])->name('front.register');
     Route::get('/login', [App\Http\Controllers\Front\HomeController::class, 'login'])->name('login');
     
 Route::middleware('auth')->group(function() {

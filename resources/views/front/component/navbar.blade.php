@@ -240,7 +240,7 @@
                                                style="border: 1px solid #6d4cfe; color: 6d4cfe">Login</a>
                                         </li>
                                         <li>
-                                            <a href="{{route('register')}}"
+                                            <a href="{{route('front.register')}}"
                                                class="btn text-white register-btn  py-2 rounded-pill"
                                                style="background-color: #6d4cfe">Register</a>
                                         </li>

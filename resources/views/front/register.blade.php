@@ -70,9 +70,9 @@
 
     <section>
         <div class="section">
-
             <div class="info1 mr-5">
-                <form action="{{ $register_url }}" method="post">
+                <form action="{{ route('register') }}" method="post">
+
                     <h4 class=" w-50 m-auto">Register Here</h4>
                     <br>
                     @csrf

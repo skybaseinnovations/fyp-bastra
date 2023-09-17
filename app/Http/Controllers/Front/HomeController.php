@@ -131,7 +131,7 @@ class HomeController extends BaseController
 
     public function register()
     {
-                $data = $this->getInfo();
+        $data = $this->getInfo();
         return view('front.register', $data);
     }
 
